@@ -1,0 +1,89 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    COMA
+    CUANDO
+    DCL
+    DEFAULT
+    DESDE
+    DIFERENTE
+    DOSPUNTOS
+    ENCASO
+    ENTONS
+    FIN
+    FINDESDE
+    FINENCASO
+    FINPROC
+    HAGA
+    HASTA
+    HASTAENCONTRAR
+    IGUAL
+    INICIOPROC
+    LLAVE_DER
+    LLAVE_IZQ
+    MAYOR
+    MAYORIGUAL
+    MENOR
+    MENORIGUAL
+    NUMERO
+    PARENTECIS_DER
+    PARENTECIS_IZQ
+    PUNTOCOMA
+    REPITA
+    SINO
+    SUMA
+
+Grammar
+
+Rule 0     S' -> Start
+Rule 1     Start -> expression
+Rule 2     Start -> empty
+Rule 3     expression -> INICIO expression FINAL expression
+Rule 4     expression -> ID
+Rule 5     empty -> <empty>
+
+Terminals, with rules where they appear
+
+COMA                 : 
+CUANDO               : 
+DCL                  : 
+DEFAULT              : 
+DESDE                : 
+DIFERENTE            : 
+DOSPUNTOS            : 
+ENCASO               : 
+ENTONS               : 
+FIN                  : 
+FINDESDE             : 
+FINENCASO            : 
+FINPROC              : 
+HAGA                 : 
+HASTA                : 
+HASTAENCONTRAR       : 
+ID                   : 4
+IGUAL                : 
+INICIO               : 3
+INICIOPROC           : 
+LLAVE_DER            : 
+LLAVE_IZQ            : 
+MAYOR                : 
+MAYORIGUAL           : 
+MENOR                : 
+MENORIGUAL           : 
+NUMERO               : 
+PARENTECIS_DER       : 
+PARENTECIS_IZQ       : 
+PUNTOCOMA            : 
+REPITA               : 
+SINO                 : 
+SUMA                 : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+FINAL                : 3
+Start                : 0
+empty                : 2
+expression           : 1 3 3
+
