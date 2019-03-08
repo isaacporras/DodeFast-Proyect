@@ -1,0 +1,76 @@
+Inicio:
+
+DCL a;
+DCL b;
+DCL c;
+
+
+
+EnCaso
+	Cuando a = b EnTons
+		{
+		  a = a + 1;
+		}
+	SiNo
+	{
+	a = 1;	
+	}
+Fin-EnCaso;
+
+
+EnCaso a
+	Cuando = b EnTons 
+	{
+	c = a;
+	}
+	SiNo 
+	{
+	c = 0;
+	}
+Fin-EnCaso;
+
+Repita 
+	a = a + 1;
+
+
+HastaEncontrar a = 3;
+
+
+Desde a = 1 Hasta 2 Haga 
+
+	b = b + 2;
+
+Fin-Desde;
+
+Inc(a, 2);
+
+Dec(a, 1);
+
+Ini (a, 3);
+
+Mover(AF);
+
+Aleatorio();
+
+
+funcion1();
+
+
+Final:
+
+Proc procedimiento1 (){
+inicio:
+
+	EnCaso a = 0 EnTons
+		a = a + 1;
+	
+	SiNo
+	a = 0;
+
+
+
+final;
+
+
+
+}

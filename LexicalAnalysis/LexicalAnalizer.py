@@ -3,7 +3,8 @@ import re
 import codecs
 import os
 import sys
-
+directorio = os.path.dirname(os.getcwd()) + "/Tests/"
+print(directorio)
 from pip._vendor.distlib.compat import raw_input
 
 
@@ -13,25 +14,22 @@ tokens = [
 
     'ID', 'NUMERO',  # IDENTIDFICADOR, NUMERO
 
-    'DIFERENTE', 'MAYOR', 'MENOR', 'MAYORIGUAL', 'MENORIGUAL',  # CONDICONES
+    'DIFERENTE', 'MAYOR', 'MENOR', 'MAYORIGUAL', 'MENORIGUAL','SUMA'  # CONDICONES
 ]
 
 # 'INC', 'DEC', 'INI', 'MOVER', 'ALEATORIO',  # FUNCIONES
 # 'PROC', 'INICIO', 'FINAL', 'LLAMAR'  # PROCEDIMIENTOS
 
 reservadas = {
-    'DCL': 'DCL', 'DEFAULT': 'DEFAULT',  # DECLARACION DE VARIABLES
-
+    'DCL': 'DCL', 'DEFAULT': 'DEFAULT','Inicio':'INICIO',
     'EnCaso': 'ENCASO', 'Cuando': 'CUANDO', 'EnTons': 'ENTONS', 'SiNo': 'SINO',
-    'Fin-EnCaso': 'FIN_ENCASO',  # CONDICIONALES
+    'Fin-EnCaso': 'FINENCASO','Repita': 'REPITA', 'HastaEncontar': 'HASTAENCONTRAR', 'Desde': 'DESDE',
+    'Hasta': 'HASTA', 'Haga': 'HAGA','Fin-Desde': 'FINDESDE','Fin':'FIN','fin':'FINPROC', 'inicio':'INICIOPROC'}
 
-    'Repita': 'REPITA', 'HastaEncontar': 'HASTAENCONTRAR', 'Desde': 'DESDE', 'Hasta': 'HASTA', 'Haga': 'HAGA',
-    'Fin-Desde': 'FIN_DESDE',  # REPETICION
-}
-
-tokens = tokens + list(reservadas.values())
+tokens =list(reservadas.values()) + tokens
 
 t_ignore = '  \t'
+
 
 t_COMA = r','
 t_PUNTOCOMA = r';'
@@ -46,11 +44,34 @@ t_MAYOR = r'>'
 t_MENOR = r'<'
 t_MAYORIGUAL = r'>='
 t_MENORIGUAL = r'<='
+t_SUMA = r'\+'
 
+def t_InicioProc(t):
+    r'inicio'
+    t.value = "INICIOPROC"
+    t.type = t.value
+    return t
+def t_FinProc(t):
+    r'fin'
+    t.value = "FINPROC"
+    t.type = t.value
+    return t
 
+def t_FinDesde(t):
+    r'Fin-Desde'
+    t.value = "fin"
+    t.type = "FINPROC"
+    return t
+
+def t_FinEnCaso(t):
+    r'Fin-EnCaso'
+    print(t.value)
+    t.value = "FINENCASO"
+    t.type = t.value
+    return t
 def t_ID(t):
     r'[a-zA-Z_][a-zA-Z0-9_#@]*'
-    if t.value.upper() in reservadas:
+    if t.value.upper() in reservadas.values():
         t.value = t.value.upper()
         t.type = t.value
     return t
@@ -102,7 +123,7 @@ def buscarFichero(directorio):
     return files[int(numArchivo) - 1]
 
 
-directorio = '/home/isaacporras/Escritorio/Tests/'
+
 archivo = buscarFichero(directorio)
 test = directorio + archivo
 fp = codecs.open(test, "r", "utf-8")
