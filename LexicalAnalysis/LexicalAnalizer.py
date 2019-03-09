@@ -11,7 +11,7 @@ from pip._vendor.distlib.compat import raw_input
 
 
 tokens = [
-    'COMA', 'PUNTOCOMA', 'DOSPUNTOS', 'LLAVE_IZQ', 'LLAVE_DER', 'IGUAL', 'PARENTECIS_IZQ', 'PARENTECIS_DER',  # SIMBOLOS
+    'COMA', 'PUNTOCOMA', 'DOSPUNTOS', 'LLAVE_IZQ', 'LLAVE_DER', 'IGUAL', 'PARENTESIS_IZQ', 'PARENTESIS_DER',  # SIMBOLOS
 
     'ID', 'NUMERO',  # IDENTIDFICADOR, NUMERO
 
@@ -25,9 +25,16 @@ reservadas = {
     'DCL': 'DCL', 'DEFAULT': 'DEFAULT','Inicio':'INICIO',
     'EnCaso': 'ENCASO', 'Cuando': 'CUANDO', 'EnTons': 'ENTONS', 'SiNo': 'SINO',
     'Fin-EnCaso': 'FINENCASO','Repita': 'REPITA', 'HastaEncontar': 'HASTAENCONTRAR', 'Desde': 'DESDE',
-    'Hasta': 'HASTA', 'Haga': 'HAGA','Fin-Desde': 'FINDESDE','Fin':'FIN','fin':'FINPROC', 'inicio':'INICIOPROC'}
+    'Hasta': 'HASTA', 'Haga': 'HAGA','Fin-Desde': 'FINDESDE','Fin':'FIN','fin':'FINPROC', 'inicio':'INICIOPROC',
+    'Inc': 'INC','Dec':'DEC','Ini':'INI','Mover':'MOVER', 'Aleatorio':'ALEATORIO'}
+
+movimientos = {'AF':'AF' ,'F':'F' , 'DFA':'DFA', 'IFA':'IFA' , 'DFB':'DFB' , 'IFB':'IFB' ,
+               'A':'A', 'DAA':'DAA' , 'IAA':'IAA' ,'DAB':'DAB', 'IAB':'IAB' , 'AA':'AA'}
+
+reservadas.update(movimientos)
 
 tokens =list(reservadas.values()) + tokens
+
 
 t_ignore = '  \t'
 
@@ -38,8 +45,8 @@ t_DOSPUNTOS = r':'
 t_LLAVE_IZQ = r'\{'
 t_LLAVE_DER = r'\}'
 t_IGUAL = r'='
-t_PARENTECIS_IZQ = r'\('
-t_PARENTECIS_DER = r'\)'
+t_PARENTESIS_IZQ = r'\('
+t_PARENTESIS_DER = r'\)'
 t_DIFERENTE = r'<>'
 t_MAYOR = r'>'
 t_MENOR = r'<'
@@ -200,6 +207,7 @@ def p_expresion(p):
             | condicion2 expresion
             | repita expresion
             | hacer expresion
+            | funcion expresion
             | empty empty
 
 
@@ -251,6 +259,63 @@ def p_hacer(p):
 
     '''
     p[0] = (p[1],p[2],p[4],p[5],p[6],p[7],p[9],p[11])
+
+def p_funcion(p):
+    '''
+    funcion : Aleatorio
+            | Mover
+            | funcionAlge
+
+    '''
+    p[0] = p[1]
+
+
+def p_funcion_Alge(p):
+    '''
+    funcionAlge : INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+             | DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+             | INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+
+
+    '''
+
+    p[0] = (p[1], p[3], p[4], p[5])
+
+
+def p_mover(p):
+    '''
+    Mover : MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+
+    '''
+    p[0] = (p[1],p[3])
+def p_ParamMover(p):
+
+    '''
+    paramMover : AF
+                | F
+                | DFA
+                | IFA
+                | DFB
+                | IFB
+                | A
+                | DAA
+                | IAA
+                | DAB
+                | IAB
+                | AA
+    '''
+    p[0] = p[1]
+def p_aleatorio(p):
+    '''
+    Aleatorio : ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+
+    '''
+    p[0] = p[1]
+
+
+
+
+
 def p_condicion(p):
     '''
     condicion : IGUAL
@@ -285,8 +350,6 @@ def p_VariableNoIni(p):
 
     '''
     p[0] = (p[1], p[2], 'DEFAULT')
-
-
 
 
 def p_empty(p):
