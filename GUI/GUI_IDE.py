@@ -1,6 +1,7 @@
 from tkinter import *
-
-
+import sys
+from tkinter import filedialog as fd
+from tkinter import messagebox as mb
 
 
 class Gui:
@@ -10,54 +11,66 @@ class Gui:
 
         ####################################  Centra la ventana  #######################################################
 
-        w = 1003
-        h = 773
+        w = 1000
+        h = 800
 
         ws = self.MainWindow.winfo_screenwidth()
         hs = self.MainWindow.winfo_screenheight()
-        x = (ws/2) - (w/2)
-        y = (hs/2) - (h/2)
-
-
+        x = (ws / 2) - (w / 2)
+        y = (hs / 2) - (h / 2)
 
         self.MainWindow.geometry('%dx%d+%d+%d' % (w, h, x, y))
 
         ################################################################################################################
 
-        self.MainWindow.title("Dode Fast IDE")
-        self.MainWindow.geometry("1003x773")
+        self.MainWindow.title("DodeFast IDE")
+        self.MainWindow.geometry("1000x800")
+        self.OptionBar = Canvas(self.MainWindow, width=1003, height=25, bg="#BDBDBD").place(x=-3, y=-3)
+
+        # Buttons
+        Button(self.OptionBar, text="ABRIR", command=self.OpenButtonClick).place(x=5, y=1)
+        Button(self.OptionBar, text="GUARDAR", command=self.SaveButtonClick).place(x=70, y=1)
+        Button(self.OptionBar, text="COMPILAR", command=self.compileButtonClick).place(x=160, y=1)
+        Button(self.OptionBar, text="SALIR", command=lambda: self.MainWindow.destroy()).place(x=945, y=1)
 
         # Inserta las dos areas de texto
 
-        self.CodeTextArea = Text(self.MainWindow)
-        self.CodeTextArea.place(x=21, y=84, width=748, height=423)
+        self.CodeTextArea = Text(self.MainWindow, bg='#E0F8F1')
+        self.CodeTextArea.place(x=10, y=30, width=980, height=500)
 
-        self.OutputTextArea = Text(self.MainWindow)
-        self.OutputTextArea.place(x=21, y=514, width=748, height=243)
-
-
-
-
-
-        self.FileLabel = Label(self.MainWindow, text= "FILE")
-        self.FileLabel.place(x=27, y=41)
-
-        self.FileTextField = Entry(self.MainWindow)
-        self.FileTextField.place(x=62, y=41, width=707,height=26)
-
-        self.CompileButton = Button(self.MainWindow,text="COMPILE", command = self.compileButtonClick)
-        self.CompileButton.place(x=798, y=84)
+        self.OutputTextArea = Text(self.MainWindow, bg='#E0F8F1')
+        self.OutputTextArea.place(x=10, y=535, width=980, height=260)
 
         self.MainWindow.mainloop()
 
+    def OpenButtonClick(self):
+        nombrearch = fd.askopenfilename(initialdir="/", title="Seleccione archivo",
+                                        filetypes=(("txt files", "*.txt"), ("todos los archivos", "*.*")))
+        if nombrearch != '':
+            archi1 = open(nombrearch, "r", encoding="utf-8")
+            contenido = archi1.read()
+            archi1.close()
+            self.setCodeTextArea(contenido)
+
+    def SaveButtonClick(self):
+        nombrearch = fd.asksaveasfilename(initialdir="/", title="Guardar como",
+                                          filetypes=(("txt files", "*.txt"), ("todos los archivos", "*.*")))
+        if nombrearch != '':
+            archi1 = open(nombrearch, "w", encoding="utf-8")
+            archi1.write(self.CodeTextArea.get("1.0", END))
+            archi1.close()
+            mb.showinfo("Información", "Los datos fueron guardados en la siguiente ruta: " + nombrearch + ".")
+
+
     def compileButtonClick(self):
-
-        print("Compile was clicked")
-
         self.setOutputText("hola\n'")
 
-    def setOutputText(self, output):
+    def setCodeTextArea(self, output):
+        self.CodeTextArea.delete('1.0', END)
+        self.CodeTextArea.insert(INSERT, output)
 
+    def setOutputText(self, output):
         self.OutputTextArea.insert(END, output)
+
 
 IDE = Gui()
