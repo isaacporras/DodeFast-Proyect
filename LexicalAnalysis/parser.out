@@ -3,7 +3,6 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 Unused terminals:
 
     DEFAULT
-    LLAMAR
     SUMA
 
 Grammar
@@ -22,133 +21,140 @@ Rule 10    expresion -> condicion2 expresion
 Rule 11    expresion -> repita expresion
 Rule 12    expresion -> hacer expresion
 Rule 13    expresion -> funcion expresion
-Rule 14    expresion -> empty empty
-Rule 15    procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
-Rule 16    procedimiento -> empty empty empty empty empty empty empty empty empty empty empty
-Rule 17    repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-Rule 18    condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
-Rule 19    cond2Aux1 -> cond2Aux2 SINO LLAVE_IZQ expresion LLAVE_DER
-Rule 20    cond2Aux1 -> empty empty empty empty empty
-Rule 21    cond2Aux2 -> CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2
-Rule 22    cond2Aux2 -> empty empty empty empty empty empty empty empty
-Rule 23    condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA
-Rule 24    cond1Aux1 -> cond1Aux2 SINO LLAVE_IZQ expresion LLAVE_DER
-Rule 25    cond1Aux1 -> empty empty empty empty empty
-Rule 26    cond1Aux2 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2
-Rule 27    cond1Aux2 -> empty empty empty empty empty empty empty empty empty
-Rule 28    hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-Rule 29    funcion -> Aleatorio
-Rule 30    funcion -> Mover
-Rule 31    funcion -> funcionAlge
-Rule 32    funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-Rule 33    funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-Rule 34    funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-Rule 35    Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-Rule 36    paramMover -> AF
-Rule 37    paramMover -> F
-Rule 38    paramMover -> DFA
-Rule 39    paramMover -> IFA
-Rule 40    paramMover -> DFB
-Rule 41    paramMover -> IFB
-Rule 42    paramMover -> A
-Rule 43    paramMover -> DAA
-Rule 44    paramMover -> IAA
-Rule 45    paramMover -> DAB
-Rule 46    paramMover -> IAB
-Rule 47    paramMover -> AA
-Rule 48    Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-Rule 49    condicion -> IGUAL
-Rule 50    condicion -> MAYOR
-Rule 51    condicion -> MENOR
-Rule 52    condicion -> DIFERENTE
-Rule 53    condicion -> MAYORIGUAL
-Rule 54    condicion -> MENORIGUAL
-Rule 55    sentencia -> ID
-Rule 56    sentencia -> NUMERO
-Rule 57    ini -> DCL ID IGUAL NUMERO
-Rule 58    sinini -> DCL ID
-Rule 59    empty -> <empty>
+Rule 14    expresion -> llamarProc expresion
+Rule 15    expresion -> empty empty
+Rule 16    procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
+Rule 17    procedimiento -> empty empty empty empty empty empty empty empty empty empty empty
+Rule 18    repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+Rule 19    condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+Rule 20    cond2Aux1 -> cond2Aux2 SINO LLAVE_IZQ expresion LLAVE_DER
+Rule 21    cond2Aux1 -> empty empty empty empty empty
+Rule 22    cond2Aux2 -> CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2
+Rule 23    cond2Aux2 -> empty empty empty empty empty empty empty empty
+Rule 24    condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+Rule 25    cond1Aux1 -> cond1Aux2 SINO LLAVE_IZQ expresion LLAVE_DER
+Rule 26    cond1Aux1 -> empty empty empty empty empty
+Rule 27    cond1Aux2 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2
+Rule 28    cond1Aux2 -> empty empty empty empty empty empty empty empty empty
+Rule 29    hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+Rule 30    funcion -> Aleatorio
+Rule 31    funcion -> Mover
+Rule 32    funcion -> funcionAlge
+Rule 33    llamarProc -> LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+Rule 34    parametro -> ID
+Rule 35    parametro -> NUMERO
+Rule 36    parametro -> empty
+Rule 37    funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+Rule 38    funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+Rule 39    funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+Rule 40    Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+Rule 41    paramMover -> AF
+Rule 42    paramMover -> F
+Rule 43    paramMover -> DFA
+Rule 44    paramMover -> IFA
+Rule 45    paramMover -> DFB
+Rule 46    paramMover -> IFB
+Rule 47    paramMover -> A
+Rule 48    paramMover -> DAA
+Rule 49    paramMover -> IAA
+Rule 50    paramMover -> DAB
+Rule 51    paramMover -> IAB
+Rule 52    paramMover -> AA
+Rule 53    Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+Rule 54    condicion -> IGUAL
+Rule 55    condicion -> MAYOR
+Rule 56    condicion -> MENOR
+Rule 57    condicion -> DIFERENTE
+Rule 58    condicion -> MAYORIGUAL
+Rule 59    condicion -> MENORIGUAL
+Rule 60    sentencia -> ID
+Rule 61    sentencia -> NUMERO
+Rule 62    ini -> DCL ID IGUAL NUMERO
+Rule 63    sinini -> DCL ID
+Rule 64    empty -> <empty>
 
 Terminals, with rules where they appear
 
-A                    : 42
-AA                   : 47
-AF                   : 36
-ALEATORIO            : 48
-COMA                 : 32 33 34
-CUANDO               : 21 26
-DAA                  : 43
-DAB                  : 45
-DCL                  : 57 58
-DEC                  : 33
+A                    : 47
+AA                   : 52
+AF                   : 41
+ALEATORIO            : 53
+COMA                 : 37 38 39
+CUANDO               : 22 27
+DAA                  : 48
+DAB                  : 50
+DCL                  : 62 63
+DEC                  : 38
 DEFAULT              : 
-DESDE                : 28
-DFA                  : 38
-DFB                  : 40
-DIFERENTE            : 52
-DOSPUNTOS            : 3 15
-ENCASO               : 18 23
-ENTONS               : 21 26
-F                    : 37
+DESDE                : 29
+DFA                  : 43
+DFB                  : 45
+DIFERENTE            : 57
+DOSPUNTOS            : 3 16
+ENCASO               : 19 24
+ENTONS               : 22 27
+F                    : 42
 FIN                  : 3
-FINDESDE             : 28
-FINENCASO            : 18 23
-FINPROC              : 15
-HAGA                 : 28
-HASTA                : 28
-HASTAENCONTRAR       : 17
-IAA                  : 44
-IAB                  : 46
-ID                   : 15 15 17 18 26 28 32 33 34 55 57 58
-IFA                  : 39
-IFB                  : 41
-IGUAL                : 28 49 57
-INC                  : 32
-INI                  : 34
+FINDESDE             : 29
+FINENCASO            : 19 24
+FINPROC              : 16
+HAGA                 : 29
+HASTA                : 29
+HASTAENCONTRAR       : 18
+IAA                  : 49
+IAB                  : 51
+ID                   : 16 16 18 19 27 29 33 34 37 38 39 60 62 63
+IFA                  : 44
+IFB                  : 46
+IGUAL                : 29 54 62
+INC                  : 37
+INI                  : 39
 INICIO               : 3
-INICIOPROC           : 15
-LLAMAR               : 
-LLAVE_DER            : 17 19 21 24 26 28
-LLAVE_IZQ            : 17 19 21 24 26 28
-MAYOR                : 50
-MAYORIGUAL           : 53
-MENOR                : 51
-MENORIGUAL           : 54
-MOVER                : 35
-NUMERO               : 56 57
-PARENTESIS_DER       : 15 32 33 34 35 48
-PARENTESIS_IZQ       : 15 32 33 34 35 48
-PROC                 : 15
-PUNTOCOMA            : 3 4 5 15 17 18 23 28 32 33 34 35 48
-REPITA               : 17
-SINO                 : 19 24
+INICIOPROC           : 16
+LLAMAR               : 33
+LLAVE_DER            : 18 20 22 25 27 29
+LLAVE_IZQ            : 18 20 22 25 27 29
+MAYOR                : 55
+MAYORIGUAL           : 58
+MENOR                : 56
+MENORIGUAL           : 59
+MOVER                : 40
+NUMERO               : 35 61 62
+PARENTESIS_DER       : 16 33 37 38 39 40 53
+PARENTESIS_IZQ       : 16 33 37 38 39 40 53
+PROC                 : 16
+PUNTOCOMA            : 3 4 5 16 18 19 24 29 33 37 38 39 40 53
+REPITA               : 18
+SINO                 : 20 25
 SUMA                 : 
 error                : 
 
 Nonterminals, with rules where they appear
 
-Aleatorio            : 29
-Mover                : 30
+Aleatorio            : 30
+Mover                : 31
 Start                : 0
 code                 : 1
-cond1Aux1            : 23
-cond1Aux2            : 24 26
-cond2Aux1            : 18
-cond2Aux2            : 19 21
-condicion            : 17 21 26
+cond1Aux1            : 24
+cond1Aux2            : 25 27
+cond2Aux1            : 19
+cond2Aux2            : 20 22
+condicion            : 18 22 27
 condicion1           : 9
 condicion2           : 10
 cuerpo               : 3 4 5
-empty                : 2 6 6 6 14 14 16 16 16 16 16 16 16 16 16 16 16 20 20 20 20 20 22 22 22 22 22 22 22 22 25 25 25 25 25 27 27 27 27 27 27 27 27 27
-expresion            : 8 9 10 11 12 13 15 17 19 21 24 26 28
+empty                : 2 6 6 6 15 15 17 17 17 17 17 17 17 17 17 17 17 21 21 21 21 21 23 23 23 23 23 23 23 23 26 26 26 26 26 28 28 28 28 28 28 28 28 28 36
+expresion            : 8 9 10 11 12 13 14 16 18 20 22 25 27 29
 funcion              : 13
-funcionAlge          : 31
+funcionAlge          : 32
 hacer                : 12
 ini                  : 5
-paramMover           : 35
-procedimiento        : 3 15
+llamarProc           : 14
+paramMover           : 40
+parametro            : 33
+procedimiento        : 3 16
 repita               : 11
-sentencia            : 17 21 26 28 28 32 33 34
+sentencia            : 18 22 27 29 29 37 38 39
 sinini               : 4
 variable             : 7
 
@@ -160,10 +166,10 @@ state 0
     (1) Start -> . code
     (2) Start -> . empty
     (3) code -> . INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento
-    (59) empty -> .
+    (64) empty -> .
 
     INICIO          shift and go to state 4
-    $end            reduce using rule 59 (empty -> .)
+    $end            reduce using rule 64 (empty -> .)
 
     Start                          shift and go to state 1
     code                           shift and go to state 2
@@ -209,33 +215,36 @@ state 5
     (11) expresion -> . repita expresion
     (12) expresion -> . hacer expresion
     (13) expresion -> . funcion expresion
-    (14) expresion -> . empty empty
-    (58) sinini -> . DCL ID
-    (57) ini -> . DCL ID IGUAL NUMERO
-    (59) empty -> .
-    (23) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
-    (18) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
-    (17) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-    (28) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (29) funcion -> . Aleatorio
-    (30) funcion -> . Mover
-    (31) funcion -> . funcionAlge
-    (48) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-    (35) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-    (32) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (33) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (34) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (14) expresion -> . llamarProc expresion
+    (15) expresion -> . empty empty
+    (63) sinini -> . DCL ID
+    (62) ini -> . DCL ID IGUAL NUMERO
+    (64) empty -> .
+    (24) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+    (18) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (29) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (30) funcion -> . Aleatorio
+    (31) funcion -> . Mover
+    (32) funcion -> . funcionAlge
+    (33) llamarProc -> . LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+    (53) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (40) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (37) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (38) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (39) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
 
-    DCL             shift and go to state 17
-    FIN             reduce using rule 59 (empty -> .)
-    ENCASO          shift and go to state 18
-    REPITA          shift and go to state 19
-    DESDE           shift and go to state 20
-    ALEATORIO       shift and go to state 24
-    MOVER           shift and go to state 25
-    INC             shift and go to state 26
-    DEC             shift and go to state 27
-    INI             shift and go to state 28
+    DCL             shift and go to state 18
+    FIN             reduce using rule 64 (empty -> .)
+    ENCASO          shift and go to state 19
+    REPITA          shift and go to state 20
+    DESDE           shift and go to state 21
+    LLAMAR          shift and go to state 25
+    ALEATORIO       shift and go to state 26
+    MOVER           shift and go to state 27
+    INC             shift and go to state 28
+    DEC             shift and go to state 29
+    INI             shift and go to state 30
 
     cuerpo                         shift and go to state 6
     variable                       shift and go to state 7
@@ -248,15 +257,16 @@ state 5
     repita                         shift and go to state 14
     hacer                          shift and go to state 15
     funcion                        shift and go to state 16
-    Aleatorio                      shift and go to state 21
-    Mover                          shift and go to state 22
-    funcionAlge                    shift and go to state 23
+    llamarProc                     shift and go to state 17
+    Aleatorio                      shift and go to state 22
+    Mover                          shift and go to state 23
+    funcionAlge                    shift and go to state 24
 
 state 6
 
     (3) code -> INICIO DOSPUNTOS cuerpo . FIN PUNTOCOMA procedimiento
 
-    FIN             shift and go to state 29
+    FIN             shift and go to state 31
 
 
 state 7
@@ -277,25 +287,25 @@ state 9
 
     (4) variable -> sinini . PUNTOCOMA cuerpo
 
-    PUNTOCOMA       shift and go to state 30
+    PUNTOCOMA       shift and go to state 32
 
 
 state 10
 
     (5) variable -> ini . PUNTOCOMA cuerpo
 
-    PUNTOCOMA       shift and go to state 31
+    PUNTOCOMA       shift and go to state 33
 
 
 state 11
 
     (6) variable -> empty . empty empty
-    (14) expresion -> empty . empty
-    (59) empty -> .
+    (15) expresion -> empty . empty
+    (64) empty -> .
 
-    FIN             reduce using rule 59 (empty -> .)
+    FIN             reduce using rule 64 (empty -> .)
 
-    empty                          shift and go to state 32
+    empty                          shift and go to state 34
 
 state 12
 
@@ -305,43 +315,47 @@ state 12
     (11) expresion -> . repita expresion
     (12) expresion -> . hacer expresion
     (13) expresion -> . funcion expresion
-    (14) expresion -> . empty empty
-    (23) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
-    (18) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
-    (17) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-    (28) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (29) funcion -> . Aleatorio
-    (30) funcion -> . Mover
-    (31) funcion -> . funcionAlge
-    (59) empty -> .
-    (48) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-    (35) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-    (32) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (33) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (34) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (14) expresion -> . llamarProc expresion
+    (15) expresion -> . empty empty
+    (24) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+    (18) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (29) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (30) funcion -> . Aleatorio
+    (31) funcion -> . Mover
+    (32) funcion -> . funcionAlge
+    (33) llamarProc -> . LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+    (64) empty -> .
+    (53) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (40) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (37) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (38) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (39) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
 
-    ENCASO          shift and go to state 18
-    REPITA          shift and go to state 19
-    DESDE           shift and go to state 20
-    FIN             reduce using rule 59 (empty -> .)
-    LLAVE_DER       reduce using rule 59 (empty -> .)
-    FINPROC         reduce using rule 59 (empty -> .)
-    ALEATORIO       shift and go to state 24
-    MOVER           shift and go to state 25
-    INC             shift and go to state 26
-    DEC             shift and go to state 27
-    INI             shift and go to state 28
+    ENCASO          shift and go to state 19
+    REPITA          shift and go to state 20
+    DESDE           shift and go to state 21
+    LLAMAR          shift and go to state 25
+    FIN             reduce using rule 64 (empty -> .)
+    LLAVE_DER       reduce using rule 64 (empty -> .)
+    FINPROC         reduce using rule 64 (empty -> .)
+    ALEATORIO       shift and go to state 26
+    MOVER           shift and go to state 27
+    INC             shift and go to state 28
+    DEC             shift and go to state 29
+    INI             shift and go to state 30
 
     condicion1                     shift and go to state 12
-    expresion                      shift and go to state 33
+    expresion                      shift and go to state 35
     condicion2                     shift and go to state 13
     repita                         shift and go to state 14
     hacer                          shift and go to state 15
     funcion                        shift and go to state 16
-    empty                          shift and go to state 34
-    Aleatorio                      shift and go to state 21
-    Mover                          shift and go to state 22
-    funcionAlge                    shift and go to state 23
+    llamarProc                     shift and go to state 17
+    empty                          shift and go to state 36
+    Aleatorio                      shift and go to state 22
+    Mover                          shift and go to state 23
+    funcionAlge                    shift and go to state 24
 
 state 13
 
@@ -351,43 +365,47 @@ state 13
     (11) expresion -> . repita expresion
     (12) expresion -> . hacer expresion
     (13) expresion -> . funcion expresion
-    (14) expresion -> . empty empty
-    (23) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
-    (18) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
-    (17) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-    (28) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (29) funcion -> . Aleatorio
-    (30) funcion -> . Mover
-    (31) funcion -> . funcionAlge
-    (59) empty -> .
-    (48) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-    (35) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-    (32) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (33) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (34) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (14) expresion -> . llamarProc expresion
+    (15) expresion -> . empty empty
+    (24) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+    (18) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (29) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (30) funcion -> . Aleatorio
+    (31) funcion -> . Mover
+    (32) funcion -> . funcionAlge
+    (33) llamarProc -> . LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+    (64) empty -> .
+    (53) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (40) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (37) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (38) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (39) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
 
-    ENCASO          shift and go to state 18
-    REPITA          shift and go to state 19
-    DESDE           shift and go to state 20
-    FIN             reduce using rule 59 (empty -> .)
-    LLAVE_DER       reduce using rule 59 (empty -> .)
-    FINPROC         reduce using rule 59 (empty -> .)
-    ALEATORIO       shift and go to state 24
-    MOVER           shift and go to state 25
-    INC             shift and go to state 26
-    DEC             shift and go to state 27
-    INI             shift and go to state 28
+    ENCASO          shift and go to state 19
+    REPITA          shift and go to state 20
+    DESDE           shift and go to state 21
+    LLAMAR          shift and go to state 25
+    FIN             reduce using rule 64 (empty -> .)
+    LLAVE_DER       reduce using rule 64 (empty -> .)
+    FINPROC         reduce using rule 64 (empty -> .)
+    ALEATORIO       shift and go to state 26
+    MOVER           shift and go to state 27
+    INC             shift and go to state 28
+    DEC             shift and go to state 29
+    INI             shift and go to state 30
 
     condicion2                     shift and go to state 13
-    expresion                      shift and go to state 35
+    expresion                      shift and go to state 37
     condicion1                     shift and go to state 12
     repita                         shift and go to state 14
     hacer                          shift and go to state 15
     funcion                        shift and go to state 16
-    empty                          shift and go to state 34
-    Aleatorio                      shift and go to state 21
-    Mover                          shift and go to state 22
-    funcionAlge                    shift and go to state 23
+    llamarProc                     shift and go to state 17
+    empty                          shift and go to state 36
+    Aleatorio                      shift and go to state 22
+    Mover                          shift and go to state 23
+    funcionAlge                    shift and go to state 24
 
 state 14
 
@@ -397,43 +415,47 @@ state 14
     (11) expresion -> . repita expresion
     (12) expresion -> . hacer expresion
     (13) expresion -> . funcion expresion
-    (14) expresion -> . empty empty
-    (23) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
-    (18) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
-    (17) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-    (28) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (29) funcion -> . Aleatorio
-    (30) funcion -> . Mover
-    (31) funcion -> . funcionAlge
-    (59) empty -> .
-    (48) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-    (35) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-    (32) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (33) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (34) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (14) expresion -> . llamarProc expresion
+    (15) expresion -> . empty empty
+    (24) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+    (18) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (29) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (30) funcion -> . Aleatorio
+    (31) funcion -> . Mover
+    (32) funcion -> . funcionAlge
+    (33) llamarProc -> . LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+    (64) empty -> .
+    (53) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (40) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (37) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (38) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (39) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
 
-    ENCASO          shift and go to state 18
-    REPITA          shift and go to state 19
-    DESDE           shift and go to state 20
-    FIN             reduce using rule 59 (empty -> .)
-    LLAVE_DER       reduce using rule 59 (empty -> .)
-    FINPROC         reduce using rule 59 (empty -> .)
-    ALEATORIO       shift and go to state 24
-    MOVER           shift and go to state 25
-    INC             shift and go to state 26
-    DEC             shift and go to state 27
-    INI             shift and go to state 28
+    ENCASO          shift and go to state 19
+    REPITA          shift and go to state 20
+    DESDE           shift and go to state 21
+    LLAMAR          shift and go to state 25
+    FIN             reduce using rule 64 (empty -> .)
+    LLAVE_DER       reduce using rule 64 (empty -> .)
+    FINPROC         reduce using rule 64 (empty -> .)
+    ALEATORIO       shift and go to state 26
+    MOVER           shift and go to state 27
+    INC             shift and go to state 28
+    DEC             shift and go to state 29
+    INI             shift and go to state 30
 
     repita                         shift and go to state 14
-    expresion                      shift and go to state 36
+    expresion                      shift and go to state 38
     condicion1                     shift and go to state 12
     condicion2                     shift and go to state 13
     hacer                          shift and go to state 15
     funcion                        shift and go to state 16
-    empty                          shift and go to state 34
-    Aleatorio                      shift and go to state 21
-    Mover                          shift and go to state 22
-    funcionAlge                    shift and go to state 23
+    llamarProc                     shift and go to state 17
+    empty                          shift and go to state 36
+    Aleatorio                      shift and go to state 22
+    Mover                          shift and go to state 23
+    funcionAlge                    shift and go to state 24
 
 state 15
 
@@ -443,43 +465,47 @@ state 15
     (11) expresion -> . repita expresion
     (12) expresion -> . hacer expresion
     (13) expresion -> . funcion expresion
-    (14) expresion -> . empty empty
-    (23) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
-    (18) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
-    (17) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-    (28) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (29) funcion -> . Aleatorio
-    (30) funcion -> . Mover
-    (31) funcion -> . funcionAlge
-    (59) empty -> .
-    (48) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-    (35) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-    (32) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (33) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (34) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (14) expresion -> . llamarProc expresion
+    (15) expresion -> . empty empty
+    (24) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+    (18) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (29) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (30) funcion -> . Aleatorio
+    (31) funcion -> . Mover
+    (32) funcion -> . funcionAlge
+    (33) llamarProc -> . LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+    (64) empty -> .
+    (53) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (40) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (37) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (38) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (39) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
 
-    ENCASO          shift and go to state 18
-    REPITA          shift and go to state 19
-    DESDE           shift and go to state 20
-    FIN             reduce using rule 59 (empty -> .)
-    LLAVE_DER       reduce using rule 59 (empty -> .)
-    FINPROC         reduce using rule 59 (empty -> .)
-    ALEATORIO       shift and go to state 24
-    MOVER           shift and go to state 25
-    INC             shift and go to state 26
-    DEC             shift and go to state 27
-    INI             shift and go to state 28
+    ENCASO          shift and go to state 19
+    REPITA          shift and go to state 20
+    DESDE           shift and go to state 21
+    LLAMAR          shift and go to state 25
+    FIN             reduce using rule 64 (empty -> .)
+    LLAVE_DER       reduce using rule 64 (empty -> .)
+    FINPROC         reduce using rule 64 (empty -> .)
+    ALEATORIO       shift and go to state 26
+    MOVER           shift and go to state 27
+    INC             shift and go to state 28
+    DEC             shift and go to state 29
+    INI             shift and go to state 30
 
     hacer                          shift and go to state 15
-    expresion                      shift and go to state 37
+    expresion                      shift and go to state 39
     condicion1                     shift and go to state 12
     condicion2                     shift and go to state 13
     repita                         shift and go to state 14
     funcion                        shift and go to state 16
-    empty                          shift and go to state 34
-    Aleatorio                      shift and go to state 21
-    Mover                          shift and go to state 22
-    funcionAlge                    shift and go to state 23
+    llamarProc                     shift and go to state 17
+    empty                          shift and go to state 36
+    Aleatorio                      shift and go to state 22
+    Mover                          shift and go to state 23
+    funcionAlge                    shift and go to state 24
 
 state 16
 
@@ -489,179 +515,243 @@ state 16
     (11) expresion -> . repita expresion
     (12) expresion -> . hacer expresion
     (13) expresion -> . funcion expresion
-    (14) expresion -> . empty empty
-    (23) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
-    (18) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
-    (17) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-    (28) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (29) funcion -> . Aleatorio
-    (30) funcion -> . Mover
-    (31) funcion -> . funcionAlge
-    (59) empty -> .
-    (48) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-    (35) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-    (32) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (33) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (34) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (14) expresion -> . llamarProc expresion
+    (15) expresion -> . empty empty
+    (24) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+    (18) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (29) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (30) funcion -> . Aleatorio
+    (31) funcion -> . Mover
+    (32) funcion -> . funcionAlge
+    (33) llamarProc -> . LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+    (64) empty -> .
+    (53) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (40) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (37) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (38) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (39) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
 
-    ENCASO          shift and go to state 18
-    REPITA          shift and go to state 19
-    DESDE           shift and go to state 20
-    FIN             reduce using rule 59 (empty -> .)
-    LLAVE_DER       reduce using rule 59 (empty -> .)
-    FINPROC         reduce using rule 59 (empty -> .)
-    ALEATORIO       shift and go to state 24
-    MOVER           shift and go to state 25
-    INC             shift and go to state 26
-    DEC             shift and go to state 27
-    INI             shift and go to state 28
+    ENCASO          shift and go to state 19
+    REPITA          shift and go to state 20
+    DESDE           shift and go to state 21
+    LLAMAR          shift and go to state 25
+    FIN             reduce using rule 64 (empty -> .)
+    LLAVE_DER       reduce using rule 64 (empty -> .)
+    FINPROC         reduce using rule 64 (empty -> .)
+    ALEATORIO       shift and go to state 26
+    MOVER           shift and go to state 27
+    INC             shift and go to state 28
+    DEC             shift and go to state 29
+    INI             shift and go to state 30
 
     funcion                        shift and go to state 16
-    expresion                      shift and go to state 38
+    expresion                      shift and go to state 40
     condicion1                     shift and go to state 12
     condicion2                     shift and go to state 13
     repita                         shift and go to state 14
     hacer                          shift and go to state 15
-    empty                          shift and go to state 34
-    Aleatorio                      shift and go to state 21
-    Mover                          shift and go to state 22
-    funcionAlge                    shift and go to state 23
+    llamarProc                     shift and go to state 17
+    empty                          shift and go to state 36
+    Aleatorio                      shift and go to state 22
+    Mover                          shift and go to state 23
+    funcionAlge                    shift and go to state 24
 
 state 17
 
-    (58) sinini -> DCL . ID
-    (57) ini -> DCL . ID IGUAL NUMERO
+    (14) expresion -> llamarProc . expresion
+    (9) expresion -> . condicion1 expresion
+    (10) expresion -> . condicion2 expresion
+    (11) expresion -> . repita expresion
+    (12) expresion -> . hacer expresion
+    (13) expresion -> . funcion expresion
+    (14) expresion -> . llamarProc expresion
+    (15) expresion -> . empty empty
+    (24) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+    (18) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (29) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (30) funcion -> . Aleatorio
+    (31) funcion -> . Mover
+    (32) funcion -> . funcionAlge
+    (33) llamarProc -> . LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+    (64) empty -> .
+    (53) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (40) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (37) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (38) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (39) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
 
-    ID              shift and go to state 39
+    ENCASO          shift and go to state 19
+    REPITA          shift and go to state 20
+    DESDE           shift and go to state 21
+    LLAMAR          shift and go to state 25
+    FIN             reduce using rule 64 (empty -> .)
+    LLAVE_DER       reduce using rule 64 (empty -> .)
+    FINPROC         reduce using rule 64 (empty -> .)
+    ALEATORIO       shift and go to state 26
+    MOVER           shift and go to state 27
+    INC             shift and go to state 28
+    DEC             shift and go to state 29
+    INI             shift and go to state 30
 
+    llamarProc                     shift and go to state 17
+    expresion                      shift and go to state 41
+    condicion1                     shift and go to state 12
+    condicion2                     shift and go to state 13
+    repita                         shift and go to state 14
+    hacer                          shift and go to state 15
+    funcion                        shift and go to state 16
+    empty                          shift and go to state 36
+    Aleatorio                      shift and go to state 22
+    Mover                          shift and go to state 23
+    funcionAlge                    shift and go to state 24
 
 state 18
 
-    (23) condicion1 -> ENCASO . cond1Aux1 FINENCASO PUNTOCOMA
-    (18) condicion2 -> ENCASO . ID cond2Aux1 FINENCASO PUNTOCOMA
-    (24) cond1Aux1 -> . cond1Aux2 SINO LLAVE_IZQ expresion LLAVE_DER
-    (25) cond1Aux1 -> . empty empty empty empty empty
-    (26) cond1Aux2 -> . CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2
-    (27) cond1Aux2 -> . empty empty empty empty empty empty empty empty empty
-    (59) empty -> .
+    (63) sinini -> DCL . ID
+    (62) ini -> DCL . ID IGUAL NUMERO
 
-    ID              shift and go to state 41
-    CUANDO          shift and go to state 44
-    FINENCASO       reduce using rule 59 (empty -> .)
-    SINO            reduce using rule 59 (empty -> .)
+    ID              shift and go to state 42
 
-    cond1Aux1                      shift and go to state 40
-    cond1Aux2                      shift and go to state 42
-    empty                          shift and go to state 43
 
 state 19
 
-    (17) repita -> REPITA . LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (24) condicion1 -> ENCASO . cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> ENCASO . ID cond2Aux1 FINENCASO PUNTOCOMA
+    (25) cond1Aux1 -> . cond1Aux2 SINO LLAVE_IZQ expresion LLAVE_DER
+    (26) cond1Aux1 -> . empty empty empty empty empty
+    (27) cond1Aux2 -> . CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2
+    (28) cond1Aux2 -> . empty empty empty empty empty empty empty empty empty
+    (64) empty -> .
 
-    LLAVE_IZQ       shift and go to state 45
+    ID              shift and go to state 44
+    CUANDO          shift and go to state 47
+    FINENCASO       reduce using rule 64 (empty -> .)
+    SINO            reduce using rule 64 (empty -> .)
 
+    cond1Aux1                      shift and go to state 43
+    cond1Aux2                      shift and go to state 45
+    empty                          shift and go to state 46
 
 state 20
 
-    (28) hacer -> DESDE . ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (18) repita -> REPITA . LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
 
-    ID              shift and go to state 46
+    LLAVE_IZQ       shift and go to state 48
 
 
 state 21
 
-    (29) funcion -> Aleatorio .
+    (29) hacer -> DESDE . ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
 
-    ENCASO          reduce using rule 29 (funcion -> Aleatorio .)
-    REPITA          reduce using rule 29 (funcion -> Aleatorio .)
-    DESDE           reduce using rule 29 (funcion -> Aleatorio .)
-    ALEATORIO       reduce using rule 29 (funcion -> Aleatorio .)
-    MOVER           reduce using rule 29 (funcion -> Aleatorio .)
-    INC             reduce using rule 29 (funcion -> Aleatorio .)
-    DEC             reduce using rule 29 (funcion -> Aleatorio .)
-    INI             reduce using rule 29 (funcion -> Aleatorio .)
-    FIN             reduce using rule 29 (funcion -> Aleatorio .)
-    LLAVE_DER       reduce using rule 29 (funcion -> Aleatorio .)
-    FINPROC         reduce using rule 29 (funcion -> Aleatorio .)
+    ID              shift and go to state 49
 
 
 state 22
 
-    (30) funcion -> Mover .
+    (30) funcion -> Aleatorio .
 
-    ENCASO          reduce using rule 30 (funcion -> Mover .)
-    REPITA          reduce using rule 30 (funcion -> Mover .)
-    DESDE           reduce using rule 30 (funcion -> Mover .)
-    ALEATORIO       reduce using rule 30 (funcion -> Mover .)
-    MOVER           reduce using rule 30 (funcion -> Mover .)
-    INC             reduce using rule 30 (funcion -> Mover .)
-    DEC             reduce using rule 30 (funcion -> Mover .)
-    INI             reduce using rule 30 (funcion -> Mover .)
-    FIN             reduce using rule 30 (funcion -> Mover .)
-    LLAVE_DER       reduce using rule 30 (funcion -> Mover .)
-    FINPROC         reduce using rule 30 (funcion -> Mover .)
+    ENCASO          reduce using rule 30 (funcion -> Aleatorio .)
+    REPITA          reduce using rule 30 (funcion -> Aleatorio .)
+    DESDE           reduce using rule 30 (funcion -> Aleatorio .)
+    LLAMAR          reduce using rule 30 (funcion -> Aleatorio .)
+    ALEATORIO       reduce using rule 30 (funcion -> Aleatorio .)
+    MOVER           reduce using rule 30 (funcion -> Aleatorio .)
+    INC             reduce using rule 30 (funcion -> Aleatorio .)
+    DEC             reduce using rule 30 (funcion -> Aleatorio .)
+    INI             reduce using rule 30 (funcion -> Aleatorio .)
+    FIN             reduce using rule 30 (funcion -> Aleatorio .)
+    LLAVE_DER       reduce using rule 30 (funcion -> Aleatorio .)
+    FINPROC         reduce using rule 30 (funcion -> Aleatorio .)
 
 
 state 23
 
-    (31) funcion -> funcionAlge .
+    (31) funcion -> Mover .
 
-    ENCASO          reduce using rule 31 (funcion -> funcionAlge .)
-    REPITA          reduce using rule 31 (funcion -> funcionAlge .)
-    DESDE           reduce using rule 31 (funcion -> funcionAlge .)
-    ALEATORIO       reduce using rule 31 (funcion -> funcionAlge .)
-    MOVER           reduce using rule 31 (funcion -> funcionAlge .)
-    INC             reduce using rule 31 (funcion -> funcionAlge .)
-    DEC             reduce using rule 31 (funcion -> funcionAlge .)
-    INI             reduce using rule 31 (funcion -> funcionAlge .)
-    FIN             reduce using rule 31 (funcion -> funcionAlge .)
-    LLAVE_DER       reduce using rule 31 (funcion -> funcionAlge .)
-    FINPROC         reduce using rule 31 (funcion -> funcionAlge .)
+    ENCASO          reduce using rule 31 (funcion -> Mover .)
+    REPITA          reduce using rule 31 (funcion -> Mover .)
+    DESDE           reduce using rule 31 (funcion -> Mover .)
+    LLAMAR          reduce using rule 31 (funcion -> Mover .)
+    ALEATORIO       reduce using rule 31 (funcion -> Mover .)
+    MOVER           reduce using rule 31 (funcion -> Mover .)
+    INC             reduce using rule 31 (funcion -> Mover .)
+    DEC             reduce using rule 31 (funcion -> Mover .)
+    INI             reduce using rule 31 (funcion -> Mover .)
+    FIN             reduce using rule 31 (funcion -> Mover .)
+    LLAVE_DER       reduce using rule 31 (funcion -> Mover .)
+    FINPROC         reduce using rule 31 (funcion -> Mover .)
 
 
 state 24
 
-    (48) Aleatorio -> ALEATORIO . PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (32) funcion -> funcionAlge .
 
-    PARENTESIS_IZQ  shift and go to state 47
+    ENCASO          reduce using rule 32 (funcion -> funcionAlge .)
+    REPITA          reduce using rule 32 (funcion -> funcionAlge .)
+    DESDE           reduce using rule 32 (funcion -> funcionAlge .)
+    LLAMAR          reduce using rule 32 (funcion -> funcionAlge .)
+    ALEATORIO       reduce using rule 32 (funcion -> funcionAlge .)
+    MOVER           reduce using rule 32 (funcion -> funcionAlge .)
+    INC             reduce using rule 32 (funcion -> funcionAlge .)
+    DEC             reduce using rule 32 (funcion -> funcionAlge .)
+    INI             reduce using rule 32 (funcion -> funcionAlge .)
+    FIN             reduce using rule 32 (funcion -> funcionAlge .)
+    LLAVE_DER       reduce using rule 32 (funcion -> funcionAlge .)
+    FINPROC         reduce using rule 32 (funcion -> funcionAlge .)
 
 
 state 25
 
-    (35) Mover -> MOVER . PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (33) llamarProc -> LLAMAR . ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
 
-    PARENTESIS_IZQ  shift and go to state 48
+    ID              shift and go to state 50
 
 
 state 26
 
-    (32) funcionAlge -> INC . PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-
-    PARENTESIS_IZQ  shift and go to state 49
-
-
-state 27
-
-    (33) funcionAlge -> DEC . PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-
-    PARENTESIS_IZQ  shift and go to state 50
-
-
-state 28
-
-    (34) funcionAlge -> INI . PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (53) Aleatorio -> ALEATORIO . PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
 
     PARENTESIS_IZQ  shift and go to state 51
 
 
+state 27
+
+    (40) Mover -> MOVER . PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+
+    PARENTESIS_IZQ  shift and go to state 52
+
+
+state 28
+
+    (37) funcionAlge -> INC . PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+
+    PARENTESIS_IZQ  shift and go to state 53
+
+
 state 29
 
-    (3) code -> INICIO DOSPUNTOS cuerpo FIN . PUNTOCOMA procedimiento
+    (38) funcionAlge -> DEC . PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
 
-    PUNTOCOMA       shift and go to state 52
+    PARENTESIS_IZQ  shift and go to state 54
 
 
 state 30
+
+    (39) funcionAlge -> INI . PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+
+    PARENTESIS_IZQ  shift and go to state 55
+
+
+state 31
+
+    (3) code -> INICIO DOSPUNTOS cuerpo FIN . PUNTOCOMA procedimiento
+
+    PUNTOCOMA       shift and go to state 56
+
+
+state 32
 
     (4) variable -> sinini PUNTOCOMA . cuerpo
     (7) cuerpo -> . variable
@@ -674,36 +764,39 @@ state 30
     (11) expresion -> . repita expresion
     (12) expresion -> . hacer expresion
     (13) expresion -> . funcion expresion
-    (14) expresion -> . empty empty
-    (58) sinini -> . DCL ID
-    (57) ini -> . DCL ID IGUAL NUMERO
-    (59) empty -> .
-    (23) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
-    (18) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
-    (17) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-    (28) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (29) funcion -> . Aleatorio
-    (30) funcion -> . Mover
-    (31) funcion -> . funcionAlge
-    (48) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-    (35) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-    (32) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (33) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (34) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (14) expresion -> . llamarProc expresion
+    (15) expresion -> . empty empty
+    (63) sinini -> . DCL ID
+    (62) ini -> . DCL ID IGUAL NUMERO
+    (64) empty -> .
+    (24) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+    (18) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (29) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (30) funcion -> . Aleatorio
+    (31) funcion -> . Mover
+    (32) funcion -> . funcionAlge
+    (33) llamarProc -> . LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+    (53) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (40) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (37) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (38) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (39) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
 
-    DCL             shift and go to state 17
-    FIN             reduce using rule 59 (empty -> .)
-    ENCASO          shift and go to state 18
-    REPITA          shift and go to state 19
-    DESDE           shift and go to state 20
-    ALEATORIO       shift and go to state 24
-    MOVER           shift and go to state 25
-    INC             shift and go to state 26
-    DEC             shift and go to state 27
-    INI             shift and go to state 28
+    DCL             shift and go to state 18
+    FIN             reduce using rule 64 (empty -> .)
+    ENCASO          shift and go to state 19
+    REPITA          shift and go to state 20
+    DESDE           shift and go to state 21
+    LLAMAR          shift and go to state 25
+    ALEATORIO       shift and go to state 26
+    MOVER           shift and go to state 27
+    INC             shift and go to state 28
+    DEC             shift and go to state 29
+    INI             shift and go to state 30
 
     sinini                         shift and go to state 9
-    cuerpo                         shift and go to state 53
+    cuerpo                         shift and go to state 57
     variable                       shift and go to state 7
     expresion                      shift and go to state 8
     ini                            shift and go to state 10
@@ -713,11 +806,12 @@ state 30
     repita                         shift and go to state 14
     hacer                          shift and go to state 15
     funcion                        shift and go to state 16
-    Aleatorio                      shift and go to state 21
-    Mover                          shift and go to state 22
-    funcionAlge                    shift and go to state 23
+    llamarProc                     shift and go to state 17
+    Aleatorio                      shift and go to state 22
+    Mover                          shift and go to state 23
+    funcionAlge                    shift and go to state 24
 
-state 31
+state 33
 
     (5) variable -> ini PUNTOCOMA . cuerpo
     (7) cuerpo -> . variable
@@ -730,36 +824,39 @@ state 31
     (11) expresion -> . repita expresion
     (12) expresion -> . hacer expresion
     (13) expresion -> . funcion expresion
-    (14) expresion -> . empty empty
-    (58) sinini -> . DCL ID
-    (57) ini -> . DCL ID IGUAL NUMERO
-    (59) empty -> .
-    (23) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
-    (18) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
-    (17) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-    (28) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (29) funcion -> . Aleatorio
-    (30) funcion -> . Mover
-    (31) funcion -> . funcionAlge
-    (48) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-    (35) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-    (32) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (33) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (34) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (14) expresion -> . llamarProc expresion
+    (15) expresion -> . empty empty
+    (63) sinini -> . DCL ID
+    (62) ini -> . DCL ID IGUAL NUMERO
+    (64) empty -> .
+    (24) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+    (18) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (29) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (30) funcion -> . Aleatorio
+    (31) funcion -> . Mover
+    (32) funcion -> . funcionAlge
+    (33) llamarProc -> . LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+    (53) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (40) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (37) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (38) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (39) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
 
-    DCL             shift and go to state 17
-    FIN             reduce using rule 59 (empty -> .)
-    ENCASO          shift and go to state 18
-    REPITA          shift and go to state 19
-    DESDE           shift and go to state 20
-    ALEATORIO       shift and go to state 24
-    MOVER           shift and go to state 25
-    INC             shift and go to state 26
-    DEC             shift and go to state 27
-    INI             shift and go to state 28
+    DCL             shift and go to state 18
+    FIN             reduce using rule 64 (empty -> .)
+    ENCASO          shift and go to state 19
+    REPITA          shift and go to state 20
+    DESDE           shift and go to state 21
+    LLAMAR          shift and go to state 25
+    ALEATORIO       shift and go to state 26
+    MOVER           shift and go to state 27
+    INC             shift and go to state 28
+    DEC             shift and go to state 29
+    INI             shift and go to state 30
 
     ini                            shift and go to state 10
-    cuerpo                         shift and go to state 54
+    cuerpo                         shift and go to state 58
     variable                       shift and go to state 7
     expresion                      shift and go to state 8
     sinini                         shift and go to state 9
@@ -769,24 +866,25 @@ state 31
     repita                         shift and go to state 14
     hacer                          shift and go to state 15
     funcion                        shift and go to state 16
-    Aleatorio                      shift and go to state 21
-    Mover                          shift and go to state 22
-    funcionAlge                    shift and go to state 23
+    llamarProc                     shift and go to state 17
+    Aleatorio                      shift and go to state 22
+    Mover                          shift and go to state 23
+    funcionAlge                    shift and go to state 24
 
-state 32
+state 34
 
     (6) variable -> empty empty . empty
-    (14) expresion -> empty empty .
-    (59) empty -> .
+    (15) expresion -> empty empty .
+    (64) empty -> .
 
-  ! reduce/reduce conflict for FIN resolved using rule 14 (expresion -> empty empty .)
-    FIN             reduce using rule 14 (expresion -> empty empty .)
+  ! reduce/reduce conflict for FIN resolved using rule 15 (expresion -> empty empty .)
+    FIN             reduce using rule 15 (expresion -> empty empty .)
 
-  ! FIN             [ reduce using rule 59 (empty -> .) ]
+  ! FIN             [ reduce using rule 64 (empty -> .) ]
 
-    empty                          shift and go to state 55
+    empty                          shift and go to state 59
 
-state 33
+state 35
 
     (9) expresion -> condicion1 expresion .
 
@@ -795,18 +893,18 @@ state 33
     FINPROC         reduce using rule 9 (expresion -> condicion1 expresion .)
 
 
-state 34
+state 36
 
-    (14) expresion -> empty . empty
-    (59) empty -> .
+    (15) expresion -> empty . empty
+    (64) empty -> .
 
-    FIN             reduce using rule 59 (empty -> .)
-    LLAVE_DER       reduce using rule 59 (empty -> .)
-    FINPROC         reduce using rule 59 (empty -> .)
+    FIN             reduce using rule 64 (empty -> .)
+    LLAVE_DER       reduce using rule 64 (empty -> .)
+    FINPROC         reduce using rule 64 (empty -> .)
 
-    empty                          shift and go to state 56
+    empty                          shift and go to state 60
 
-state 35
+state 37
 
     (10) expresion -> condicion2 expresion .
 
@@ -815,7 +913,7 @@ state 35
     FINPROC         reduce using rule 10 (expresion -> condicion2 expresion .)
 
 
-state 36
+state 38
 
     (11) expresion -> repita expresion .
 
@@ -824,7 +922,7 @@ state 36
     FINPROC         reduce using rule 11 (expresion -> repita expresion .)
 
 
-state 37
+state 39
 
     (12) expresion -> hacer expresion .
 
@@ -833,7 +931,7 @@ state 37
     FINPROC         reduce using rule 12 (expresion -> hacer expresion .)
 
 
-state 38
+state 40
 
     (13) expresion -> funcion expresion .
 
@@ -842,1682 +940,1803 @@ state 38
     FINPROC         reduce using rule 13 (expresion -> funcion expresion .)
 
 
-state 39
-
-    (58) sinini -> DCL ID .
-    (57) ini -> DCL ID . IGUAL NUMERO
-
-    PUNTOCOMA       reduce using rule 58 (sinini -> DCL ID .)
-    IGUAL           shift and go to state 57
-
-
-state 40
-
-    (23) condicion1 -> ENCASO cond1Aux1 . FINENCASO PUNTOCOMA
-
-    FINENCASO       shift and go to state 58
-
-
 state 41
 
-    (18) condicion2 -> ENCASO ID . cond2Aux1 FINENCASO PUNTOCOMA
-    (19) cond2Aux1 -> . cond2Aux2 SINO LLAVE_IZQ expresion LLAVE_DER
-    (20) cond2Aux1 -> . empty empty empty empty empty
-    (21) cond2Aux2 -> . CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2
-    (22) cond2Aux2 -> . empty empty empty empty empty empty empty empty
-    (59) empty -> .
+    (14) expresion -> llamarProc expresion .
 
-    CUANDO          shift and go to state 62
-    FINENCASO       reduce using rule 59 (empty -> .)
-    SINO            reduce using rule 59 (empty -> .)
+    FIN             reduce using rule 14 (expresion -> llamarProc expresion .)
+    LLAVE_DER       reduce using rule 14 (expresion -> llamarProc expresion .)
+    FINPROC         reduce using rule 14 (expresion -> llamarProc expresion .)
 
-    cond2Aux1                      shift and go to state 59
-    cond2Aux2                      shift and go to state 60
-    empty                          shift and go to state 61
 
 state 42
 
-    (24) cond1Aux1 -> cond1Aux2 . SINO LLAVE_IZQ expresion LLAVE_DER
+    (63) sinini -> DCL ID .
+    (62) ini -> DCL ID . IGUAL NUMERO
 
-    SINO            shift and go to state 63
+    PUNTOCOMA       reduce using rule 63 (sinini -> DCL ID .)
+    IGUAL           shift and go to state 61
 
 
 state 43
 
-    (25) cond1Aux1 -> empty . empty empty empty empty
-    (27) cond1Aux2 -> empty . empty empty empty empty empty empty empty empty
-    (59) empty -> .
+    (24) condicion1 -> ENCASO cond1Aux1 . FINENCASO PUNTOCOMA
 
-    FINENCASO       reduce using rule 59 (empty -> .)
-    SINO            reduce using rule 59 (empty -> .)
+    FINENCASO       shift and go to state 62
 
-    empty                          shift and go to state 64
 
 state 44
 
-    (26) cond1Aux2 -> CUANDO . ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2
+    (19) condicion2 -> ENCASO ID . cond2Aux1 FINENCASO PUNTOCOMA
+    (20) cond2Aux1 -> . cond2Aux2 SINO LLAVE_IZQ expresion LLAVE_DER
+    (21) cond2Aux1 -> . empty empty empty empty empty
+    (22) cond2Aux2 -> . CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2
+    (23) cond2Aux2 -> . empty empty empty empty empty empty empty empty
+    (64) empty -> .
 
-    ID              shift and go to state 65
+    CUANDO          shift and go to state 66
+    FINENCASO       reduce using rule 64 (empty -> .)
+    SINO            reduce using rule 64 (empty -> .)
 
+    cond2Aux1                      shift and go to state 63
+    cond2Aux2                      shift and go to state 64
+    empty                          shift and go to state 65
 
 state 45
 
-    (17) repita -> REPITA LLAVE_IZQ . expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (25) cond1Aux1 -> cond1Aux2 . SINO LLAVE_IZQ expresion LLAVE_DER
+
+    SINO            shift and go to state 67
+
+
+state 46
+
+    (26) cond1Aux1 -> empty . empty empty empty empty
+    (28) cond1Aux2 -> empty . empty empty empty empty empty empty empty empty
+    (64) empty -> .
+
+    FINENCASO       reduce using rule 64 (empty -> .)
+    SINO            reduce using rule 64 (empty -> .)
+
+    empty                          shift and go to state 68
+
+state 47
+
+    (27) cond1Aux2 -> CUANDO . ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2
+
+    ID              shift and go to state 69
+
+
+state 48
+
+    (18) repita -> REPITA LLAVE_IZQ . expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
     (9) expresion -> . condicion1 expresion
     (10) expresion -> . condicion2 expresion
     (11) expresion -> . repita expresion
     (12) expresion -> . hacer expresion
     (13) expresion -> . funcion expresion
-    (14) expresion -> . empty empty
-    (23) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
-    (18) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
-    (17) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-    (28) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (29) funcion -> . Aleatorio
-    (30) funcion -> . Mover
-    (31) funcion -> . funcionAlge
-    (59) empty -> .
-    (48) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-    (35) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-    (32) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (33) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (34) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (14) expresion -> . llamarProc expresion
+    (15) expresion -> . empty empty
+    (24) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+    (18) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (29) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (30) funcion -> . Aleatorio
+    (31) funcion -> . Mover
+    (32) funcion -> . funcionAlge
+    (33) llamarProc -> . LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+    (64) empty -> .
+    (53) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (40) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (37) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (38) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (39) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
 
-    ENCASO          shift and go to state 18
-    REPITA          shift and go to state 19
-    DESDE           shift and go to state 20
-    LLAVE_DER       reduce using rule 59 (empty -> .)
-    ALEATORIO       shift and go to state 24
-    MOVER           shift and go to state 25
-    INC             shift and go to state 26
-    DEC             shift and go to state 27
-    INI             shift and go to state 28
+    ENCASO          shift and go to state 19
+    REPITA          shift and go to state 20
+    DESDE           shift and go to state 21
+    LLAMAR          shift and go to state 25
+    LLAVE_DER       reduce using rule 64 (empty -> .)
+    ALEATORIO       shift and go to state 26
+    MOVER           shift and go to state 27
+    INC             shift and go to state 28
+    DEC             shift and go to state 29
+    INI             shift and go to state 30
 
-    expresion                      shift and go to state 66
+    expresion                      shift and go to state 70
     condicion1                     shift and go to state 12
     condicion2                     shift and go to state 13
     repita                         shift and go to state 14
     hacer                          shift and go to state 15
     funcion                        shift and go to state 16
-    empty                          shift and go to state 34
-    Aleatorio                      shift and go to state 21
-    Mover                          shift and go to state 22
-    funcionAlge                    shift and go to state 23
-
-state 46
-
-    (28) hacer -> DESDE ID . IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-
-    IGUAL           shift and go to state 67
-
-
-state 47
-
-    (48) Aleatorio -> ALEATORIO PARENTESIS_IZQ . PARENTESIS_DER PUNTOCOMA
-
-    PARENTESIS_DER  shift and go to state 68
-
-
-state 48
-
-    (35) Mover -> MOVER PARENTESIS_IZQ . paramMover PARENTESIS_DER PUNTOCOMA
-    (36) paramMover -> . AF
-    (37) paramMover -> . F
-    (38) paramMover -> . DFA
-    (39) paramMover -> . IFA
-    (40) paramMover -> . DFB
-    (41) paramMover -> . IFB
-    (42) paramMover -> . A
-    (43) paramMover -> . DAA
-    (44) paramMover -> . IAA
-    (45) paramMover -> . DAB
-    (46) paramMover -> . IAB
-    (47) paramMover -> . AA
-
-    AF              shift and go to state 70
-    F               shift and go to state 71
-    DFA             shift and go to state 72
-    IFA             shift and go to state 73
-    DFB             shift and go to state 74
-    IFB             shift and go to state 75
-    A               shift and go to state 76
-    DAA             shift and go to state 77
-    IAA             shift and go to state 78
-    DAB             shift and go to state 79
-    IAB             shift and go to state 80
-    AA              shift and go to state 81
-
-    paramMover                     shift and go to state 69
+    llamarProc                     shift and go to state 17
+    empty                          shift and go to state 36
+    Aleatorio                      shift and go to state 22
+    Mover                          shift and go to state 23
+    funcionAlge                    shift and go to state 24
 
 state 49
 
-    (32) funcionAlge -> INC PARENTESIS_IZQ . ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (29) hacer -> DESDE ID . IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
 
-    ID              shift and go to state 82
+    IGUAL           shift and go to state 71
 
 
 state 50
 
-    (33) funcionAlge -> DEC PARENTESIS_IZQ . ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (33) llamarProc -> LLAMAR ID . PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
 
-    ID              shift and go to state 83
+    PARENTESIS_IZQ  shift and go to state 72
 
 
 state 51
 
-    (34) funcionAlge -> INI PARENTESIS_IZQ . ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (53) Aleatorio -> ALEATORIO PARENTESIS_IZQ . PARENTESIS_DER PUNTOCOMA
 
-    ID              shift and go to state 84
+    PARENTESIS_DER  shift and go to state 73
 
 
 state 52
 
-    (3) code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA . procedimiento
-    (15) procedimiento -> . PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
-    (16) procedimiento -> . empty empty empty empty empty empty empty empty empty empty empty
-    (59) empty -> .
+    (40) Mover -> MOVER PARENTESIS_IZQ . paramMover PARENTESIS_DER PUNTOCOMA
+    (41) paramMover -> . AF
+    (42) paramMover -> . F
+    (43) paramMover -> . DFA
+    (44) paramMover -> . IFA
+    (45) paramMover -> . DFB
+    (46) paramMover -> . IFB
+    (47) paramMover -> . A
+    (48) paramMover -> . DAA
+    (49) paramMover -> . IAA
+    (50) paramMover -> . DAB
+    (51) paramMover -> . IAB
+    (52) paramMover -> . AA
 
-    PROC            shift and go to state 86
-    $end            reduce using rule 59 (empty -> .)
+    AF              shift and go to state 75
+    F               shift and go to state 76
+    DFA             shift and go to state 77
+    IFA             shift and go to state 78
+    DFB             shift and go to state 79
+    IFB             shift and go to state 80
+    A               shift and go to state 81
+    DAA             shift and go to state 82
+    IAA             shift and go to state 83
+    DAB             shift and go to state 84
+    IAB             shift and go to state 85
+    AA              shift and go to state 86
 
-    procedimiento                  shift and go to state 85
-    empty                          shift and go to state 87
+    paramMover                     shift and go to state 74
 
 state 53
+
+    (37) funcionAlge -> INC PARENTESIS_IZQ . ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+
+    ID              shift and go to state 87
+
+
+state 54
+
+    (38) funcionAlge -> DEC PARENTESIS_IZQ . ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+
+    ID              shift and go to state 88
+
+
+state 55
+
+    (39) funcionAlge -> INI PARENTESIS_IZQ . ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+
+    ID              shift and go to state 89
+
+
+state 56
+
+    (3) code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA . procedimiento
+    (16) procedimiento -> . PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
+    (17) procedimiento -> . empty empty empty empty empty empty empty empty empty empty empty
+    (64) empty -> .
+
+    PROC            shift and go to state 91
+    $end            reduce using rule 64 (empty -> .)
+
+    procedimiento                  shift and go to state 90
+    empty                          shift and go to state 92
+
+state 57
 
     (4) variable -> sinini PUNTOCOMA cuerpo .
 
     FIN             reduce using rule 4 (variable -> sinini PUNTOCOMA cuerpo .)
 
 
-state 54
+state 58
 
     (5) variable -> ini PUNTOCOMA cuerpo .
 
     FIN             reduce using rule 5 (variable -> ini PUNTOCOMA cuerpo .)
 
 
-state 55
+state 59
 
     (6) variable -> empty empty empty .
 
     FIN             reduce using rule 6 (variable -> empty empty empty .)
 
 
-state 56
-
-    (14) expresion -> empty empty .
-
-    FIN             reduce using rule 14 (expresion -> empty empty .)
-    LLAVE_DER       reduce using rule 14 (expresion -> empty empty .)
-    FINPROC         reduce using rule 14 (expresion -> empty empty .)
-
-
-state 57
-
-    (57) ini -> DCL ID IGUAL . NUMERO
-
-    NUMERO          shift and go to state 88
-
-
-state 58
-
-    (23) condicion1 -> ENCASO cond1Aux1 FINENCASO . PUNTOCOMA
-
-    PUNTOCOMA       shift and go to state 89
-
-
-state 59
-
-    (18) condicion2 -> ENCASO ID cond2Aux1 . FINENCASO PUNTOCOMA
-
-    FINENCASO       shift and go to state 90
-
-
 state 60
 
-    (19) cond2Aux1 -> cond2Aux2 . SINO LLAVE_IZQ expresion LLAVE_DER
+    (15) expresion -> empty empty .
 
-    SINO            shift and go to state 91
+    FIN             reduce using rule 15 (expresion -> empty empty .)
+    LLAVE_DER       reduce using rule 15 (expresion -> empty empty .)
+    FINPROC         reduce using rule 15 (expresion -> empty empty .)
 
 
 state 61
 
-    (20) cond2Aux1 -> empty . empty empty empty empty
-    (22) cond2Aux2 -> empty . empty empty empty empty empty empty empty
-    (59) empty -> .
+    (62) ini -> DCL ID IGUAL . NUMERO
 
-    FINENCASO       reduce using rule 59 (empty -> .)
-    SINO            reduce using rule 59 (empty -> .)
+    NUMERO          shift and go to state 93
 
-    empty                          shift and go to state 92
 
 state 62
 
-    (21) cond2Aux2 -> CUANDO . condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2
-    (49) condicion -> . IGUAL
-    (50) condicion -> . MAYOR
-    (51) condicion -> . MENOR
-    (52) condicion -> . DIFERENTE
-    (53) condicion -> . MAYORIGUAL
-    (54) condicion -> . MENORIGUAL
+    (24) condicion1 -> ENCASO cond1Aux1 FINENCASO . PUNTOCOMA
 
-    IGUAL           shift and go to state 94
-    MAYOR           shift and go to state 95
-    MENOR           shift and go to state 96
-    DIFERENTE       shift and go to state 97
-    MAYORIGUAL      shift and go to state 98
-    MENORIGUAL      shift and go to state 99
+    PUNTOCOMA       shift and go to state 94
 
-    condicion                      shift and go to state 93
 
 state 63
 
-    (24) cond1Aux1 -> cond1Aux2 SINO . LLAVE_IZQ expresion LLAVE_DER
+    (19) condicion2 -> ENCASO ID cond2Aux1 . FINENCASO PUNTOCOMA
 
-    LLAVE_IZQ       shift and go to state 100
+    FINENCASO       shift and go to state 95
 
 
 state 64
 
-    (25) cond1Aux1 -> empty empty . empty empty empty
-    (27) cond1Aux2 -> empty empty . empty empty empty empty empty empty empty
-    (59) empty -> .
+    (20) cond2Aux1 -> cond2Aux2 . SINO LLAVE_IZQ expresion LLAVE_DER
 
-    FINENCASO       reduce using rule 59 (empty -> .)
-    SINO            reduce using rule 59 (empty -> .)
+    SINO            shift and go to state 96
 
-    empty                          shift and go to state 101
 
 state 65
 
-    (26) cond1Aux2 -> CUANDO ID . condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2
-    (49) condicion -> . IGUAL
-    (50) condicion -> . MAYOR
-    (51) condicion -> . MENOR
-    (52) condicion -> . DIFERENTE
-    (53) condicion -> . MAYORIGUAL
-    (54) condicion -> . MENORIGUAL
+    (21) cond2Aux1 -> empty . empty empty empty empty
+    (23) cond2Aux2 -> empty . empty empty empty empty empty empty empty
+    (64) empty -> .
 
-    IGUAL           shift and go to state 94
-    MAYOR           shift and go to state 95
-    MENOR           shift and go to state 96
-    DIFERENTE       shift and go to state 97
-    MAYORIGUAL      shift and go to state 98
-    MENORIGUAL      shift and go to state 99
+    FINENCASO       reduce using rule 64 (empty -> .)
+    SINO            reduce using rule 64 (empty -> .)
 
-    condicion                      shift and go to state 102
+    empty                          shift and go to state 97
 
 state 66
 
-    (17) repita -> REPITA LLAVE_IZQ expresion . LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (22) cond2Aux2 -> CUANDO . condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2
+    (54) condicion -> . IGUAL
+    (55) condicion -> . MAYOR
+    (56) condicion -> . MENOR
+    (57) condicion -> . DIFERENTE
+    (58) condicion -> . MAYORIGUAL
+    (59) condicion -> . MENORIGUAL
 
-    LLAVE_DER       shift and go to state 103
+    IGUAL           shift and go to state 99
+    MAYOR           shift and go to state 100
+    MENOR           shift and go to state 101
+    DIFERENTE       shift and go to state 102
+    MAYORIGUAL      shift and go to state 103
+    MENORIGUAL      shift and go to state 104
 
+    condicion                      shift and go to state 98
 
 state 67
 
-    (28) hacer -> DESDE ID IGUAL . sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (55) sentencia -> . ID
-    (56) sentencia -> . NUMERO
+    (25) cond1Aux1 -> cond1Aux2 SINO . LLAVE_IZQ expresion LLAVE_DER
 
-    ID              shift and go to state 104
-    NUMERO          shift and go to state 106
+    LLAVE_IZQ       shift and go to state 105
 
-    sentencia                      shift and go to state 105
 
 state 68
 
-    (48) Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER . PUNTOCOMA
+    (26) cond1Aux1 -> empty empty . empty empty empty
+    (28) cond1Aux2 -> empty empty . empty empty empty empty empty empty empty
+    (64) empty -> .
 
-    PUNTOCOMA       shift and go to state 107
+    FINENCASO       reduce using rule 64 (empty -> .)
+    SINO            reduce using rule 64 (empty -> .)
 
+    empty                          shift and go to state 106
 
 state 69
 
-    (35) Mover -> MOVER PARENTESIS_IZQ paramMover . PARENTESIS_DER PUNTOCOMA
+    (27) cond1Aux2 -> CUANDO ID . condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2
+    (54) condicion -> . IGUAL
+    (55) condicion -> . MAYOR
+    (56) condicion -> . MENOR
+    (57) condicion -> . DIFERENTE
+    (58) condicion -> . MAYORIGUAL
+    (59) condicion -> . MENORIGUAL
 
-    PARENTESIS_DER  shift and go to state 108
+    IGUAL           shift and go to state 99
+    MAYOR           shift and go to state 100
+    MENOR           shift and go to state 101
+    DIFERENTE       shift and go to state 102
+    MAYORIGUAL      shift and go to state 103
+    MENORIGUAL      shift and go to state 104
 
+    condicion                      shift and go to state 107
 
 state 70
 
-    (36) paramMover -> AF .
+    (18) repita -> REPITA LLAVE_IZQ expresion . LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
 
-    PARENTESIS_DER  reduce using rule 36 (paramMover -> AF .)
+    LLAVE_DER       shift and go to state 108
 
 
 state 71
 
-    (37) paramMover -> F .
+    (29) hacer -> DESDE ID IGUAL . sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (60) sentencia -> . ID
+    (61) sentencia -> . NUMERO
 
-    PARENTESIS_DER  reduce using rule 37 (paramMover -> F .)
+    ID              shift and go to state 109
+    NUMERO          shift and go to state 111
 
+    sentencia                      shift and go to state 110
 
 state 72
 
-    (38) paramMover -> DFA .
+    (33) llamarProc -> LLAMAR ID PARENTESIS_IZQ . parametro PARENTESIS_DER PUNTOCOMA
+    (34) parametro -> . ID
+    (35) parametro -> . NUMERO
+    (36) parametro -> . empty
+    (64) empty -> .
 
-    PARENTESIS_DER  reduce using rule 38 (paramMover -> DFA .)
+    ID              shift and go to state 112
+    NUMERO          shift and go to state 114
+    PARENTESIS_DER  reduce using rule 64 (empty -> .)
 
+    parametro                      shift and go to state 113
+    empty                          shift and go to state 115
 
 state 73
 
-    (39) paramMover -> IFA .
+    (53) Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER . PUNTOCOMA
 
-    PARENTESIS_DER  reduce using rule 39 (paramMover -> IFA .)
+    PUNTOCOMA       shift and go to state 116
 
 
 state 74
 
-    (40) paramMover -> DFB .
+    (40) Mover -> MOVER PARENTESIS_IZQ paramMover . PARENTESIS_DER PUNTOCOMA
 
-    PARENTESIS_DER  reduce using rule 40 (paramMover -> DFB .)
+    PARENTESIS_DER  shift and go to state 117
 
 
 state 75
 
-    (41) paramMover -> IFB .
+    (41) paramMover -> AF .
 
-    PARENTESIS_DER  reduce using rule 41 (paramMover -> IFB .)
+    PARENTESIS_DER  reduce using rule 41 (paramMover -> AF .)
 
 
 state 76
 
-    (42) paramMover -> A .
+    (42) paramMover -> F .
 
-    PARENTESIS_DER  reduce using rule 42 (paramMover -> A .)
+    PARENTESIS_DER  reduce using rule 42 (paramMover -> F .)
 
 
 state 77
 
-    (43) paramMover -> DAA .
+    (43) paramMover -> DFA .
 
-    PARENTESIS_DER  reduce using rule 43 (paramMover -> DAA .)
+    PARENTESIS_DER  reduce using rule 43 (paramMover -> DFA .)
 
 
 state 78
 
-    (44) paramMover -> IAA .
+    (44) paramMover -> IFA .
 
-    PARENTESIS_DER  reduce using rule 44 (paramMover -> IAA .)
+    PARENTESIS_DER  reduce using rule 44 (paramMover -> IFA .)
 
 
 state 79
 
-    (45) paramMover -> DAB .
+    (45) paramMover -> DFB .
 
-    PARENTESIS_DER  reduce using rule 45 (paramMover -> DAB .)
+    PARENTESIS_DER  reduce using rule 45 (paramMover -> DFB .)
 
 
 state 80
 
-    (46) paramMover -> IAB .
+    (46) paramMover -> IFB .
 
-    PARENTESIS_DER  reduce using rule 46 (paramMover -> IAB .)
+    PARENTESIS_DER  reduce using rule 46 (paramMover -> IFB .)
 
 
 state 81
 
-    (47) paramMover -> AA .
+    (47) paramMover -> A .
 
-    PARENTESIS_DER  reduce using rule 47 (paramMover -> AA .)
+    PARENTESIS_DER  reduce using rule 47 (paramMover -> A .)
 
 
 state 82
 
-    (32) funcionAlge -> INC PARENTESIS_IZQ ID . COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (48) paramMover -> DAA .
 
-    COMA            shift and go to state 109
+    PARENTESIS_DER  reduce using rule 48 (paramMover -> DAA .)
 
 
 state 83
 
-    (33) funcionAlge -> DEC PARENTESIS_IZQ ID . COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (49) paramMover -> IAA .
 
-    COMA            shift and go to state 110
+    PARENTESIS_DER  reduce using rule 49 (paramMover -> IAA .)
 
 
 state 84
 
-    (34) funcionAlge -> INI PARENTESIS_IZQ ID . COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (50) paramMover -> DAB .
 
-    COMA            shift and go to state 111
+    PARENTESIS_DER  reduce using rule 50 (paramMover -> DAB .)
 
 
 state 85
+
+    (51) paramMover -> IAB .
+
+    PARENTESIS_DER  reduce using rule 51 (paramMover -> IAB .)
+
+
+state 86
+
+    (52) paramMover -> AA .
+
+    PARENTESIS_DER  reduce using rule 52 (paramMover -> AA .)
+
+
+state 87
+
+    (37) funcionAlge -> INC PARENTESIS_IZQ ID . COMA sentencia PARENTESIS_DER PUNTOCOMA
+
+    COMA            shift and go to state 118
+
+
+state 88
+
+    (38) funcionAlge -> DEC PARENTESIS_IZQ ID . COMA sentencia PARENTESIS_DER PUNTOCOMA
+
+    COMA            shift and go to state 119
+
+
+state 89
+
+    (39) funcionAlge -> INI PARENTESIS_IZQ ID . COMA sentencia PARENTESIS_DER PUNTOCOMA
+
+    COMA            shift and go to state 120
+
+
+state 90
 
     (3) code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento .
 
     $end            reduce using rule 3 (code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento .)
 
 
-state 86
-
-    (15) procedimiento -> PROC . ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
-
-    ID              shift and go to state 112
-
-
-state 87
-
-    (16) procedimiento -> empty . empty empty empty empty empty empty empty empty empty empty
-    (59) empty -> .
-
-    $end            reduce using rule 59 (empty -> .)
-
-    empty                          shift and go to state 113
-
-state 88
-
-    (57) ini -> DCL ID IGUAL NUMERO .
-
-    PUNTOCOMA       reduce using rule 57 (ini -> DCL ID IGUAL NUMERO .)
-
-
-state 89
-
-    (23) condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .
-
-    ENCASO          reduce using rule 23 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
-    REPITA          reduce using rule 23 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
-    DESDE           reduce using rule 23 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
-    ALEATORIO       reduce using rule 23 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
-    MOVER           reduce using rule 23 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
-    INC             reduce using rule 23 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
-    DEC             reduce using rule 23 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
-    INI             reduce using rule 23 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
-    FIN             reduce using rule 23 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
-    LLAVE_DER       reduce using rule 23 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
-    FINPROC         reduce using rule 23 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
-
-
-state 90
-
-    (18) condicion2 -> ENCASO ID cond2Aux1 FINENCASO . PUNTOCOMA
-
-    PUNTOCOMA       shift and go to state 114
-
-
 state 91
 
-    (19) cond2Aux1 -> cond2Aux2 SINO . LLAVE_IZQ expresion LLAVE_DER
+    (16) procedimiento -> PROC . ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
 
-    LLAVE_IZQ       shift and go to state 115
+    ID              shift and go to state 121
 
 
 state 92
 
-    (20) cond2Aux1 -> empty empty . empty empty empty
-    (22) cond2Aux2 -> empty empty . empty empty empty empty empty empty
-    (59) empty -> .
+    (17) procedimiento -> empty . empty empty empty empty empty empty empty empty empty empty
+    (64) empty -> .
 
-    FINENCASO       reduce using rule 59 (empty -> .)
-    SINO            reduce using rule 59 (empty -> .)
+    $end            reduce using rule 64 (empty -> .)
 
-    empty                          shift and go to state 116
+    empty                          shift and go to state 122
 
 state 93
 
-    (21) cond2Aux2 -> CUANDO condicion . sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2
-    (55) sentencia -> . ID
-    (56) sentencia -> . NUMERO
+    (62) ini -> DCL ID IGUAL NUMERO .
 
-    ID              shift and go to state 104
-    NUMERO          shift and go to state 106
+    PUNTOCOMA       reduce using rule 62 (ini -> DCL ID IGUAL NUMERO .)
 
-    sentencia                      shift and go to state 117
 
 state 94
 
-    (49) condicion -> IGUAL .
+    (24) condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .
 
-    ID              reduce using rule 49 (condicion -> IGUAL .)
-    NUMERO          reduce using rule 49 (condicion -> IGUAL .)
+    ENCASO          reduce using rule 24 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
+    REPITA          reduce using rule 24 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
+    DESDE           reduce using rule 24 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
+    LLAMAR          reduce using rule 24 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
+    ALEATORIO       reduce using rule 24 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
+    MOVER           reduce using rule 24 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
+    INC             reduce using rule 24 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
+    DEC             reduce using rule 24 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
+    INI             reduce using rule 24 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
+    FIN             reduce using rule 24 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
+    LLAVE_DER       reduce using rule 24 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
+    FINPROC         reduce using rule 24 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
 
 
 state 95
 
-    (50) condicion -> MAYOR .
-
-    ID              reduce using rule 50 (condicion -> MAYOR .)
-    NUMERO          reduce using rule 50 (condicion -> MAYOR .)
-
-
-state 96
-
-    (51) condicion -> MENOR .
-
-    ID              reduce using rule 51 (condicion -> MENOR .)
-    NUMERO          reduce using rule 51 (condicion -> MENOR .)
-
-
-state 97
-
-    (52) condicion -> DIFERENTE .
-
-    ID              reduce using rule 52 (condicion -> DIFERENTE .)
-    NUMERO          reduce using rule 52 (condicion -> DIFERENTE .)
-
-
-state 98
-
-    (53) condicion -> MAYORIGUAL .
-
-    ID              reduce using rule 53 (condicion -> MAYORIGUAL .)
-    NUMERO          reduce using rule 53 (condicion -> MAYORIGUAL .)
-
-
-state 99
-
-    (54) condicion -> MENORIGUAL .
-
-    ID              reduce using rule 54 (condicion -> MENORIGUAL .)
-    NUMERO          reduce using rule 54 (condicion -> MENORIGUAL .)
-
-
-state 100
-
-    (24) cond1Aux1 -> cond1Aux2 SINO LLAVE_IZQ . expresion LLAVE_DER
-    (9) expresion -> . condicion1 expresion
-    (10) expresion -> . condicion2 expresion
-    (11) expresion -> . repita expresion
-    (12) expresion -> . hacer expresion
-    (13) expresion -> . funcion expresion
-    (14) expresion -> . empty empty
-    (23) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
-    (18) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
-    (17) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-    (28) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (29) funcion -> . Aleatorio
-    (30) funcion -> . Mover
-    (31) funcion -> . funcionAlge
-    (59) empty -> .
-    (48) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-    (35) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-    (32) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (33) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (34) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-
-    ENCASO          shift and go to state 18
-    REPITA          shift and go to state 19
-    DESDE           shift and go to state 20
-    LLAVE_DER       reduce using rule 59 (empty -> .)
-    ALEATORIO       shift and go to state 24
-    MOVER           shift and go to state 25
-    INC             shift and go to state 26
-    DEC             shift and go to state 27
-    INI             shift and go to state 28
-
-    expresion                      shift and go to state 118
-    condicion1                     shift and go to state 12
-    condicion2                     shift and go to state 13
-    repita                         shift and go to state 14
-    hacer                          shift and go to state 15
-    funcion                        shift and go to state 16
-    empty                          shift and go to state 34
-    Aleatorio                      shift and go to state 21
-    Mover                          shift and go to state 22
-    funcionAlge                    shift and go to state 23
-
-state 101
-
-    (25) cond1Aux1 -> empty empty empty . empty empty
-    (27) cond1Aux2 -> empty empty empty . empty empty empty empty empty empty
-    (59) empty -> .
-
-    FINENCASO       reduce using rule 59 (empty -> .)
-    SINO            reduce using rule 59 (empty -> .)
-
-    empty                          shift and go to state 119
-
-state 102
-
-    (26) cond1Aux2 -> CUANDO ID condicion . sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2
-    (55) sentencia -> . ID
-    (56) sentencia -> . NUMERO
-
-    ID              shift and go to state 104
-    NUMERO          shift and go to state 106
-
-    sentencia                      shift and go to state 120
-
-state 103
-
-    (17) repita -> REPITA LLAVE_IZQ expresion LLAVE_DER . HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-
-    HASTAENCONTRAR  shift and go to state 121
-
-
-state 104
-
-    (55) sentencia -> ID .
-
-    HASTA           reduce using rule 55 (sentencia -> ID .)
-    ENTONS          reduce using rule 55 (sentencia -> ID .)
-    PARENTESIS_DER  reduce using rule 55 (sentencia -> ID .)
-    HAGA            reduce using rule 55 (sentencia -> ID .)
-    PUNTOCOMA       reduce using rule 55 (sentencia -> ID .)
-
-
-state 105
-
-    (28) hacer -> DESDE ID IGUAL sentencia . HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-
-    HASTA           shift and go to state 122
-
-
-state 106
-
-    (56) sentencia -> NUMERO .
-
-    HASTA           reduce using rule 56 (sentencia -> NUMERO .)
-    ENTONS          reduce using rule 56 (sentencia -> NUMERO .)
-    PARENTESIS_DER  reduce using rule 56 (sentencia -> NUMERO .)
-    HAGA            reduce using rule 56 (sentencia -> NUMERO .)
-    PUNTOCOMA       reduce using rule 56 (sentencia -> NUMERO .)
-
-
-state 107
-
-    (48) Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .
-
-    ENCASO          reduce using rule 48 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
-    REPITA          reduce using rule 48 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
-    DESDE           reduce using rule 48 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
-    ALEATORIO       reduce using rule 48 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
-    MOVER           reduce using rule 48 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
-    INC             reduce using rule 48 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
-    DEC             reduce using rule 48 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
-    INI             reduce using rule 48 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
-    FIN             reduce using rule 48 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
-    LLAVE_DER       reduce using rule 48 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
-    FINPROC         reduce using rule 48 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
-
-
-state 108
-
-    (35) Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER . PUNTOCOMA
+    (19) condicion2 -> ENCASO ID cond2Aux1 FINENCASO . PUNTOCOMA
 
     PUNTOCOMA       shift and go to state 123
 
 
-state 109
+state 96
 
-    (32) funcionAlge -> INC PARENTESIS_IZQ ID COMA . sentencia PARENTESIS_DER PUNTOCOMA
-    (55) sentencia -> . ID
-    (56) sentencia -> . NUMERO
+    (20) cond2Aux1 -> cond2Aux2 SINO . LLAVE_IZQ expresion LLAVE_DER
 
-    ID              shift and go to state 104
-    NUMERO          shift and go to state 106
+    LLAVE_IZQ       shift and go to state 124
 
-    sentencia                      shift and go to state 124
 
-state 110
+state 97
 
-    (33) funcionAlge -> DEC PARENTESIS_IZQ ID COMA . sentencia PARENTESIS_DER PUNTOCOMA
-    (55) sentencia -> . ID
-    (56) sentencia -> . NUMERO
+    (21) cond2Aux1 -> empty empty . empty empty empty
+    (23) cond2Aux2 -> empty empty . empty empty empty empty empty empty
+    (64) empty -> .
 
-    ID              shift and go to state 104
-    NUMERO          shift and go to state 106
+    FINENCASO       reduce using rule 64 (empty -> .)
+    SINO            reduce using rule 64 (empty -> .)
 
-    sentencia                      shift and go to state 125
+    empty                          shift and go to state 125
 
-state 111
+state 98
 
-    (34) funcionAlge -> INI PARENTESIS_IZQ ID COMA . sentencia PARENTESIS_DER PUNTOCOMA
-    (55) sentencia -> . ID
-    (56) sentencia -> . NUMERO
+    (22) cond2Aux2 -> CUANDO condicion . sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2
+    (60) sentencia -> . ID
+    (61) sentencia -> . NUMERO
 
-    ID              shift and go to state 104
-    NUMERO          shift and go to state 106
+    ID              shift and go to state 109
+    NUMERO          shift and go to state 111
 
     sentencia                      shift and go to state 126
 
+state 99
+
+    (54) condicion -> IGUAL .
+
+    ID              reduce using rule 54 (condicion -> IGUAL .)
+    NUMERO          reduce using rule 54 (condicion -> IGUAL .)
+
+
+state 100
+
+    (55) condicion -> MAYOR .
+
+    ID              reduce using rule 55 (condicion -> MAYOR .)
+    NUMERO          reduce using rule 55 (condicion -> MAYOR .)
+
+
+state 101
+
+    (56) condicion -> MENOR .
+
+    ID              reduce using rule 56 (condicion -> MENOR .)
+    NUMERO          reduce using rule 56 (condicion -> MENOR .)
+
+
+state 102
+
+    (57) condicion -> DIFERENTE .
+
+    ID              reduce using rule 57 (condicion -> DIFERENTE .)
+    NUMERO          reduce using rule 57 (condicion -> DIFERENTE .)
+
+
+state 103
+
+    (58) condicion -> MAYORIGUAL .
+
+    ID              reduce using rule 58 (condicion -> MAYORIGUAL .)
+    NUMERO          reduce using rule 58 (condicion -> MAYORIGUAL .)
+
+
+state 104
+
+    (59) condicion -> MENORIGUAL .
+
+    ID              reduce using rule 59 (condicion -> MENORIGUAL .)
+    NUMERO          reduce using rule 59 (condicion -> MENORIGUAL .)
+
+
+state 105
+
+    (25) cond1Aux1 -> cond1Aux2 SINO LLAVE_IZQ . expresion LLAVE_DER
+    (9) expresion -> . condicion1 expresion
+    (10) expresion -> . condicion2 expresion
+    (11) expresion -> . repita expresion
+    (12) expresion -> . hacer expresion
+    (13) expresion -> . funcion expresion
+    (14) expresion -> . llamarProc expresion
+    (15) expresion -> . empty empty
+    (24) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+    (18) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (29) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (30) funcion -> . Aleatorio
+    (31) funcion -> . Mover
+    (32) funcion -> . funcionAlge
+    (33) llamarProc -> . LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+    (64) empty -> .
+    (53) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (40) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (37) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (38) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (39) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+
+    ENCASO          shift and go to state 19
+    REPITA          shift and go to state 20
+    DESDE           shift and go to state 21
+    LLAMAR          shift and go to state 25
+    LLAVE_DER       reduce using rule 64 (empty -> .)
+    ALEATORIO       shift and go to state 26
+    MOVER           shift and go to state 27
+    INC             shift and go to state 28
+    DEC             shift and go to state 29
+    INI             shift and go to state 30
+
+    expresion                      shift and go to state 127
+    condicion1                     shift and go to state 12
+    condicion2                     shift and go to state 13
+    repita                         shift and go to state 14
+    hacer                          shift and go to state 15
+    funcion                        shift and go to state 16
+    llamarProc                     shift and go to state 17
+    empty                          shift and go to state 36
+    Aleatorio                      shift and go to state 22
+    Mover                          shift and go to state 23
+    funcionAlge                    shift and go to state 24
+
+state 106
+
+    (26) cond1Aux1 -> empty empty empty . empty empty
+    (28) cond1Aux2 -> empty empty empty . empty empty empty empty empty empty
+    (64) empty -> .
+
+    FINENCASO       reduce using rule 64 (empty -> .)
+    SINO            reduce using rule 64 (empty -> .)
+
+    empty                          shift and go to state 128
+
+state 107
+
+    (27) cond1Aux2 -> CUANDO ID condicion . sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2
+    (60) sentencia -> . ID
+    (61) sentencia -> . NUMERO
+
+    ID              shift and go to state 109
+    NUMERO          shift and go to state 111
+
+    sentencia                      shift and go to state 129
+
+state 108
+
+    (18) repita -> REPITA LLAVE_IZQ expresion LLAVE_DER . HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+
+    HASTAENCONTRAR  shift and go to state 130
+
+
+state 109
+
+    (60) sentencia -> ID .
+
+    HASTA           reduce using rule 60 (sentencia -> ID .)
+    ENTONS          reduce using rule 60 (sentencia -> ID .)
+    PARENTESIS_DER  reduce using rule 60 (sentencia -> ID .)
+    HAGA            reduce using rule 60 (sentencia -> ID .)
+    PUNTOCOMA       reduce using rule 60 (sentencia -> ID .)
+
+
+state 110
+
+    (29) hacer -> DESDE ID IGUAL sentencia . HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+
+    HASTA           shift and go to state 131
+
+
+state 111
+
+    (61) sentencia -> NUMERO .
+
+    HASTA           reduce using rule 61 (sentencia -> NUMERO .)
+    ENTONS          reduce using rule 61 (sentencia -> NUMERO .)
+    PARENTESIS_DER  reduce using rule 61 (sentencia -> NUMERO .)
+    HAGA            reduce using rule 61 (sentencia -> NUMERO .)
+    PUNTOCOMA       reduce using rule 61 (sentencia -> NUMERO .)
+
+
 state 112
 
-    (15) procedimiento -> PROC ID . PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
+    (34) parametro -> ID .
 
-    PARENTESIS_IZQ  shift and go to state 127
+    PARENTESIS_DER  reduce using rule 34 (parametro -> ID .)
 
 
 state 113
 
-    (16) procedimiento -> empty empty . empty empty empty empty empty empty empty empty empty
-    (59) empty -> .
+    (33) llamarProc -> LLAMAR ID PARENTESIS_IZQ parametro . PARENTESIS_DER PUNTOCOMA
 
-    $end            reduce using rule 59 (empty -> .)
+    PARENTESIS_DER  shift and go to state 132
 
-    empty                          shift and go to state 128
 
 state 114
 
-    (18) condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .
+    (35) parametro -> NUMERO .
 
-    ENCASO          reduce using rule 18 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
-    REPITA          reduce using rule 18 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
-    DESDE           reduce using rule 18 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
-    ALEATORIO       reduce using rule 18 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
-    MOVER           reduce using rule 18 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
-    INC             reduce using rule 18 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
-    DEC             reduce using rule 18 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
-    INI             reduce using rule 18 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
-    FIN             reduce using rule 18 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
-    LLAVE_DER       reduce using rule 18 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
-    FINPROC         reduce using rule 18 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
+    PARENTESIS_DER  reduce using rule 35 (parametro -> NUMERO .)
 
 
 state 115
 
-    (19) cond2Aux1 -> cond2Aux2 SINO LLAVE_IZQ . expresion LLAVE_DER
-    (9) expresion -> . condicion1 expresion
-    (10) expresion -> . condicion2 expresion
-    (11) expresion -> . repita expresion
-    (12) expresion -> . hacer expresion
-    (13) expresion -> . funcion expresion
-    (14) expresion -> . empty empty
-    (23) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
-    (18) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
-    (17) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-    (28) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (29) funcion -> . Aleatorio
-    (30) funcion -> . Mover
-    (31) funcion -> . funcionAlge
-    (59) empty -> .
-    (48) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-    (35) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-    (32) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (33) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (34) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (36) parametro -> empty .
 
-    ENCASO          shift and go to state 18
-    REPITA          shift and go to state 19
-    DESDE           shift and go to state 20
-    LLAVE_DER       reduce using rule 59 (empty -> .)
-    ALEATORIO       shift and go to state 24
-    MOVER           shift and go to state 25
-    INC             shift and go to state 26
-    DEC             shift and go to state 27
-    INI             shift and go to state 28
+    PARENTESIS_DER  reduce using rule 36 (parametro -> empty .)
 
-    expresion                      shift and go to state 129
-    condicion1                     shift and go to state 12
-    condicion2                     shift and go to state 13
-    repita                         shift and go to state 14
-    hacer                          shift and go to state 15
-    funcion                        shift and go to state 16
-    empty                          shift and go to state 34
-    Aleatorio                      shift and go to state 21
-    Mover                          shift and go to state 22
-    funcionAlge                    shift and go to state 23
 
 state 116
 
-    (20) cond2Aux1 -> empty empty empty . empty empty
-    (22) cond2Aux2 -> empty empty empty . empty empty empty empty empty
-    (59) empty -> .
+    (53) Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .
 
-    FINENCASO       reduce using rule 59 (empty -> .)
-    SINO            reduce using rule 59 (empty -> .)
+    ENCASO          reduce using rule 53 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
+    REPITA          reduce using rule 53 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
+    DESDE           reduce using rule 53 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
+    LLAMAR          reduce using rule 53 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
+    ALEATORIO       reduce using rule 53 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
+    MOVER           reduce using rule 53 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
+    INC             reduce using rule 53 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
+    DEC             reduce using rule 53 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
+    INI             reduce using rule 53 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
+    FIN             reduce using rule 53 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
+    LLAVE_DER       reduce using rule 53 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
+    FINPROC         reduce using rule 53 (Aleatorio -> ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA .)
 
-    empty                          shift and go to state 130
 
 state 117
 
-    (21) cond2Aux2 -> CUANDO condicion sentencia . ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2
+    (40) Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER . PUNTOCOMA
 
-    ENTONS          shift and go to state 131
+    PUNTOCOMA       shift and go to state 133
 
 
 state 118
 
-    (24) cond1Aux1 -> cond1Aux2 SINO LLAVE_IZQ expresion . LLAVE_DER
+    (37) funcionAlge -> INC PARENTESIS_IZQ ID COMA . sentencia PARENTESIS_DER PUNTOCOMA
+    (60) sentencia -> . ID
+    (61) sentencia -> . NUMERO
 
-    LLAVE_DER       shift and go to state 132
+    ID              shift and go to state 109
+    NUMERO          shift and go to state 111
 
+    sentencia                      shift and go to state 134
 
 state 119
 
-    (25) cond1Aux1 -> empty empty empty empty . empty
-    (27) cond1Aux2 -> empty empty empty empty . empty empty empty empty empty
-    (59) empty -> .
+    (38) funcionAlge -> DEC PARENTESIS_IZQ ID COMA . sentencia PARENTESIS_DER PUNTOCOMA
+    (60) sentencia -> . ID
+    (61) sentencia -> . NUMERO
 
-    FINENCASO       reduce using rule 59 (empty -> .)
-    SINO            reduce using rule 59 (empty -> .)
+    ID              shift and go to state 109
+    NUMERO          shift and go to state 111
 
-    empty                          shift and go to state 133
+    sentencia                      shift and go to state 135
 
 state 120
 
-    (26) cond1Aux2 -> CUANDO ID condicion sentencia . ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2
+    (39) funcionAlge -> INI PARENTESIS_IZQ ID COMA . sentencia PARENTESIS_DER PUNTOCOMA
+    (60) sentencia -> . ID
+    (61) sentencia -> . NUMERO
 
-    ENTONS          shift and go to state 134
+    ID              shift and go to state 109
+    NUMERO          shift and go to state 111
 
+    sentencia                      shift and go to state 136
 
 state 121
 
-    (17) repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR . ID condicion sentencia PUNTOCOMA
+    (16) procedimiento -> PROC ID . PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
 
-    ID              shift and go to state 135
+    PARENTESIS_IZQ  shift and go to state 137
 
 
 state 122
 
-    (28) hacer -> DESDE ID IGUAL sentencia HASTA . sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (55) sentencia -> . ID
-    (56) sentencia -> . NUMERO
+    (17) procedimiento -> empty empty . empty empty empty empty empty empty empty empty empty
+    (64) empty -> .
 
-    ID              shift and go to state 104
-    NUMERO          shift and go to state 106
+    $end            reduce using rule 64 (empty -> .)
 
-    sentencia                      shift and go to state 136
+    empty                          shift and go to state 138
 
 state 123
 
-    (35) Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .
+    (19) condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .
 
-    ENCASO          reduce using rule 35 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
-    REPITA          reduce using rule 35 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
-    DESDE           reduce using rule 35 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
-    ALEATORIO       reduce using rule 35 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
-    MOVER           reduce using rule 35 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
-    INC             reduce using rule 35 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
-    DEC             reduce using rule 35 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
-    INI             reduce using rule 35 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
-    FIN             reduce using rule 35 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
-    LLAVE_DER       reduce using rule 35 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
-    FINPROC         reduce using rule 35 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
+    ENCASO          reduce using rule 19 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
+    REPITA          reduce using rule 19 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
+    DESDE           reduce using rule 19 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
+    LLAMAR          reduce using rule 19 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
+    ALEATORIO       reduce using rule 19 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
+    MOVER           reduce using rule 19 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
+    INC             reduce using rule 19 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
+    DEC             reduce using rule 19 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
+    INI             reduce using rule 19 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
+    FIN             reduce using rule 19 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
+    LLAVE_DER       reduce using rule 19 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
+    FINPROC         reduce using rule 19 (condicion2 -> ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA .)
 
 
 state 124
 
-    (32) funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia . PARENTESIS_DER PUNTOCOMA
+    (20) cond2Aux1 -> cond2Aux2 SINO LLAVE_IZQ . expresion LLAVE_DER
+    (9) expresion -> . condicion1 expresion
+    (10) expresion -> . condicion2 expresion
+    (11) expresion -> . repita expresion
+    (12) expresion -> . hacer expresion
+    (13) expresion -> . funcion expresion
+    (14) expresion -> . llamarProc expresion
+    (15) expresion -> . empty empty
+    (24) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+    (18) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (29) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (30) funcion -> . Aleatorio
+    (31) funcion -> . Mover
+    (32) funcion -> . funcionAlge
+    (33) llamarProc -> . LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+    (64) empty -> .
+    (53) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (40) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (37) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (38) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (39) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
 
-    PARENTESIS_DER  shift and go to state 137
+    ENCASO          shift and go to state 19
+    REPITA          shift and go to state 20
+    DESDE           shift and go to state 21
+    LLAMAR          shift and go to state 25
+    LLAVE_DER       reduce using rule 64 (empty -> .)
+    ALEATORIO       shift and go to state 26
+    MOVER           shift and go to state 27
+    INC             shift and go to state 28
+    DEC             shift and go to state 29
+    INI             shift and go to state 30
 
+    expresion                      shift and go to state 139
+    condicion1                     shift and go to state 12
+    condicion2                     shift and go to state 13
+    repita                         shift and go to state 14
+    hacer                          shift and go to state 15
+    funcion                        shift and go to state 16
+    llamarProc                     shift and go to state 17
+    empty                          shift and go to state 36
+    Aleatorio                      shift and go to state 22
+    Mover                          shift and go to state 23
+    funcionAlge                    shift and go to state 24
 
 state 125
 
-    (33) funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia . PARENTESIS_DER PUNTOCOMA
+    (21) cond2Aux1 -> empty empty empty . empty empty
+    (23) cond2Aux2 -> empty empty empty . empty empty empty empty empty
+    (64) empty -> .
 
-    PARENTESIS_DER  shift and go to state 138
+    FINENCASO       reduce using rule 64 (empty -> .)
+    SINO            reduce using rule 64 (empty -> .)
 
+    empty                          shift and go to state 140
 
 state 126
 
-    (34) funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia . PARENTESIS_DER PUNTOCOMA
+    (22) cond2Aux2 -> CUANDO condicion sentencia . ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2
 
-    PARENTESIS_DER  shift and go to state 139
+    ENTONS          shift and go to state 141
 
 
 state 127
 
-    (15) procedimiento -> PROC ID PARENTESIS_IZQ . ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
-
-    ID              shift and go to state 140
-
-
-state 128
-
-    (16) procedimiento -> empty empty empty . empty empty empty empty empty empty empty empty
-    (59) empty -> .
-
-    $end            reduce using rule 59 (empty -> .)
-
-    empty                          shift and go to state 141
-
-state 129
-
-    (19) cond2Aux1 -> cond2Aux2 SINO LLAVE_IZQ expresion . LLAVE_DER
+    (25) cond1Aux1 -> cond1Aux2 SINO LLAVE_IZQ expresion . LLAVE_DER
 
     LLAVE_DER       shift and go to state 142
 
 
-state 130
+state 128
 
-    (20) cond2Aux1 -> empty empty empty empty . empty
-    (22) cond2Aux2 -> empty empty empty empty . empty empty empty empty
-    (59) empty -> .
+    (26) cond1Aux1 -> empty empty empty empty . empty
+    (28) cond1Aux2 -> empty empty empty empty . empty empty empty empty empty
+    (64) empty -> .
 
-    FINENCASO       reduce using rule 59 (empty -> .)
-    SINO            reduce using rule 59 (empty -> .)
+    FINENCASO       reduce using rule 64 (empty -> .)
+    SINO            reduce using rule 64 (empty -> .)
 
     empty                          shift and go to state 143
 
+state 129
+
+    (27) cond1Aux2 -> CUANDO ID condicion sentencia . ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2
+
+    ENTONS          shift and go to state 144
+
+
+state 130
+
+    (18) repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR . ID condicion sentencia PUNTOCOMA
+
+    ID              shift and go to state 145
+
+
 state 131
 
-    (21) cond2Aux2 -> CUANDO condicion sentencia ENTONS . LLAVE_IZQ expresion LLAVE_DER cond2Aux2
+    (29) hacer -> DESDE ID IGUAL sentencia HASTA . sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (60) sentencia -> . ID
+    (61) sentencia -> . NUMERO
 
-    LLAVE_IZQ       shift and go to state 144
+    ID              shift and go to state 109
+    NUMERO          shift and go to state 111
 
+    sentencia                      shift and go to state 146
 
 state 132
 
-    (24) cond1Aux1 -> cond1Aux2 SINO LLAVE_IZQ expresion LLAVE_DER .
+    (33) llamarProc -> LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER . PUNTOCOMA
 
-    FINENCASO       reduce using rule 24 (cond1Aux1 -> cond1Aux2 SINO LLAVE_IZQ expresion LLAVE_DER .)
+    PUNTOCOMA       shift and go to state 147
 
 
 state 133
 
-    (25) cond1Aux1 -> empty empty empty empty empty .
-    (27) cond1Aux2 -> empty empty empty empty empty . empty empty empty empty
-    (59) empty -> .
+    (40) Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .
 
-    FINENCASO       reduce using rule 25 (cond1Aux1 -> empty empty empty empty empty .)
-    SINO            reduce using rule 59 (empty -> .)
+    ENCASO          reduce using rule 40 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
+    REPITA          reduce using rule 40 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
+    DESDE           reduce using rule 40 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
+    LLAMAR          reduce using rule 40 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
+    ALEATORIO       reduce using rule 40 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
+    MOVER           reduce using rule 40 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
+    INC             reduce using rule 40 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
+    DEC             reduce using rule 40 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
+    INI             reduce using rule 40 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
+    FIN             reduce using rule 40 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
+    LLAVE_DER       reduce using rule 40 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
+    FINPROC         reduce using rule 40 (Mover -> MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA .)
 
-    empty                          shift and go to state 145
 
 state 134
 
-    (26) cond1Aux2 -> CUANDO ID condicion sentencia ENTONS . LLAVE_IZQ expresion LLAVE_DER cond1Aux2
+    (37) funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia . PARENTESIS_DER PUNTOCOMA
 
-    LLAVE_IZQ       shift and go to state 146
+    PARENTESIS_DER  shift and go to state 148
 
 
 state 135
 
-    (17) repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID . condicion sentencia PUNTOCOMA
-    (49) condicion -> . IGUAL
-    (50) condicion -> . MAYOR
-    (51) condicion -> . MENOR
-    (52) condicion -> . DIFERENTE
-    (53) condicion -> . MAYORIGUAL
-    (54) condicion -> . MENORIGUAL
+    (38) funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia . PARENTESIS_DER PUNTOCOMA
 
-    IGUAL           shift and go to state 94
-    MAYOR           shift and go to state 95
-    MENOR           shift and go to state 96
-    DIFERENTE       shift and go to state 97
-    MAYORIGUAL      shift and go to state 98
-    MENORIGUAL      shift and go to state 99
+    PARENTESIS_DER  shift and go to state 149
 
-    condicion                      shift and go to state 147
 
 state 136
 
-    (28) hacer -> DESDE ID IGUAL sentencia HASTA sentencia . HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (39) funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia . PARENTESIS_DER PUNTOCOMA
 
-    HAGA            shift and go to state 148
+    PARENTESIS_DER  shift and go to state 150
 
 
 state 137
 
-    (32) funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER . PUNTOCOMA
+    (16) procedimiento -> PROC ID PARENTESIS_IZQ . ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
 
-    PUNTOCOMA       shift and go to state 149
+    ID              shift and go to state 151
 
 
 state 138
 
-    (33) funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER . PUNTOCOMA
+    (17) procedimiento -> empty empty empty . empty empty empty empty empty empty empty empty
+    (64) empty -> .
 
-    PUNTOCOMA       shift and go to state 150
+    $end            reduce using rule 64 (empty -> .)
 
+    empty                          shift and go to state 152
 
 state 139
 
-    (34) funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER . PUNTOCOMA
+    (20) cond2Aux1 -> cond2Aux2 SINO LLAVE_IZQ expresion . LLAVE_DER
 
-    PUNTOCOMA       shift and go to state 151
+    LLAVE_DER       shift and go to state 153
 
 
 state 140
 
-    (15) procedimiento -> PROC ID PARENTESIS_IZQ ID . PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
+    (21) cond2Aux1 -> empty empty empty empty . empty
+    (23) cond2Aux2 -> empty empty empty empty . empty empty empty empty
+    (64) empty -> .
 
-    PARENTESIS_DER  shift and go to state 152
+    FINENCASO       reduce using rule 64 (empty -> .)
+    SINO            reduce using rule 64 (empty -> .)
 
+    empty                          shift and go to state 154
 
 state 141
 
-    (16) procedimiento -> empty empty empty empty . empty empty empty empty empty empty empty
-    (59) empty -> .
+    (22) cond2Aux2 -> CUANDO condicion sentencia ENTONS . LLAVE_IZQ expresion LLAVE_DER cond2Aux2
 
-    $end            reduce using rule 59 (empty -> .)
+    LLAVE_IZQ       shift and go to state 155
 
-    empty                          shift and go to state 153
 
 state 142
 
-    (19) cond2Aux1 -> cond2Aux2 SINO LLAVE_IZQ expresion LLAVE_DER .
+    (25) cond1Aux1 -> cond1Aux2 SINO LLAVE_IZQ expresion LLAVE_DER .
 
-    FINENCASO       reduce using rule 19 (cond2Aux1 -> cond2Aux2 SINO LLAVE_IZQ expresion LLAVE_DER .)
+    FINENCASO       reduce using rule 25 (cond1Aux1 -> cond1Aux2 SINO LLAVE_IZQ expresion LLAVE_DER .)
 
 
 state 143
 
-    (20) cond2Aux1 -> empty empty empty empty empty .
-    (22) cond2Aux2 -> empty empty empty empty empty . empty empty empty
-    (59) empty -> .
+    (26) cond1Aux1 -> empty empty empty empty empty .
+    (28) cond1Aux2 -> empty empty empty empty empty . empty empty empty empty
+    (64) empty -> .
 
-    FINENCASO       reduce using rule 20 (cond2Aux1 -> empty empty empty empty empty .)
-    SINO            reduce using rule 59 (empty -> .)
-
-    empty                          shift and go to state 154
-
-state 144
-
-    (21) cond2Aux2 -> CUANDO condicion sentencia ENTONS LLAVE_IZQ . expresion LLAVE_DER cond2Aux2
-    (9) expresion -> . condicion1 expresion
-    (10) expresion -> . condicion2 expresion
-    (11) expresion -> . repita expresion
-    (12) expresion -> . hacer expresion
-    (13) expresion -> . funcion expresion
-    (14) expresion -> . empty empty
-    (23) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
-    (18) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
-    (17) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-    (28) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (29) funcion -> . Aleatorio
-    (30) funcion -> . Mover
-    (31) funcion -> . funcionAlge
-    (59) empty -> .
-    (48) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-    (35) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-    (32) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (33) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (34) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-
-    ENCASO          shift and go to state 18
-    REPITA          shift and go to state 19
-    DESDE           shift and go to state 20
-    LLAVE_DER       reduce using rule 59 (empty -> .)
-    ALEATORIO       shift and go to state 24
-    MOVER           shift and go to state 25
-    INC             shift and go to state 26
-    DEC             shift and go to state 27
-    INI             shift and go to state 28
-
-    expresion                      shift and go to state 155
-    condicion1                     shift and go to state 12
-    condicion2                     shift and go to state 13
-    repita                         shift and go to state 14
-    hacer                          shift and go to state 15
-    funcion                        shift and go to state 16
-    empty                          shift and go to state 34
-    Aleatorio                      shift and go to state 21
-    Mover                          shift and go to state 22
-    funcionAlge                    shift and go to state 23
-
-state 145
-
-    (27) cond1Aux2 -> empty empty empty empty empty empty . empty empty empty
-    (59) empty -> .
-
-    SINO            reduce using rule 59 (empty -> .)
+    FINENCASO       reduce using rule 26 (cond1Aux1 -> empty empty empty empty empty .)
+    SINO            reduce using rule 64 (empty -> .)
 
     empty                          shift and go to state 156
 
+state 144
+
+    (27) cond1Aux2 -> CUANDO ID condicion sentencia ENTONS . LLAVE_IZQ expresion LLAVE_DER cond1Aux2
+
+    LLAVE_IZQ       shift and go to state 157
+
+
+state 145
+
+    (18) repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID . condicion sentencia PUNTOCOMA
+    (54) condicion -> . IGUAL
+    (55) condicion -> . MAYOR
+    (56) condicion -> . MENOR
+    (57) condicion -> . DIFERENTE
+    (58) condicion -> . MAYORIGUAL
+    (59) condicion -> . MENORIGUAL
+
+    IGUAL           shift and go to state 99
+    MAYOR           shift and go to state 100
+    MENOR           shift and go to state 101
+    DIFERENTE       shift and go to state 102
+    MAYORIGUAL      shift and go to state 103
+    MENORIGUAL      shift and go to state 104
+
+    condicion                      shift and go to state 158
+
 state 146
 
-    (26) cond1Aux2 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ . expresion LLAVE_DER cond1Aux2
-    (9) expresion -> . condicion1 expresion
-    (10) expresion -> . condicion2 expresion
-    (11) expresion -> . repita expresion
-    (12) expresion -> . hacer expresion
-    (13) expresion -> . funcion expresion
-    (14) expresion -> . empty empty
-    (23) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
-    (18) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
-    (17) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-    (28) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (29) funcion -> . Aleatorio
-    (30) funcion -> . Mover
-    (31) funcion -> . funcionAlge
-    (59) empty -> .
-    (48) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-    (35) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-    (32) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (33) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (34) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (29) hacer -> DESDE ID IGUAL sentencia HASTA sentencia . HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
 
-    ENCASO          shift and go to state 18
-    REPITA          shift and go to state 19
-    DESDE           shift and go to state 20
-    LLAVE_DER       reduce using rule 59 (empty -> .)
-    ALEATORIO       shift and go to state 24
-    MOVER           shift and go to state 25
-    INC             shift and go to state 26
-    DEC             shift and go to state 27
-    INI             shift and go to state 28
+    HAGA            shift and go to state 159
 
-    expresion                      shift and go to state 157
-    condicion1                     shift and go to state 12
-    condicion2                     shift and go to state 13
-    repita                         shift and go to state 14
-    hacer                          shift and go to state 15
-    funcion                        shift and go to state 16
-    empty                          shift and go to state 34
-    Aleatorio                      shift and go to state 21
-    Mover                          shift and go to state 22
-    funcionAlge                    shift and go to state 23
 
 state 147
 
-    (17) repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion . sentencia PUNTOCOMA
-    (55) sentencia -> . ID
-    (56) sentencia -> . NUMERO
+    (33) llamarProc -> LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA .
 
-    ID              shift and go to state 104
-    NUMERO          shift and go to state 106
+    ENCASO          reduce using rule 33 (llamarProc -> LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA .)
+    REPITA          reduce using rule 33 (llamarProc -> LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA .)
+    DESDE           reduce using rule 33 (llamarProc -> LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA .)
+    LLAMAR          reduce using rule 33 (llamarProc -> LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA .)
+    ALEATORIO       reduce using rule 33 (llamarProc -> LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA .)
+    MOVER           reduce using rule 33 (llamarProc -> LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA .)
+    INC             reduce using rule 33 (llamarProc -> LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA .)
+    DEC             reduce using rule 33 (llamarProc -> LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA .)
+    INI             reduce using rule 33 (llamarProc -> LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA .)
+    FIN             reduce using rule 33 (llamarProc -> LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA .)
+    LLAVE_DER       reduce using rule 33 (llamarProc -> LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA .)
+    FINPROC         reduce using rule 33 (llamarProc -> LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA .)
 
-    sentencia                      shift and go to state 158
 
 state 148
 
-    (28) hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA . LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (37) funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER . PUNTOCOMA
 
-    LLAVE_IZQ       shift and go to state 159
+    PUNTOCOMA       shift and go to state 160
 
 
 state 149
 
-    (32) funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .
+    (38) funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER . PUNTOCOMA
 
-    ENCASO          reduce using rule 32 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    REPITA          reduce using rule 32 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    DESDE           reduce using rule 32 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    ALEATORIO       reduce using rule 32 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    MOVER           reduce using rule 32 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    INC             reduce using rule 32 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    DEC             reduce using rule 32 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    INI             reduce using rule 32 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    FIN             reduce using rule 32 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    LLAVE_DER       reduce using rule 32 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    FINPROC         reduce using rule 32 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    PUNTOCOMA       shift and go to state 161
 
 
 state 150
 
-    (33) funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .
+    (39) funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER . PUNTOCOMA
 
-    ENCASO          reduce using rule 33 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    REPITA          reduce using rule 33 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    DESDE           reduce using rule 33 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    ALEATORIO       reduce using rule 33 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    MOVER           reduce using rule 33 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    INC             reduce using rule 33 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    DEC             reduce using rule 33 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    INI             reduce using rule 33 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    FIN             reduce using rule 33 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    LLAVE_DER       reduce using rule 33 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    FINPROC         reduce using rule 33 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    PUNTOCOMA       shift and go to state 162
 
 
 state 151
 
-    (34) funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .
+    (16) procedimiento -> PROC ID PARENTESIS_IZQ ID . PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
 
-    ENCASO          reduce using rule 34 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    REPITA          reduce using rule 34 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    DESDE           reduce using rule 34 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    ALEATORIO       reduce using rule 34 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    MOVER           reduce using rule 34 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    INC             reduce using rule 34 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    DEC             reduce using rule 34 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    INI             reduce using rule 34 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    FIN             reduce using rule 34 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    LLAVE_DER       reduce using rule 34 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
-    FINPROC         reduce using rule 34 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    PARENTESIS_DER  shift and go to state 163
 
 
 state 152
 
-    (15) procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER . INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
+    (17) procedimiento -> empty empty empty empty . empty empty empty empty empty empty empty
+    (64) empty -> .
 
-    INICIOPROC      shift and go to state 160
-
-
-state 153
-
-    (16) procedimiento -> empty empty empty empty empty . empty empty empty empty empty empty
-    (59) empty -> .
-
-    $end            reduce using rule 59 (empty -> .)
-
-    empty                          shift and go to state 161
-
-state 154
-
-    (22) cond2Aux2 -> empty empty empty empty empty empty . empty empty
-    (59) empty -> .
-
-    SINO            reduce using rule 59 (empty -> .)
-
-    empty                          shift and go to state 162
-
-state 155
-
-    (21) cond2Aux2 -> CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion . LLAVE_DER cond2Aux2
-
-    LLAVE_DER       shift and go to state 163
-
-
-state 156
-
-    (27) cond1Aux2 -> empty empty empty empty empty empty empty . empty empty
-    (59) empty -> .
-
-    SINO            reduce using rule 59 (empty -> .)
+    $end            reduce using rule 64 (empty -> .)
 
     empty                          shift and go to state 164
 
-state 157
+state 153
 
-    (26) cond1Aux2 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion . LLAVE_DER cond1Aux2
+    (20) cond2Aux1 -> cond2Aux2 SINO LLAVE_IZQ expresion LLAVE_DER .
 
-    LLAVE_DER       shift and go to state 165
-
-
-state 158
-
-    (17) repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia . PUNTOCOMA
-
-    PUNTOCOMA       shift and go to state 166
+    FINENCASO       reduce using rule 20 (cond2Aux1 -> cond2Aux2 SINO LLAVE_IZQ expresion LLAVE_DER .)
 
 
-state 159
+state 154
 
-    (28) hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ . expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (21) cond2Aux1 -> empty empty empty empty empty .
+    (23) cond2Aux2 -> empty empty empty empty empty . empty empty empty
+    (64) empty -> .
+
+    FINENCASO       reduce using rule 21 (cond2Aux1 -> empty empty empty empty empty .)
+    SINO            reduce using rule 64 (empty -> .)
+
+    empty                          shift and go to state 165
+
+state 155
+
+    (22) cond2Aux2 -> CUANDO condicion sentencia ENTONS LLAVE_IZQ . expresion LLAVE_DER cond2Aux2
     (9) expresion -> . condicion1 expresion
     (10) expresion -> . condicion2 expresion
     (11) expresion -> . repita expresion
     (12) expresion -> . hacer expresion
     (13) expresion -> . funcion expresion
-    (14) expresion -> . empty empty
-    (23) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
-    (18) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
-    (17) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-    (28) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (29) funcion -> . Aleatorio
-    (30) funcion -> . Mover
-    (31) funcion -> . funcionAlge
-    (59) empty -> .
-    (48) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-    (35) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-    (32) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (33) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (34) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (14) expresion -> . llamarProc expresion
+    (15) expresion -> . empty empty
+    (24) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+    (18) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (29) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (30) funcion -> . Aleatorio
+    (31) funcion -> . Mover
+    (32) funcion -> . funcionAlge
+    (33) llamarProc -> . LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+    (64) empty -> .
+    (53) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (40) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (37) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (38) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (39) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
 
-    ENCASO          shift and go to state 18
-    REPITA          shift and go to state 19
-    DESDE           shift and go to state 20
-    LLAVE_DER       reduce using rule 59 (empty -> .)
-    ALEATORIO       shift and go to state 24
-    MOVER           shift and go to state 25
-    INC             shift and go to state 26
-    DEC             shift and go to state 27
-    INI             shift and go to state 28
+    ENCASO          shift and go to state 19
+    REPITA          shift and go to state 20
+    DESDE           shift and go to state 21
+    LLAMAR          shift and go to state 25
+    LLAVE_DER       reduce using rule 64 (empty -> .)
+    ALEATORIO       shift and go to state 26
+    MOVER           shift and go to state 27
+    INC             shift and go to state 28
+    DEC             shift and go to state 29
+    INI             shift and go to state 30
 
-    expresion                      shift and go to state 167
+    expresion                      shift and go to state 166
     condicion1                     shift and go to state 12
     condicion2                     shift and go to state 13
     repita                         shift and go to state 14
     hacer                          shift and go to state 15
     funcion                        shift and go to state 16
-    empty                          shift and go to state 34
-    Aleatorio                      shift and go to state 21
-    Mover                          shift and go to state 22
-    funcionAlge                    shift and go to state 23
+    llamarProc                     shift and go to state 17
+    empty                          shift and go to state 36
+    Aleatorio                      shift and go to state 22
+    Mover                          shift and go to state 23
+    funcionAlge                    shift and go to state 24
+
+state 156
+
+    (28) cond1Aux2 -> empty empty empty empty empty empty . empty empty empty
+    (64) empty -> .
+
+    SINO            reduce using rule 64 (empty -> .)
+
+    empty                          shift and go to state 167
+
+state 157
+
+    (27) cond1Aux2 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ . expresion LLAVE_DER cond1Aux2
+    (9) expresion -> . condicion1 expresion
+    (10) expresion -> . condicion2 expresion
+    (11) expresion -> . repita expresion
+    (12) expresion -> . hacer expresion
+    (13) expresion -> . funcion expresion
+    (14) expresion -> . llamarProc expresion
+    (15) expresion -> . empty empty
+    (24) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+    (18) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (29) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (30) funcion -> . Aleatorio
+    (31) funcion -> . Mover
+    (32) funcion -> . funcionAlge
+    (33) llamarProc -> . LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+    (64) empty -> .
+    (53) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (40) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (37) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (38) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (39) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+
+    ENCASO          shift and go to state 19
+    REPITA          shift and go to state 20
+    DESDE           shift and go to state 21
+    LLAMAR          shift and go to state 25
+    LLAVE_DER       reduce using rule 64 (empty -> .)
+    ALEATORIO       shift and go to state 26
+    MOVER           shift and go to state 27
+    INC             shift and go to state 28
+    DEC             shift and go to state 29
+    INI             shift and go to state 30
+
+    expresion                      shift and go to state 168
+    condicion1                     shift and go to state 12
+    condicion2                     shift and go to state 13
+    repita                         shift and go to state 14
+    hacer                          shift and go to state 15
+    funcion                        shift and go to state 16
+    llamarProc                     shift and go to state 17
+    empty                          shift and go to state 36
+    Aleatorio                      shift and go to state 22
+    Mover                          shift and go to state 23
+    funcionAlge                    shift and go to state 24
+
+state 158
+
+    (18) repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion . sentencia PUNTOCOMA
+    (60) sentencia -> . ID
+    (61) sentencia -> . NUMERO
+
+    ID              shift and go to state 109
+    NUMERO          shift and go to state 111
+
+    sentencia                      shift and go to state 169
+
+state 159
+
+    (29) hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA . LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+
+    LLAVE_IZQ       shift and go to state 170
+
 
 state 160
 
-    (15) procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC . DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
+    (37) funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .
 
-    DOSPUNTOS       shift and go to state 168
+    ENCASO          reduce using rule 37 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    REPITA          reduce using rule 37 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    DESDE           reduce using rule 37 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    LLAMAR          reduce using rule 37 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    ALEATORIO       reduce using rule 37 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    MOVER           reduce using rule 37 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    INC             reduce using rule 37 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    DEC             reduce using rule 37 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    INI             reduce using rule 37 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    FIN             reduce using rule 37 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    LLAVE_DER       reduce using rule 37 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    FINPROC         reduce using rule 37 (funcionAlge -> INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
 
 
 state 161
 
-    (16) procedimiento -> empty empty empty empty empty empty . empty empty empty empty empty
-    (59) empty -> .
+    (38) funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .
 
-    $end            reduce using rule 59 (empty -> .)
+    ENCASO          reduce using rule 38 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    REPITA          reduce using rule 38 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    DESDE           reduce using rule 38 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    LLAMAR          reduce using rule 38 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    ALEATORIO       reduce using rule 38 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    MOVER           reduce using rule 38 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    INC             reduce using rule 38 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    DEC             reduce using rule 38 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    INI             reduce using rule 38 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    FIN             reduce using rule 38 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    LLAVE_DER       reduce using rule 38 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    FINPROC         reduce using rule 38 (funcionAlge -> DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
 
-    empty                          shift and go to state 169
 
 state 162
 
-    (22) cond2Aux2 -> empty empty empty empty empty empty empty . empty
-    (59) empty -> .
+    (39) funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .
 
-    SINO            reduce using rule 59 (empty -> .)
+    ENCASO          reduce using rule 39 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    REPITA          reduce using rule 39 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    DESDE           reduce using rule 39 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    LLAMAR          reduce using rule 39 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    ALEATORIO       reduce using rule 39 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    MOVER           reduce using rule 39 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    INC             reduce using rule 39 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    DEC             reduce using rule 39 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    INI             reduce using rule 39 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    FIN             reduce using rule 39 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    LLAVE_DER       reduce using rule 39 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
+    FINPROC         reduce using rule 39 (funcionAlge -> INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA .)
 
-    empty                          shift and go to state 170
 
 state 163
 
-    (21) cond2Aux2 -> CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER . cond2Aux2
-    (21) cond2Aux2 -> . CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2
-    (22) cond2Aux2 -> . empty empty empty empty empty empty empty empty
-    (59) empty -> .
+    (16) procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER . INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
 
-    CUANDO          shift and go to state 62
-    SINO            reduce using rule 59 (empty -> .)
+    INICIOPROC      shift and go to state 171
 
-    cond2Aux2                      shift and go to state 171
-    empty                          shift and go to state 172
 
 state 164
 
-    (27) cond1Aux2 -> empty empty empty empty empty empty empty empty . empty
-    (59) empty -> .
+    (17) procedimiento -> empty empty empty empty empty . empty empty empty empty empty empty
+    (64) empty -> .
 
-    SINO            reduce using rule 59 (empty -> .)
+    $end            reduce using rule 64 (empty -> .)
 
-    empty                          shift and go to state 173
+    empty                          shift and go to state 172
 
 state 165
 
-    (26) cond1Aux2 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER . cond1Aux2
-    (26) cond1Aux2 -> . CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2
-    (27) cond1Aux2 -> . empty empty empty empty empty empty empty empty empty
-    (59) empty -> .
+    (23) cond2Aux2 -> empty empty empty empty empty empty . empty empty
+    (64) empty -> .
 
-    CUANDO          shift and go to state 44
-    SINO            reduce using rule 59 (empty -> .)
+    SINO            reduce using rule 64 (empty -> .)
 
-    cond1Aux2                      shift and go to state 174
-    empty                          shift and go to state 175
+    empty                          shift and go to state 173
 
 state 166
 
-    (17) repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .
+    (22) cond2Aux2 -> CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion . LLAVE_DER cond2Aux2
 
-    ENCASO          reduce using rule 17 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
-    REPITA          reduce using rule 17 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
-    DESDE           reduce using rule 17 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
-    ALEATORIO       reduce using rule 17 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
-    MOVER           reduce using rule 17 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
-    INC             reduce using rule 17 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
-    DEC             reduce using rule 17 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
-    INI             reduce using rule 17 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
-    FIN             reduce using rule 17 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
-    LLAVE_DER       reduce using rule 17 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
-    FINPROC         reduce using rule 17 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
+    LLAVE_DER       shift and go to state 174
 
 
 state 167
 
-    (28) hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion . LLAVE_DER FINDESDE PUNTOCOMA
+    (28) cond1Aux2 -> empty empty empty empty empty empty empty . empty empty
+    (64) empty -> .
+
+    SINO            reduce using rule 64 (empty -> .)
+
+    empty                          shift and go to state 175
+
+state 168
+
+    (27) cond1Aux2 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion . LLAVE_DER cond1Aux2
 
     LLAVE_DER       shift and go to state 176
 
 
-state 168
+state 169
 
-    (15) procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS . expresion FINPROC PUNTOCOMA procedimiento
+    (18) repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia . PUNTOCOMA
+
+    PUNTOCOMA       shift and go to state 177
+
+
+state 170
+
+    (29) hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ . expresion LLAVE_DER FINDESDE PUNTOCOMA
     (9) expresion -> . condicion1 expresion
     (10) expresion -> . condicion2 expresion
     (11) expresion -> . repita expresion
     (12) expresion -> . hacer expresion
     (13) expresion -> . funcion expresion
-    (14) expresion -> . empty empty
-    (23) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
-    (18) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
-    (17) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-    (28) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-    (29) funcion -> . Aleatorio
-    (30) funcion -> . Mover
-    (31) funcion -> . funcionAlge
-    (59) empty -> .
-    (48) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-    (35) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-    (32) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (33) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-    (34) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (14) expresion -> . llamarProc expresion
+    (15) expresion -> . empty empty
+    (24) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+    (18) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (29) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (30) funcion -> . Aleatorio
+    (31) funcion -> . Mover
+    (32) funcion -> . funcionAlge
+    (33) llamarProc -> . LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+    (64) empty -> .
+    (53) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (40) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (37) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (38) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (39) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
 
-    ENCASO          shift and go to state 18
-    REPITA          shift and go to state 19
-    DESDE           shift and go to state 20
-    FINPROC         reduce using rule 59 (empty -> .)
-    ALEATORIO       shift and go to state 24
-    MOVER           shift and go to state 25
-    INC             shift and go to state 26
-    DEC             shift and go to state 27
-    INI             shift and go to state 28
+    ENCASO          shift and go to state 19
+    REPITA          shift and go to state 20
+    DESDE           shift and go to state 21
+    LLAMAR          shift and go to state 25
+    LLAVE_DER       reduce using rule 64 (empty -> .)
+    ALEATORIO       shift and go to state 26
+    MOVER           shift and go to state 27
+    INC             shift and go to state 28
+    DEC             shift and go to state 29
+    INI             shift and go to state 30
 
-    expresion                      shift and go to state 177
+    expresion                      shift and go to state 178
     condicion1                     shift and go to state 12
     condicion2                     shift and go to state 13
     repita                         shift and go to state 14
     hacer                          shift and go to state 15
     funcion                        shift and go to state 16
-    empty                          shift and go to state 34
-    Aleatorio                      shift and go to state 21
-    Mover                          shift and go to state 22
-    funcionAlge                    shift and go to state 23
-
-state 169
-
-    (16) procedimiento -> empty empty empty empty empty empty empty . empty empty empty empty
-    (59) empty -> .
-
-    $end            reduce using rule 59 (empty -> .)
-
-    empty                          shift and go to state 178
-
-state 170
-
-    (22) cond2Aux2 -> empty empty empty empty empty empty empty empty .
-
-    SINO            reduce using rule 22 (cond2Aux2 -> empty empty empty empty empty empty empty empty .)
-
+    llamarProc                     shift and go to state 17
+    empty                          shift and go to state 36
+    Aleatorio                      shift and go to state 22
+    Mover                          shift and go to state 23
+    funcionAlge                    shift and go to state 24
 
 state 171
 
-    (21) cond2Aux2 -> CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2 .
+    (16) procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC . DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
 
-    SINO            reduce using rule 21 (cond2Aux2 -> CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2 .)
+    DOSPUNTOS       shift and go to state 179
 
 
 state 172
 
-    (22) cond2Aux2 -> empty . empty empty empty empty empty empty empty
-    (59) empty -> .
+    (17) procedimiento -> empty empty empty empty empty empty . empty empty empty empty empty
+    (64) empty -> .
 
-    SINO            reduce using rule 59 (empty -> .)
-
-    empty                          shift and go to state 179
-
-state 173
-
-    (27) cond1Aux2 -> empty empty empty empty empty empty empty empty empty .
-
-    SINO            reduce using rule 27 (cond1Aux2 -> empty empty empty empty empty empty empty empty empty .)
-
-
-state 174
-
-    (26) cond1Aux2 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2 .
-
-    SINO            reduce using rule 26 (cond1Aux2 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2 .)
-
-
-state 175
-
-    (27) cond1Aux2 -> empty . empty empty empty empty empty empty empty empty
-    (59) empty -> .
-
-    SINO            reduce using rule 59 (empty -> .)
+    $end            reduce using rule 64 (empty -> .)
 
     empty                          shift and go to state 180
 
+state 173
+
+    (23) cond2Aux2 -> empty empty empty empty empty empty empty . empty
+    (64) empty -> .
+
+    SINO            reduce using rule 64 (empty -> .)
+
+    empty                          shift and go to state 181
+
+state 174
+
+    (22) cond2Aux2 -> CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER . cond2Aux2
+    (22) cond2Aux2 -> . CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2
+    (23) cond2Aux2 -> . empty empty empty empty empty empty empty empty
+    (64) empty -> .
+
+    CUANDO          shift and go to state 66
+    SINO            reduce using rule 64 (empty -> .)
+
+    cond2Aux2                      shift and go to state 182
+    empty                          shift and go to state 183
+
+state 175
+
+    (28) cond1Aux2 -> empty empty empty empty empty empty empty empty . empty
+    (64) empty -> .
+
+    SINO            reduce using rule 64 (empty -> .)
+
+    empty                          shift and go to state 184
+
 state 176
 
-    (28) hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER . FINDESDE PUNTOCOMA
+    (27) cond1Aux2 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER . cond1Aux2
+    (27) cond1Aux2 -> . CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2
+    (28) cond1Aux2 -> . empty empty empty empty empty empty empty empty empty
+    (64) empty -> .
 
-    FINDESDE        shift and go to state 181
+    CUANDO          shift and go to state 47
+    SINO            reduce using rule 64 (empty -> .)
 
+    cond1Aux2                      shift and go to state 185
+    empty                          shift and go to state 186
 
 state 177
 
-    (15) procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion . FINPROC PUNTOCOMA procedimiento
+    (18) repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .
 
-    FINPROC         shift and go to state 182
+    ENCASO          reduce using rule 18 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
+    REPITA          reduce using rule 18 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
+    DESDE           reduce using rule 18 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
+    LLAMAR          reduce using rule 18 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
+    ALEATORIO       reduce using rule 18 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
+    MOVER           reduce using rule 18 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
+    INC             reduce using rule 18 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
+    DEC             reduce using rule 18 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
+    INI             reduce using rule 18 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
+    FIN             reduce using rule 18 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
+    LLAVE_DER       reduce using rule 18 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
+    FINPROC         reduce using rule 18 (repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA .)
 
 
 state 178
 
-    (16) procedimiento -> empty empty empty empty empty empty empty empty . empty empty empty
-    (59) empty -> .
+    (29) hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion . LLAVE_DER FINDESDE PUNTOCOMA
 
-    $end            reduce using rule 59 (empty -> .)
+    LLAVE_DER       shift and go to state 187
 
-    empty                          shift and go to state 183
 
 state 179
 
-    (22) cond2Aux2 -> empty empty . empty empty empty empty empty empty
-    (59) empty -> .
+    (16) procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS . expresion FINPROC PUNTOCOMA procedimiento
+    (9) expresion -> . condicion1 expresion
+    (10) expresion -> . condicion2 expresion
+    (11) expresion -> . repita expresion
+    (12) expresion -> . hacer expresion
+    (13) expresion -> . funcion expresion
+    (14) expresion -> . llamarProc expresion
+    (15) expresion -> . empty empty
+    (24) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (19) condicion2 -> . ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
+    (18) repita -> . REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+    (29) hacer -> . DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
+    (30) funcion -> . Aleatorio
+    (31) funcion -> . Mover
+    (32) funcion -> . funcionAlge
+    (33) llamarProc -> . LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
+    (64) empty -> .
+    (53) Aleatorio -> . ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
+    (40) Mover -> . MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
+    (37) funcionAlge -> . INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (38) funcionAlge -> . DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
+    (39) funcionAlge -> . INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
 
-    SINO            reduce using rule 59 (empty -> .)
+    ENCASO          shift and go to state 19
+    REPITA          shift and go to state 20
+    DESDE           shift and go to state 21
+    LLAMAR          shift and go to state 25
+    FINPROC         reduce using rule 64 (empty -> .)
+    ALEATORIO       shift and go to state 26
+    MOVER           shift and go to state 27
+    INC             shift and go to state 28
+    DEC             shift and go to state 29
+    INI             shift and go to state 30
 
-    empty                          shift and go to state 184
+    expresion                      shift and go to state 188
+    condicion1                     shift and go to state 12
+    condicion2                     shift and go to state 13
+    repita                         shift and go to state 14
+    hacer                          shift and go to state 15
+    funcion                        shift and go to state 16
+    llamarProc                     shift and go to state 17
+    empty                          shift and go to state 36
+    Aleatorio                      shift and go to state 22
+    Mover                          shift and go to state 23
+    funcionAlge                    shift and go to state 24
 
 state 180
 
-    (27) cond1Aux2 -> empty empty . empty empty empty empty empty empty empty
-    (59) empty -> .
+    (17) procedimiento -> empty empty empty empty empty empty empty . empty empty empty empty
+    (64) empty -> .
 
-    SINO            reduce using rule 59 (empty -> .)
+    $end            reduce using rule 64 (empty -> .)
 
-    empty                          shift and go to state 185
+    empty                          shift and go to state 189
 
 state 181
 
-    (28) hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE . PUNTOCOMA
+    (23) cond2Aux2 -> empty empty empty empty empty empty empty empty .
 
-    PUNTOCOMA       shift and go to state 186
+    SINO            reduce using rule 23 (cond2Aux2 -> empty empty empty empty empty empty empty empty .)
 
 
 state 182
 
-    (15) procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC . PUNTOCOMA procedimiento
+    (22) cond2Aux2 -> CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2 .
 
-    PUNTOCOMA       shift and go to state 187
+    SINO            reduce using rule 22 (cond2Aux2 -> CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2 .)
 
 
 state 183
 
-    (16) procedimiento -> empty empty empty empty empty empty empty empty empty . empty empty
-    (59) empty -> .
+    (23) cond2Aux2 -> empty . empty empty empty empty empty empty empty
+    (64) empty -> .
 
-    $end            reduce using rule 59 (empty -> .)
-
-    empty                          shift and go to state 188
-
-state 184
-
-    (22) cond2Aux2 -> empty empty empty . empty empty empty empty empty
-    (59) empty -> .
-
-    SINO            reduce using rule 59 (empty -> .)
-
-    empty                          shift and go to state 189
-
-state 185
-
-    (27) cond1Aux2 -> empty empty empty . empty empty empty empty empty empty
-    (59) empty -> .
-
-    SINO            reduce using rule 59 (empty -> .)
+    SINO            reduce using rule 64 (empty -> .)
 
     empty                          shift and go to state 190
 
+state 184
+
+    (28) cond1Aux2 -> empty empty empty empty empty empty empty empty empty .
+
+    SINO            reduce using rule 28 (cond1Aux2 -> empty empty empty empty empty empty empty empty empty .)
+
+
+state 185
+
+    (27) cond1Aux2 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2 .
+
+    SINO            reduce using rule 27 (cond1Aux2 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2 .)
+
+
 state 186
 
-    (28) hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .
+    (28) cond1Aux2 -> empty . empty empty empty empty empty empty empty empty
+    (64) empty -> .
 
-    ENCASO          reduce using rule 28 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
-    REPITA          reduce using rule 28 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
-    DESDE           reduce using rule 28 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
-    ALEATORIO       reduce using rule 28 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
-    MOVER           reduce using rule 28 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
-    INC             reduce using rule 28 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
-    DEC             reduce using rule 28 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
-    INI             reduce using rule 28 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
-    FIN             reduce using rule 28 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
-    LLAVE_DER       reduce using rule 28 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
-    FINPROC         reduce using rule 28 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
+    SINO            reduce using rule 64 (empty -> .)
 
+    empty                          shift and go to state 191
 
 state 187
 
-    (15) procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA . procedimiento
-    (15) procedimiento -> . PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
-    (16) procedimiento -> . empty empty empty empty empty empty empty empty empty empty empty
-    (59) empty -> .
+    (29) hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER . FINDESDE PUNTOCOMA
 
-    PROC            shift and go to state 86
-    $end            reduce using rule 59 (empty -> .)
+    FINDESDE        shift and go to state 192
 
-    procedimiento                  shift and go to state 191
-    empty                          shift and go to state 87
 
 state 188
 
-    (16) procedimiento -> empty empty empty empty empty empty empty empty empty empty . empty
-    (59) empty -> .
+    (16) procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion . FINPROC PUNTOCOMA procedimiento
 
-    $end            reduce using rule 59 (empty -> .)
+    FINPROC         shift and go to state 193
 
-    empty                          shift and go to state 192
 
 state 189
 
-    (22) cond2Aux2 -> empty empty empty empty . empty empty empty empty
-    (59) empty -> .
+    (17) procedimiento -> empty empty empty empty empty empty empty empty . empty empty empty
+    (64) empty -> .
 
-    SINO            reduce using rule 59 (empty -> .)
-
-    empty                          shift and go to state 193
-
-state 190
-
-    (27) cond1Aux2 -> empty empty empty empty . empty empty empty empty empty
-    (59) empty -> .
-
-    SINO            reduce using rule 59 (empty -> .)
+    $end            reduce using rule 64 (empty -> .)
 
     empty                          shift and go to state 194
 
+state 190
+
+    (23) cond2Aux2 -> empty empty . empty empty empty empty empty empty
+    (64) empty -> .
+
+    SINO            reduce using rule 64 (empty -> .)
+
+    empty                          shift and go to state 195
+
 state 191
 
-    (15) procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento .
+    (28) cond1Aux2 -> empty empty . empty empty empty empty empty empty empty
+    (64) empty -> .
 
-    $end            reduce using rule 15 (procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento .)
+    SINO            reduce using rule 64 (empty -> .)
 
+    empty                          shift and go to state 196
 
 state 192
 
-    (16) procedimiento -> empty empty empty empty empty empty empty empty empty empty empty .
+    (29) hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE . PUNTOCOMA
 
-    $end            reduce using rule 16 (procedimiento -> empty empty empty empty empty empty empty empty empty empty empty .)
+    PUNTOCOMA       shift and go to state 197
 
 
 state 193
 
-    (22) cond2Aux2 -> empty empty empty empty empty . empty empty empty
-    (59) empty -> .
+    (16) procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC . PUNTOCOMA procedimiento
 
-    SINO            reduce using rule 59 (empty -> .)
+    PUNTOCOMA       shift and go to state 198
 
-    empty                          shift and go to state 154
 
 state 194
 
-    (27) cond1Aux2 -> empty empty empty empty empty . empty empty empty empty
-    (59) empty -> .
+    (17) procedimiento -> empty empty empty empty empty empty empty empty empty . empty empty
+    (64) empty -> .
 
-    SINO            reduce using rule 59 (empty -> .)
+    $end            reduce using rule 64 (empty -> .)
 
-    empty                          shift and go to state 145
+    empty                          shift and go to state 199
+
+state 195
+
+    (23) cond2Aux2 -> empty empty empty . empty empty empty empty empty
+    (64) empty -> .
+
+    SINO            reduce using rule 64 (empty -> .)
+
+    empty                          shift and go to state 200
+
+state 196
+
+    (28) cond1Aux2 -> empty empty empty . empty empty empty empty empty empty
+    (64) empty -> .
+
+    SINO            reduce using rule 64 (empty -> .)
+
+    empty                          shift and go to state 201
+
+state 197
+
+    (29) hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .
+
+    ENCASO          reduce using rule 29 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
+    REPITA          reduce using rule 29 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
+    DESDE           reduce using rule 29 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
+    LLAMAR          reduce using rule 29 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
+    ALEATORIO       reduce using rule 29 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
+    MOVER           reduce using rule 29 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
+    INC             reduce using rule 29 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
+    DEC             reduce using rule 29 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
+    INI             reduce using rule 29 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
+    FIN             reduce using rule 29 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
+    LLAVE_DER       reduce using rule 29 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
+    FINPROC         reduce using rule 29 (hacer -> DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA .)
+
+
+state 198
+
+    (16) procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA . procedimiento
+    (16) procedimiento -> . PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
+    (17) procedimiento -> . empty empty empty empty empty empty empty empty empty empty empty
+    (64) empty -> .
+
+    PROC            shift and go to state 91
+    $end            reduce using rule 64 (empty -> .)
+
+    procedimiento                  shift and go to state 202
+    empty                          shift and go to state 92
+
+state 199
+
+    (17) procedimiento -> empty empty empty empty empty empty empty empty empty empty . empty
+    (64) empty -> .
+
+    $end            reduce using rule 64 (empty -> .)
+
+    empty                          shift and go to state 203
+
+state 200
+
+    (23) cond2Aux2 -> empty empty empty empty . empty empty empty empty
+    (64) empty -> .
+
+    SINO            reduce using rule 64 (empty -> .)
+
+    empty                          shift and go to state 204
+
+state 201
+
+    (28) cond1Aux2 -> empty empty empty empty . empty empty empty empty empty
+    (64) empty -> .
+
+    SINO            reduce using rule 64 (empty -> .)
+
+    empty                          shift and go to state 205
+
+state 202
+
+    (16) procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento .
+
+    $end            reduce using rule 16 (procedimiento -> PROC ID PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento .)
+
+
+state 203
+
+    (17) procedimiento -> empty empty empty empty empty empty empty empty empty empty empty .
+
+    $end            reduce using rule 17 (procedimiento -> empty empty empty empty empty empty empty empty empty empty empty .)
+
+
+state 204
+
+    (23) cond2Aux2 -> empty empty empty empty empty . empty empty empty
+    (64) empty -> .
+
+    SINO            reduce using rule 64 (empty -> .)
+
+    empty                          shift and go to state 165
+
+state 205
+
+    (28) cond1Aux2 -> empty empty empty empty empty . empty empty empty empty
+    (64) empty -> .
+
+    SINO            reduce using rule 64 (empty -> .)
+
+    empty                          shift and go to state 156
 WARNING: 
 WARNING: Conflicts:
 WARNING: 
-WARNING: reduce/reduce conflict in state 32 resolved using rule (expresion -> empty empty)
-WARNING: rejected rule (empty -> <empty>) in state 32
+WARNING: reduce/reduce conflict in state 34 resolved using rule (expresion -> empty empty)
+WARNING: rejected rule (empty -> <empty>) in state 34

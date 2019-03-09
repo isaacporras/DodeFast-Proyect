@@ -200,6 +200,7 @@ def p_expresion(p):
             | repita expresion
             | hacer expresion
             | funcion expresion
+            | llamarProc expresion
             | empty empty
     '''
     if(p[2] != '$'):
@@ -297,13 +298,19 @@ def p_funcion(p):
     '''
     p[0] = p[1]
 
-def llamarProc(p):
+def p_llamarProc(p):
     '''
-    llamarProc : LLAMAR ID PARENTESIS_IZQ ID PARENTESIS_DER PUNTOCOMA
+    llamarProc : LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
     '''
     p[0]= (p[1], p[2],p[4])
 
-
+def p_parametro(p):
+    '''
+    parametro : ID
+              | NUMERO
+              | empty
+    '''
+    p[0] = p[1]
 
 def p_funcion_Alge(p):
     '''

@@ -1,19 +1,8 @@
 INICIO:
 
 
-EnCaso c
-	    Cuando <= b EnTons
-	    {
 
-	    }
-	    Cuando >= 7  Entons{
-
-	    }
-
-	SiNo
-	{
-
-	}
-Fin-EnCaso;
+Llamar procedimiento(g);
 
 FIN;
+
