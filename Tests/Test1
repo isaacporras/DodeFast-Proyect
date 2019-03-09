@@ -1,7 +1,9 @@
 INICIO:
 
-Repita {
+Desde a = 1 Hasta 2 Haga{
 }
-HastaEncontrar a = 1;
+Fin-Desde;
+
+
 
 FIN;

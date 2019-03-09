@@ -60,8 +60,8 @@ def t_FinProc(t):
 
 def t_FinDesde(t):
     r'Fin-Desde'
-    t.value = "fin"
-    t.type = "FINPROC"
+    t.value = "FINDESDE"
+    t.type = "FINDESDE"
     return t
 
 def t_FinEnCaso(t):
@@ -199,7 +199,9 @@ def p_expresion(p):
     expresion : condicion1 expresion
             | condicion2 expresion
             | repita expresion
+            | hacer expresion
             | empty empty
+
 
     '''
     if(p[2] != '$'):
@@ -243,7 +245,12 @@ def p_cond1Aux(p):
     '''
 
     p[0] = (p[1],p[2],p[3],p[4], p[5],p[7],p[9], p[11])
+def p_hacer(p):
+    '''
+    hacer : DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
 
+    '''
+    p[0] = (p[1],p[2],p[4],p[5],p[6],p[7],p[9],p[11])
 def p_condicion(p):
     '''
     condicion : IGUAL
