@@ -4,21 +4,17 @@ Unused terminals:
 
     COMA
     CUANDO
-    DCL
     DEFAULT
     DESDE
     DIFERENTE
-    DOSPUNTOS
     ENCASO
     ENTONS
-    FIN
     FINDESDE
     FINENCASO
     FINPROC
     HAGA
     HASTA
     HASTAENCONTRAR
-    IGUAL
     INICIOPROC
     LLAVE_DER
     LLAVE_IZQ
@@ -26,10 +22,8 @@ Unused terminals:
     MAYORIGUAL
     MENOR
     MENORIGUAL
-    NUMERO
     PARENTECIS_DER
     PARENTECIS_IZQ
-    PUNTOCOMA
     REPITA
     SINO
     SUMA
@@ -37,32 +31,37 @@ Unused terminals:
 Grammar
 
 Rule 0     S' -> Start
-Rule 1     Start -> expression
+Rule 1     Start -> code
 Rule 2     Start -> empty
-Rule 3     expression -> INICIO expression FINAL expression
-Rule 4     expression -> ID
-Rule 5     empty -> <empty>
+Rule 3     code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento
+Rule 4     procedimiento -> ID
+Rule 5     procedimiento -> empty
+Rule 6     cuerpo -> sinini PUNTOCOMA
+Rule 7     cuerpo -> ini PUNTOCOMA
+Rule 8     ini -> DCL ID IGUAL NUMERO
+Rule 9     sinini -> DCL ID
+Rule 10    empty -> <empty>
 
 Terminals, with rules where they appear
 
 COMA                 : 
 CUANDO               : 
-DCL                  : 
+DCL                  : 8 9
 DEFAULT              : 
 DESDE                : 
 DIFERENTE            : 
-DOSPUNTOS            : 
+DOSPUNTOS            : 3
 ENCASO               : 
 ENTONS               : 
-FIN                  : 
+FIN                  : 3
 FINDESDE             : 
 FINENCASO            : 
 FINPROC              : 
 HAGA                 : 
 HASTA                : 
 HASTAENCONTRAR       : 
-ID                   : 4
-IGUAL                : 
+ID                   : 4 8 9
+IGUAL                : 8
 INICIO               : 3
 INICIOPROC           : 
 LLAVE_DER            : 
@@ -71,10 +70,10 @@ MAYOR                :
 MAYORIGUAL           : 
 MENOR                : 
 MENORIGUAL           : 
-NUMERO               : 
+NUMERO               : 8
 PARENTECIS_DER       : 
 PARENTECIS_IZQ       : 
-PUNTOCOMA            : 
+PUNTOCOMA            : 3 6 7
 REPITA               : 
 SINO                 : 
 SUMA                 : 
@@ -82,8 +81,175 @@ error                :
 
 Nonterminals, with rules where they appear
 
-FINAL                : 3
 Start                : 0
-empty                : 2
-expression           : 1 3 3
+code                 : 1
+cuerpo               : 3
+empty                : 2 5
+ini                  : 7
+procedimiento        : 3
+sinini               : 6
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . Start
+    (1) Start -> . code
+    (2) Start -> . empty
+    (3) code -> . INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento
+    (10) empty -> .
+
+    INICIO          shift and go to state 4
+    $end            reduce using rule 10 (empty -> .)
+
+    Start                          shift and go to state 1
+    code                           shift and go to state 2
+    empty                          shift and go to state 3
+
+state 1
+
+    (0) S' -> Start .
+
+
+
+state 2
+
+    (1) Start -> code .
+
+    $end            reduce using rule 1 (Start -> code .)
+
+
+state 3
+
+    (2) Start -> empty .
+
+    $end            reduce using rule 2 (Start -> empty .)
+
+
+state 4
+
+    (3) code -> INICIO . DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento
+
+    DOSPUNTOS       shift and go to state 5
+
+
+state 5
+
+    (3) code -> INICIO DOSPUNTOS . cuerpo FIN PUNTOCOMA procedimiento
+    (6) cuerpo -> . sinini PUNTOCOMA
+    (7) cuerpo -> . ini PUNTOCOMA
+    (9) sinini -> . DCL ID
+    (8) ini -> . DCL ID IGUAL NUMERO
+
+    DCL             shift and go to state 9
+
+    cuerpo                         shift and go to state 6
+    sinini                         shift and go to state 7
+    ini                            shift and go to state 8
+
+state 6
+
+    (3) code -> INICIO DOSPUNTOS cuerpo . FIN PUNTOCOMA procedimiento
+
+    FIN             shift and go to state 10
+
+
+state 7
+
+    (6) cuerpo -> sinini . PUNTOCOMA
+
+    PUNTOCOMA       shift and go to state 11
+
+
+state 8
+
+    (7) cuerpo -> ini . PUNTOCOMA
+
+    PUNTOCOMA       shift and go to state 12
+
+
+state 9
+
+    (9) sinini -> DCL . ID
+    (8) ini -> DCL . ID IGUAL NUMERO
+
+    ID              shift and go to state 13
+
+
+state 10
+
+    (3) code -> INICIO DOSPUNTOS cuerpo FIN . PUNTOCOMA procedimiento
+
+    PUNTOCOMA       shift and go to state 14
+
+
+state 11
+
+    (6) cuerpo -> sinini PUNTOCOMA .
+
+    FIN             reduce using rule 6 (cuerpo -> sinini PUNTOCOMA .)
+
+
+state 12
+
+    (7) cuerpo -> ini PUNTOCOMA .
+
+    FIN             reduce using rule 7 (cuerpo -> ini PUNTOCOMA .)
+
+
+state 13
+
+    (9) sinini -> DCL ID .
+    (8) ini -> DCL ID . IGUAL NUMERO
+
+    PUNTOCOMA       reduce using rule 9 (sinini -> DCL ID .)
+    IGUAL           shift and go to state 15
+
+
+state 14
+
+    (3) code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA . procedimiento
+    (4) procedimiento -> . ID
+    (5) procedimiento -> . empty
+    (10) empty -> .
+
+    ID              shift and go to state 17
+    $end            reduce using rule 10 (empty -> .)
+
+    procedimiento                  shift and go to state 16
+    empty                          shift and go to state 18
+
+state 15
+
+    (8) ini -> DCL ID IGUAL . NUMERO
+
+    NUMERO          shift and go to state 19
+
+
+state 16
+
+    (3) code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento .
+
+    $end            reduce using rule 3 (code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento .)
+
+
+state 17
+
+    (4) procedimiento -> ID .
+
+    $end            reduce using rule 4 (procedimiento -> ID .)
+
+
+state 18
+
+    (5) procedimiento -> empty .
+
+    $end            reduce using rule 5 (procedimiento -> empty .)
+
+
+state 19
+
+    (8) ini -> DCL ID IGUAL NUMERO .
+
+    PUNTOCOMA       reduce using rule 8 (ini -> DCL ID IGUAL NUMERO .)
 
