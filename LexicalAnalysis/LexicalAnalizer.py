@@ -196,22 +196,41 @@ def p_cuerpo(p):
 
 def p_expresion(p):
     '''
-    expresion : condicion1
-            | empty
+    expresion : condicion1 expresion
+            | condicion2 expresion
+            | empty empty
 
     '''
-    p[0] = p[1]
+    if(p[2] != '$'):
+        p[0] = (p[1],p[2])
+    else:
+        p[0] = p[1]
+
+def p_condicion2(p):
+    '''
+    condicion2 : ENCASO ID cond2Aux2 FINENCASO PUNTOCOMA
+
+    '''
+    p[0] = (p[1], p[2], p[3], p[4])
+
+def p_cond2Aux(p):
+    '''
+    cond2Aux2 : CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
+
+    '''
+
+    p[0] = (p[1],p[2],p[3],p[4], p[6],p[8],p[10])
 
 def p_condicion1(p):
     '''
-    condicion1 : ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    condicion1 : ENCASO cond1Aux FINENCASO PUNTOCOMA
 
     '''
     p[0] = (p[1], p[2], p[3])
 
-def p_cond1Aux1(p):
+def p_cond1Aux(p):
     '''
-    cond1Aux1 : CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
+    cond1Aux : CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
 
     '''
 

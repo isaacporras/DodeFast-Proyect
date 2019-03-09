@@ -1,5 +1,19 @@
 INICIO:
 
+DCL a;
+
+EnCaso a
+	Cuando = b EnTons
+	{
+
+	}
+	SiNo
+	{
+
+	}
+
+Fin-EnCaso;
+
 EnCaso
 	Cuando a = 1 EnTons
 		{
@@ -10,6 +24,5 @@ EnCaso
 
 	}
 Fin-EnCaso;
-
 
 FIN;
