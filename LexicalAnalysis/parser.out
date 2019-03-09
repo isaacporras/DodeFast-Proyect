@@ -3,29 +3,17 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 Unused terminals:
 
     COMA
-    CUANDO
     DEFAULT
     DESDE
-    DIFERENTE
-    ENCASO
-    ENTONS
     FINDESDE
-    FINENCASO
     FINPROC
     HAGA
     HASTA
     HASTAENCONTRAR
     INICIOPROC
-    LLAVE_DER
-    LLAVE_IZQ
-    MAYOR
-    MAYORIGUAL
-    MENOR
-    MENORIGUAL
     PARENTECIS_DER
     PARENTECIS_IZQ
     REPITA
-    SINO
     SUMA
 
 Grammar
@@ -36,47 +24,61 @@ Rule 2     Start -> empty
 Rule 3     code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento
 Rule 4     procedimiento -> ID
 Rule 5     procedimiento -> empty
-Rule 6     cuerpo -> sinini PUNTOCOMA cuerpo
-Rule 7     cuerpo -> ini PUNTOCOMA cuerpo
-Rule 8     cuerpo -> empty empty empty
-Rule 9     ini -> DCL ID IGUAL NUMERO
-Rule 10    sinini -> DCL ID
-Rule 11    empty -> <empty>
+Rule 6     variable -> sinini PUNTOCOMA cuerpo
+Rule 7     variable -> ini PUNTOCOMA cuerpo
+Rule 8     variable -> empty empty empty
+Rule 9     cuerpo -> variable
+Rule 10    cuerpo -> expresion
+Rule 11    expresion -> condicion1
+Rule 12    expresion -> empty
+Rule 13    condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+Rule 14    cond1Aux1 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
+Rule 15    condicion -> IGUAL
+Rule 16    condicion -> MAYOR
+Rule 17    condicion -> MENOR
+Rule 18    condicion -> DIFERENTE
+Rule 19    condicion -> MAYORIGUAL
+Rule 20    condicion -> MENORIGUAL
+Rule 21    sentencia -> ID
+Rule 22    sentencia -> NUMERO
+Rule 23    ini -> DCL ID IGUAL NUMERO
+Rule 24    sinini -> DCL ID
+Rule 25    empty -> <empty>
 
 Terminals, with rules where they appear
 
 COMA                 : 
-CUANDO               : 
-DCL                  : 9 10
+CUANDO               : 14
+DCL                  : 23 24
 DEFAULT              : 
 DESDE                : 
-DIFERENTE            : 
+DIFERENTE            : 18
 DOSPUNTOS            : 3
-ENCASO               : 
-ENTONS               : 
+ENCASO               : 13
+ENTONS               : 14
 FIN                  : 3
 FINDESDE             : 
-FINENCASO            : 
+FINENCASO            : 13
 FINPROC              : 
 HAGA                 : 
 HASTA                : 
 HASTAENCONTRAR       : 
-ID                   : 4 9 10
-IGUAL                : 9
+ID                   : 4 14 21 23 24
+IGUAL                : 15 23
 INICIO               : 3
 INICIOPROC           : 
-LLAVE_DER            : 
-LLAVE_IZQ            : 
-MAYOR                : 
-MAYORIGUAL           : 
-MENOR                : 
-MENORIGUAL           : 
-NUMERO               : 9
+LLAVE_DER            : 14 14
+LLAVE_IZQ            : 14 14
+MAYOR                : 16
+MAYORIGUAL           : 19
+MENOR                : 17
+MENORIGUAL           : 20
+NUMERO               : 22 23
 PARENTECIS_DER       : 
 PARENTECIS_IZQ       : 
-PUNTOCOMA            : 3 6 7
+PUNTOCOMA            : 3 6 7 13
 REPITA               : 
-SINO                 : 
+SINO                 : 14
 SUMA                 : 
 error                : 
 
@@ -84,11 +86,17 @@ Nonterminals, with rules where they appear
 
 Start                : 0
 code                 : 1
+cond1Aux1            : 13
+condicion            : 14
+condicion1           : 11
 cuerpo               : 3 6 7
-empty                : 2 5 8 8 8
+empty                : 2 5 8 8 8 12
+expresion            : 10 14 14
 ini                  : 7
 procedimiento        : 3
+sentencia            : 14
 sinini               : 6
+variable             : 9
 
 Parsing method: LALR
 
@@ -98,10 +106,10 @@ state 0
     (1) Start -> . code
     (2) Start -> . empty
     (3) code -> . INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento
-    (11) empty -> .
+    (25) empty -> .
 
     INICIO          shift and go to state 4
-    $end            reduce using rule 11 (empty -> .)
+    $end            reduce using rule 25 (empty -> .)
 
     Start                          shift and go to state 1
     code                           shift and go to state 2
@@ -137,185 +145,459 @@ state 4
 state 5
 
     (3) code -> INICIO DOSPUNTOS . cuerpo FIN PUNTOCOMA procedimiento
-    (6) cuerpo -> . sinini PUNTOCOMA cuerpo
-    (7) cuerpo -> . ini PUNTOCOMA cuerpo
-    (8) cuerpo -> . empty empty empty
-    (10) sinini -> . DCL ID
-    (9) ini -> . DCL ID IGUAL NUMERO
-    (11) empty -> .
+    (9) cuerpo -> . variable
+    (10) cuerpo -> . expresion
+    (6) variable -> . sinini PUNTOCOMA cuerpo
+    (7) variable -> . ini PUNTOCOMA cuerpo
+    (8) variable -> . empty empty empty
+    (11) expresion -> . condicion1
+    (12) expresion -> . empty
+    (24) sinini -> . DCL ID
+    (23) ini -> . DCL ID IGUAL NUMERO
+    (25) empty -> .
+    (13) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
 
-    DCL             shift and go to state 10
-    FIN             reduce using rule 11 (empty -> .)
+    DCL             shift and go to state 13
+    FIN             reduce using rule 25 (empty -> .)
+    ENCASO          shift and go to state 14
 
     cuerpo                         shift and go to state 6
-    sinini                         shift and go to state 7
-    ini                            shift and go to state 8
-    empty                          shift and go to state 9
+    variable                       shift and go to state 7
+    expresion                      shift and go to state 8
+    sinini                         shift and go to state 9
+    ini                            shift and go to state 10
+    empty                          shift and go to state 11
+    condicion1                     shift and go to state 12
 
 state 6
 
     (3) code -> INICIO DOSPUNTOS cuerpo . FIN PUNTOCOMA procedimiento
 
-    FIN             shift and go to state 11
+    FIN             shift and go to state 15
 
 
 state 7
 
-    (6) cuerpo -> sinini . PUNTOCOMA cuerpo
+    (9) cuerpo -> variable .
 
-    PUNTOCOMA       shift and go to state 12
+    FIN             reduce using rule 9 (cuerpo -> variable .)
 
 
 state 8
 
-    (7) cuerpo -> ini . PUNTOCOMA cuerpo
+    (10) cuerpo -> expresion .
 
-    PUNTOCOMA       shift and go to state 13
+    FIN             reduce using rule 10 (cuerpo -> expresion .)
 
 
 state 9
 
-    (8) cuerpo -> empty . empty empty
-    (11) empty -> .
-
-    FIN             reduce using rule 11 (empty -> .)
-
-    empty                          shift and go to state 14
-
-state 10
-
-    (10) sinini -> DCL . ID
-    (9) ini -> DCL . ID IGUAL NUMERO
-
-    ID              shift and go to state 15
-
-
-state 11
-
-    (3) code -> INICIO DOSPUNTOS cuerpo FIN . PUNTOCOMA procedimiento
+    (6) variable -> sinini . PUNTOCOMA cuerpo
 
     PUNTOCOMA       shift and go to state 16
 
 
+state 10
+
+    (7) variable -> ini . PUNTOCOMA cuerpo
+
+    PUNTOCOMA       shift and go to state 17
+
+
+state 11
+
+    (8) variable -> empty . empty empty
+    (12) expresion -> empty .
+    (25) empty -> .
+
+  ! reduce/reduce conflict for FIN resolved using rule 12 (expresion -> empty .)
+    FIN             reduce using rule 12 (expresion -> empty .)
+
+  ! FIN             [ reduce using rule 25 (empty -> .) ]
+
+    empty                          shift and go to state 18
+
 state 12
 
-    (6) cuerpo -> sinini PUNTOCOMA . cuerpo
-    (6) cuerpo -> . sinini PUNTOCOMA cuerpo
-    (7) cuerpo -> . ini PUNTOCOMA cuerpo
-    (8) cuerpo -> . empty empty empty
-    (10) sinini -> . DCL ID
-    (9) ini -> . DCL ID IGUAL NUMERO
-    (11) empty -> .
+    (11) expresion -> condicion1 .
 
-    DCL             shift and go to state 10
-    FIN             reduce using rule 11 (empty -> .)
+    FIN             reduce using rule 11 (expresion -> condicion1 .)
+    LLAVE_DER       reduce using rule 11 (expresion -> condicion1 .)
 
-    sinini                         shift and go to state 7
-    cuerpo                         shift and go to state 17
-    ini                            shift and go to state 8
-    empty                          shift and go to state 9
 
 state 13
 
-    (7) cuerpo -> ini PUNTOCOMA . cuerpo
-    (6) cuerpo -> . sinini PUNTOCOMA cuerpo
-    (7) cuerpo -> . ini PUNTOCOMA cuerpo
-    (8) cuerpo -> . empty empty empty
-    (10) sinini -> . DCL ID
-    (9) ini -> . DCL ID IGUAL NUMERO
-    (11) empty -> .
+    (24) sinini -> DCL . ID
+    (23) ini -> DCL . ID IGUAL NUMERO
 
-    DCL             shift and go to state 10
-    FIN             reduce using rule 11 (empty -> .)
+    ID              shift and go to state 19
 
-    ini                            shift and go to state 8
-    cuerpo                         shift and go to state 18
-    sinini                         shift and go to state 7
-    empty                          shift and go to state 9
 
 state 14
 
-    (8) cuerpo -> empty empty . empty
-    (11) empty -> .
+    (13) condicion1 -> ENCASO . cond1Aux1 FINENCASO PUNTOCOMA
+    (14) cond1Aux1 -> . CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
 
-    FIN             reduce using rule 11 (empty -> .)
+    CUANDO          shift and go to state 21
 
-    empty                          shift and go to state 19
+    cond1Aux1                      shift and go to state 20
 
 state 15
 
-    (10) sinini -> DCL ID .
-    (9) ini -> DCL ID . IGUAL NUMERO
+    (3) code -> INICIO DOSPUNTOS cuerpo FIN . PUNTOCOMA procedimiento
 
-    PUNTOCOMA       reduce using rule 10 (sinini -> DCL ID .)
-    IGUAL           shift and go to state 20
+    PUNTOCOMA       shift and go to state 22
 
 
 state 16
 
-    (3) code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA . procedimiento
-    (4) procedimiento -> . ID
-    (5) procedimiento -> . empty
-    (11) empty -> .
+    (6) variable -> sinini PUNTOCOMA . cuerpo
+    (9) cuerpo -> . variable
+    (10) cuerpo -> . expresion
+    (6) variable -> . sinini PUNTOCOMA cuerpo
+    (7) variable -> . ini PUNTOCOMA cuerpo
+    (8) variable -> . empty empty empty
+    (11) expresion -> . condicion1
+    (12) expresion -> . empty
+    (24) sinini -> . DCL ID
+    (23) ini -> . DCL ID IGUAL NUMERO
+    (25) empty -> .
+    (13) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
 
-    ID              shift and go to state 22
-    $end            reduce using rule 11 (empty -> .)
+    DCL             shift and go to state 13
+    FIN             reduce using rule 25 (empty -> .)
+    ENCASO          shift and go to state 14
 
-    procedimiento                  shift and go to state 21
-    empty                          shift and go to state 23
+    sinini                         shift and go to state 9
+    cuerpo                         shift and go to state 23
+    variable                       shift and go to state 7
+    expresion                      shift and go to state 8
+    ini                            shift and go to state 10
+    empty                          shift and go to state 11
+    condicion1                     shift and go to state 12
 
 state 17
 
-    (6) cuerpo -> sinini PUNTOCOMA cuerpo .
+    (7) variable -> ini PUNTOCOMA . cuerpo
+    (9) cuerpo -> . variable
+    (10) cuerpo -> . expresion
+    (6) variable -> . sinini PUNTOCOMA cuerpo
+    (7) variable -> . ini PUNTOCOMA cuerpo
+    (8) variable -> . empty empty empty
+    (11) expresion -> . condicion1
+    (12) expresion -> . empty
+    (24) sinini -> . DCL ID
+    (23) ini -> . DCL ID IGUAL NUMERO
+    (25) empty -> .
+    (13) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
 
-    FIN             reduce using rule 6 (cuerpo -> sinini PUNTOCOMA cuerpo .)
+    DCL             shift and go to state 13
+    FIN             reduce using rule 25 (empty -> .)
+    ENCASO          shift and go to state 14
 
+    ini                            shift and go to state 10
+    cuerpo                         shift and go to state 24
+    variable                       shift and go to state 7
+    expresion                      shift and go to state 8
+    sinini                         shift and go to state 9
+    empty                          shift and go to state 11
+    condicion1                     shift and go to state 12
 
 state 18
 
-    (7) cuerpo -> ini PUNTOCOMA cuerpo .
+    (8) variable -> empty empty . empty
+    (25) empty -> .
 
-    FIN             reduce using rule 7 (cuerpo -> ini PUNTOCOMA cuerpo .)
+    FIN             reduce using rule 25 (empty -> .)
 
+    empty                          shift and go to state 25
 
 state 19
 
-    (8) cuerpo -> empty empty empty .
+    (24) sinini -> DCL ID .
+    (23) ini -> DCL ID . IGUAL NUMERO
 
-    FIN             reduce using rule 8 (cuerpo -> empty empty empty .)
+    PUNTOCOMA       reduce using rule 24 (sinini -> DCL ID .)
+    IGUAL           shift and go to state 26
 
 
 state 20
 
-    (9) ini -> DCL ID IGUAL . NUMERO
+    (13) condicion1 -> ENCASO cond1Aux1 . FINENCASO PUNTOCOMA
 
-    NUMERO          shift and go to state 24
+    FINENCASO       shift and go to state 27
 
 
 state 21
+
+    (14) cond1Aux1 -> CUANDO . ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
+
+    ID              shift and go to state 28
+
+
+state 22
+
+    (3) code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA . procedimiento
+    (4) procedimiento -> . ID
+    (5) procedimiento -> . empty
+    (25) empty -> .
+
+    ID              shift and go to state 30
+    $end            reduce using rule 25 (empty -> .)
+
+    procedimiento                  shift and go to state 29
+    empty                          shift and go to state 31
+
+state 23
+
+    (6) variable -> sinini PUNTOCOMA cuerpo .
+
+    FIN             reduce using rule 6 (variable -> sinini PUNTOCOMA cuerpo .)
+
+
+state 24
+
+    (7) variable -> ini PUNTOCOMA cuerpo .
+
+    FIN             reduce using rule 7 (variable -> ini PUNTOCOMA cuerpo .)
+
+
+state 25
+
+    (8) variable -> empty empty empty .
+
+    FIN             reduce using rule 8 (variable -> empty empty empty .)
+
+
+state 26
+
+    (23) ini -> DCL ID IGUAL . NUMERO
+
+    NUMERO          shift and go to state 32
+
+
+state 27
+
+    (13) condicion1 -> ENCASO cond1Aux1 FINENCASO . PUNTOCOMA
+
+    PUNTOCOMA       shift and go to state 33
+
+
+state 28
+
+    (14) cond1Aux1 -> CUANDO ID . condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
+    (15) condicion -> . IGUAL
+    (16) condicion -> . MAYOR
+    (17) condicion -> . MENOR
+    (18) condicion -> . DIFERENTE
+    (19) condicion -> . MAYORIGUAL
+    (20) condicion -> . MENORIGUAL
+
+    IGUAL           shift and go to state 35
+    MAYOR           shift and go to state 36
+    MENOR           shift and go to state 37
+    DIFERENTE       shift and go to state 38
+    MAYORIGUAL      shift and go to state 39
+    MENORIGUAL      shift and go to state 40
+
+    condicion                      shift and go to state 34
+
+state 29
 
     (3) code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento .
 
     $end            reduce using rule 3 (code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento .)
 
 
-state 22
+state 30
 
     (4) procedimiento -> ID .
 
     $end            reduce using rule 4 (procedimiento -> ID .)
 
 
-state 23
+state 31
 
     (5) procedimiento -> empty .
 
     $end            reduce using rule 5 (procedimiento -> empty .)
 
 
-state 24
+state 32
 
-    (9) ini -> DCL ID IGUAL NUMERO .
+    (23) ini -> DCL ID IGUAL NUMERO .
 
-    PUNTOCOMA       reduce using rule 9 (ini -> DCL ID IGUAL NUMERO .)
+    PUNTOCOMA       reduce using rule 23 (ini -> DCL ID IGUAL NUMERO .)
 
+
+state 33
+
+    (13) condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .
+
+    FIN             reduce using rule 13 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
+    LLAVE_DER       reduce using rule 13 (condicion1 -> ENCASO cond1Aux1 FINENCASO PUNTOCOMA .)
+
+
+state 34
+
+    (14) cond1Aux1 -> CUANDO ID condicion . sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
+    (21) sentencia -> . ID
+    (22) sentencia -> . NUMERO
+
+    ID              shift and go to state 41
+    NUMERO          shift and go to state 43
+
+    sentencia                      shift and go to state 42
+
+state 35
+
+    (15) condicion -> IGUAL .
+
+    ID              reduce using rule 15 (condicion -> IGUAL .)
+    NUMERO          reduce using rule 15 (condicion -> IGUAL .)
+
+
+state 36
+
+    (16) condicion -> MAYOR .
+
+    ID              reduce using rule 16 (condicion -> MAYOR .)
+    NUMERO          reduce using rule 16 (condicion -> MAYOR .)
+
+
+state 37
+
+    (17) condicion -> MENOR .
+
+    ID              reduce using rule 17 (condicion -> MENOR .)
+    NUMERO          reduce using rule 17 (condicion -> MENOR .)
+
+
+state 38
+
+    (18) condicion -> DIFERENTE .
+
+    ID              reduce using rule 18 (condicion -> DIFERENTE .)
+    NUMERO          reduce using rule 18 (condicion -> DIFERENTE .)
+
+
+state 39
+
+    (19) condicion -> MAYORIGUAL .
+
+    ID              reduce using rule 19 (condicion -> MAYORIGUAL .)
+    NUMERO          reduce using rule 19 (condicion -> MAYORIGUAL .)
+
+
+state 40
+
+    (20) condicion -> MENORIGUAL .
+
+    ID              reduce using rule 20 (condicion -> MENORIGUAL .)
+    NUMERO          reduce using rule 20 (condicion -> MENORIGUAL .)
+
+
+state 41
+
+    (21) sentencia -> ID .
+
+    ENTONS          reduce using rule 21 (sentencia -> ID .)
+
+
+state 42
+
+    (14) cond1Aux1 -> CUANDO ID condicion sentencia . ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
+
+    ENTONS          shift and go to state 44
+
+
+state 43
+
+    (22) sentencia -> NUMERO .
+
+    ENTONS          reduce using rule 22 (sentencia -> NUMERO .)
+
+
+state 44
+
+    (14) cond1Aux1 -> CUANDO ID condicion sentencia ENTONS . LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
+
+    LLAVE_IZQ       shift and go to state 45
+
+
+state 45
+
+    (14) cond1Aux1 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ . expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
+    (11) expresion -> . condicion1
+    (12) expresion -> . empty
+    (13) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (25) empty -> .
+
+    ENCASO          shift and go to state 14
+    LLAVE_DER       reduce using rule 25 (empty -> .)
+
+    expresion                      shift and go to state 46
+    condicion1                     shift and go to state 12
+    empty                          shift and go to state 47
+
+state 46
+
+    (14) cond1Aux1 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion . LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
+
+    LLAVE_DER       shift and go to state 48
+
+
+state 47
+
+    (12) expresion -> empty .
+
+    LLAVE_DER       reduce using rule 12 (expresion -> empty .)
+
+
+state 48
+
+    (14) cond1Aux1 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER . SINO LLAVE_IZQ expresion LLAVE_DER
+
+    SINO            shift and go to state 49
+
+
+state 49
+
+    (14) cond1Aux1 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO . LLAVE_IZQ expresion LLAVE_DER
+
+    LLAVE_IZQ       shift and go to state 50
+
+
+state 50
+
+    (14) cond1Aux1 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ . expresion LLAVE_DER
+    (11) expresion -> . condicion1
+    (12) expresion -> . empty
+    (13) condicion1 -> . ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+    (25) empty -> .
+
+    ENCASO          shift and go to state 14
+    LLAVE_DER       reduce using rule 25 (empty -> .)
+
+    expresion                      shift and go to state 51
+    condicion1                     shift and go to state 12
+    empty                          shift and go to state 47
+
+state 51
+
+    (14) cond1Aux1 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion . LLAVE_DER
+
+    LLAVE_DER       shift and go to state 52
+
+
+state 52
+
+    (14) cond1Aux1 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER .
+
+    FINENCASO       reduce using rule 14 (cond1Aux1 -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: reduce/reduce conflict in state 11 resolved using rule (expresion -> empty)
+WARNING: rejected rule (empty -> <empty>) in state 11

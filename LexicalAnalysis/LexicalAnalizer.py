@@ -169,22 +169,74 @@ def p_procedimiento(p):
     '''
     p[0] = p[1]
 
-def p_cuerpo(p):
 
 
+def p_Variable(p):
     '''
-    cuerpo : sinini PUNTOCOMA cuerpo
+    variable : sinini PUNTOCOMA cuerpo
             | ini PUNTOCOMA cuerpo
             | empty empty empty
-            
-            
-
     '''
     if (p[3] != '$'):
         p[0] = (p[1], p[3])
     else:
         p[0] = p[1]
 
+
+
+
+def p_cuerpo(p):
+
+
+    '''
+    cuerpo : variable
+            | expresion
+    '''
+    p[0] = p[1]
+
+def p_expresion(p):
+    '''
+    expresion : condicion1
+            | empty
+
+    '''
+    p[0] = p[1]
+
+def p_condicion1(p):
+    '''
+    condicion1 : ENCASO cond1Aux1 FINENCASO PUNTOCOMA
+
+    '''
+    p[0] = (p[1], p[2], p[3])
+
+def p_cond1Aux1(p):
+    '''
+    cond1Aux1 : CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
+
+    '''
+
+    p[0] = (p[1],p[2],p[3],p[4], p[5],p[7],p[9], p[11])
+
+def p_condicion(p):
+    '''
+    condicion : IGUAL
+              | MAYOR
+              | MENOR
+              | DIFERENTE
+              | MAYORIGUAL
+              | MENORIGUAL
+
+    '''
+
+    p[0] = p[1]
+
+def p_sentencia(p):
+    '''
+    sentencia : ID
+               | NUMERO
+
+    '''
+    p[0] = p[1]
 
 def p_VariableIni(p):
     '''

@@ -1,8 +1,15 @@
 INICIO:
 
+EnCaso
+	Cuando a = 1 EnTons
+		{
 
-DCL a;
-DCL b;
-DCL a = 3;
+		}
+	SiNo
+	{
+
+	}
+Fin-EnCaso;
+
 
 FIN;
