@@ -146,27 +146,52 @@ while True:
 
 def p_Start(p):
     '''
-    Start : expression
+    Start : code
           | empty
     '''
     print(p[1])
 
 
-def p_expression(p):
+def p_Code(p):
     '''
-    expression : INICIO expression
+    code : INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento
 
     '''
 
-    p[0] = (p[1], p[2])
+    p[0] = (p[1], p[3], p[4], p[6])
 
-
-
-def p_expression_ID(p):
+def p_procedimiento(p):
     '''
-    expression : ID
+        procedimiento : ID
+                     | empty
     '''
     p[0] = p[1]
+
+def p_cuerpo(p):
+
+
+    '''
+    cuerpo : sinini PUNTOCOMA 
+            | ini PUNTOCOMA 
+            
+
+    '''
+    p[0] = (p[1])
+
+def p_VariableIni(p):
+    '''
+    ini : DCL ID IGUAL NUMERO
+
+    '''
+    p[0] = (p[1], p[2], p[4])
+
+def p_VariableNoIni(p):
+    '''
+    sinini : DCL ID
+
+    '''
+    p[0] = (p[1], p[2])
+
 
 
 
