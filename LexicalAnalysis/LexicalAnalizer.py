@@ -4,40 +4,38 @@ import re
 import codecs
 import os
 import sys
+
 directorio = os.path.dirname(os.getcwd()) + "/Tests/"
 print(directorio)
 from pip._vendor.distlib.compat import raw_input
-
-
 
 tokens = [
     'COMA', 'PUNTOCOMA', 'DOSPUNTOS', 'LLAVE_IZQ', 'LLAVE_DER', 'IGUAL', 'PARENTESIS_IZQ', 'PARENTESIS_DER',  # SIMBOLOS
 
     'ID', 'NUMERO',  # IDENTIDFICADOR, NUMERO
 
-    'DIFERENTE', 'MAYOR', 'MENOR', 'MAYORIGUAL', 'MENORIGUAL','SUMA'  # CONDICONES
+    'DIFERENTE', 'MAYOR', 'MENOR', 'MAYORIGUAL', 'MENORIGUAL', 'SUMA'  # CONDICONES
 ]
 
 # 'INC', 'DEC', 'INI', 'MOVER', 'ALEATORIO',  # FUNCIONES
 # 'PROC', 'INICIO', 'FINAL', 'LLAMAR'  # PROCEDIMIENTOS
 
 reservadas = {
-    'DCL': 'DCL', 'DEFAULT': 'DEFAULT','Inicio':'INICIO',
+    'DCL': 'DCL', 'DEFAULT': 'DEFAULT', 'Inicio': 'INICIO',
     'EnCaso': 'ENCASO', 'Cuando': 'CUANDO', 'EnTons': 'ENTONS', 'SiNo': 'SINO',
-    'Fin-EnCaso': 'FINENCASO','Repita': 'REPITA', 'HastaEncontar': 'HASTAENCONTRAR', 'Desde': 'DESDE',
-    'Hasta': 'HASTA', 'Haga': 'HAGA','Fin-Desde': 'FINDESDE','Fin':'FIN','fin':'FINPROC', 'inicio':'INICIOPROC',
-    'Inc': 'INC','Dec':'DEC','Ini':'INI','Mover':'MOVER', 'Aleatorio':'ALEATORIO', 'Proc': 'PROC','Llamar': 'LLAMAR'}
+    'Fin-EnCaso': 'FINENCASO', 'Repita': 'REPITA', 'HastaEncontar': 'HASTAENCONTRAR', 'Desde': 'DESDE',
+    'Hasta': 'HASTA', 'Haga': 'HAGA', 'Fin-Desde': 'FINDESDE', 'Fin': 'FIN', 'fin': 'FINPROC', 'inicio': 'INICIOPROC',
+    'Inc': 'INC', 'Dec': 'DEC', 'Ini': 'INI', 'Mover': 'MOVER', 'Aleatorio': 'ALEATORIO', 'Proc': 'PROC',
+    'Llamar': 'LLAMAR'}
 
-movimientos = {'AF':'AF' ,'F':'F' , 'DFA':'DFA', 'IFA':'IFA' , 'DFB':'DFB' , 'IFB':'IFB' ,
-               'A':'A', 'DAA':'DAA' , 'IAA':'IAA' ,'DAB':'DAB', 'IAB':'IAB' , 'AA':'AA'}
+movimientos = {'AF': 'AF', 'F': 'F', 'DFA': 'DFA', 'IFA': 'IFA', 'DFB': 'DFB', 'IFB': 'IFB',
+               'A': 'A', 'DAA': 'DAA', 'IAA': 'IAA', 'DAB': 'DAB', 'IAB': 'IAB', 'AA': 'AA'}
 
 reservadas.update(movimientos)
 
-tokens =list(reservadas.values()) + tokens
-
+tokens = list(reservadas.values()) + tokens
 
 t_ignore = '  \t'
-
 
 t_COMA = r','
 t_PUNTOCOMA = r';'
@@ -54,16 +52,20 @@ t_MAYORIGUAL = r'>='
 t_MENORIGUAL = r'<='
 t_SUMA = r'\+'
 
+
 def t_InicioProc(t):
     r'inicio'
     t.value = "INICIOPROC"
     t.type = t.value
     return t
+
+
 def t_FinProc(t):
     r'fin'
     t.value = "FINPROC"
     t.type = t.value
     return t
+
 
 def t_FinDesde(t):
     r'Fin-Desde'
@@ -71,12 +73,15 @@ def t_FinDesde(t):
     t.type = "FINDESDE"
     return t
 
+
 def t_FinEnCaso(t):
     r'Fin-EnCaso'
     print(t.value)
     t.value = "FINENCASO"
     t.type = t.value
     return t
+
+
 def t_ID(t):
     r'[a-zA-Z_][a-zA-Z0-9_#@]*'
     if t.value.upper() in reservadas.values():
@@ -131,7 +136,6 @@ def buscarFichero(directorio):
     return files[int(numArchivo) - 1]
 
 
-
 archivo = buscarFichero(directorio)
 test = directorio + archivo
 fp = codecs.open(test, "r", "utf-8")
@@ -146,6 +150,7 @@ while True:
     if not tok: break
     print(tok)
 '''
+
 
 # =================================================================================================================== */
 #                                        Here Starts the Sintactic Analizer
@@ -163,11 +168,18 @@ def p_Code(p):
     '''
     code : INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento
     '''
-    if(p[6] == '$'):
+    if (p[6] == '$'):
         p[0] = (p[1], p[3], p[4])
     else:
         p[0] = (p[1], p[3], p[4], p[6])
 
+
+def p_cuerpo(p):
+    '''
+    cuerpo : variable
+            | expresion
+    '''
+    p[0] = p[1]
 
 
 def p_Variable(p):
@@ -177,21 +189,11 @@ def p_Variable(p):
             | empty empty empty
     '''
     if (p[3] != '$'):
+
         p[0] = (p[1], p[3])
     else:
         p[0] = p[1]
 
-
-
-
-def p_cuerpo(p):
-
-
-    '''
-    cuerpo : variable
-            | expresion
-    '''
-    p[0] = p[1]
 
 def p_expresion(p):
     '''
@@ -203,8 +205,8 @@ def p_expresion(p):
             | llamarProc expresion
             | empty empty
     '''
-    if(p[2] != '$'):
-        p[0] = (p[1],p[2])
+    if (p[2] != '$'):
+        p[0] = (p[1], p[2])
     else:
         p[0] = p[1]
 
@@ -220,19 +222,19 @@ def p_procedimiento(p):
         p[0] = p[1]
 
 
-
-
 def p_repita(p):
     '''
      repita : REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
     '''
-    p[0] = (p[1],p[3],p[5],p[6],p[7],p[8])
+    p[0] = (p[1], p[3], p[5], p[6], p[7], p[8])
+
 
 def p_condicion2(p):
     '''
     condicion2 : ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
     '''
     p[0] = (p[1], p[2], p[3], p[4])
+
 
 def p_cond2Aux1(p):
     '''
@@ -243,6 +245,7 @@ def p_cond2Aux1(p):
         p[0] = (p[1], p[2], p[4])
     else:
         p[0] = p[1]
+
 
 def p_cond2Aux2(p):
     '''
@@ -256,11 +259,13 @@ def p_cond2Aux2(p):
     elif p[1] == '$':
         p[0] = p[1]
 
+
 def p_condicion1(p):
     '''
     condicion1 : ENCASO cond1Aux1 FINENCASO PUNTOCOMA
     '''
     p[0] = (p[1], p[2], p[3])
+
 
 def p_cond1Aux1(p):
     '''
@@ -268,9 +273,10 @@ def p_cond1Aux1(p):
             | empty empty empty empty empty
     '''
     if (p[5] != '$'):
-        p[0] = (p[1],p[2],p[4])
+        p[0] = (p[1], p[2], p[4])
     else:
         p[0] = p[1]
+
 
 def p_cond1Aux2(p):
     '''
@@ -278,17 +284,19 @@ def p_cond1Aux2(p):
             | empty empty empty empty empty empty empty empty empty
     '''
     if p[9] != '$':
-        p[0] = (p[1],p[2],p[3],p[4],p[5],p[7], p[9])
+        p[0] = (p[1], p[2], p[3], p[4], p[5], p[7], p[9])
     elif p[9] == '$' and p[1] != '$':
-        p[0] = (p[1],p[2],p[3],p[4],p[5],p[7])
+        p[0] = (p[1], p[2], p[3], p[4], p[5], p[7])
     elif p[1] == '$':
         p[0] = p[1]
+
 
 def p_hacer(p):
     '''
     hacer : DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
     '''
-    p[0] = (p[1],p[2],p[4],p[5],p[6],p[7],p[9],p[11])
+    p[0] = (p[1], p[2], p[4], p[5], p[6], p[7], p[9], p[11])
+
 
 def p_funcion(p):
     '''
@@ -298,11 +306,13 @@ def p_funcion(p):
     '''
     p[0] = p[1]
 
+
 def p_llamarProc(p):
     '''
     llamarProc : LLAMAR ID PARENTESIS_IZQ parametro PARENTESIS_DER PUNTOCOMA
     '''
-    p[0]= (p[1], p[2],p[4])
+    p[0] = (p[1], p[2], p[4])
+
 
 def p_parametro(p):
     '''
@@ -311,6 +321,7 @@ def p_parametro(p):
               | empty
     '''
     p[0] = p[1]
+
 
 def p_funcion_Alge(p):
     '''
@@ -326,9 +337,10 @@ def p_mover(p):
     '''
     Mover : MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
     '''
-    p[0] = (p[1],p[3])
-def p_ParamMover(p):
+    p[0] = (p[1], p[3])
 
+
+def p_ParamMover(p):
     '''
     paramMover : AF
                 | F
@@ -344,14 +356,13 @@ def p_ParamMover(p):
                 | AA
     '''
     p[0] = p[1]
+
+
 def p_aleatorio(p):
     '''
     Aleatorio : ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
     '''
     p[0] = p[1]
-
-
-
 
 
 def p_condicion(p):
@@ -366,6 +377,7 @@ def p_condicion(p):
 
     p[0] = p[1]
 
+
 def p_sentencia(p):
     '''
     sentencia : ID
@@ -373,11 +385,13 @@ def p_sentencia(p):
     '''
     p[0] = p[1]
 
+
 def p_VariableIni(p):
     '''
     ini : DCL ID IGUAL NUMERO
     '''
     p[0] = (p[1], p[2], p[4])
+
 
 def p_VariableNoIni(p):
     '''
@@ -391,6 +405,9 @@ def p_empty(p):
     empty :
     '''
     p[0] = '$'
+
+
+
 
 parser = yacc.yacc()
 

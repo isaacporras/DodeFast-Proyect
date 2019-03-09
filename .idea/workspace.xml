@@ -12,27 +12,18 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/DodeFast_Proyect$GUI_IDE.coverage" NAME="GUI_IDE Coverage Results" MODIFIED="1552061114365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DodeFast_Proyect$GUI_IDE.coverage" NAME="GUI_IDE Coverage Results" MODIFIED="1552166145050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DodeFast$GUI_IDE.coverage" NAME="GUI_IDE Coverage Results" MODIFIED="1551755740686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DodeFast_Proyect$Manager.coverage" NAME="Manager Coverage Results" MODIFIED="1552081555157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Manager" />
-    <SUITE FILE_PATH="coverage/DodeFast_Proyect$LexicalAnalizer.coverage" NAME="LexicalAnalizer Coverage Results" MODIFIED="1552162859960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LexicalAnalysis" />
+    <SUITE FILE_PATH="coverage/DodeFast_Proyect$LexicalAnalizer.coverage" NAME="LexicalAnalizer Coverage Results" MODIFIED="1552166006167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LexicalAnalysis" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI/GUI_IDE.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="21" selection-start-column="21" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LexicalAnalysis/LexicalAnalizer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="310" column="21" lean-forward="true" selection-start-line="310" selection-start-column="21" selection-end-line="310" selection-end-column="21" />
+            <state relative-caret-position="224">
+              <caret line="33" column="105" lean-forward="true" selection-start-line="33" selection-start-column="105" selection-end-line="33" selection-end-column="105" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -41,10 +32,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LexicalAnalysis/LexicalAnalizer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/Test1">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -67,8 +70,8 @@
         <option value="$PROJECT_DIR$/GUI_IDE.py" />
         <option value="$PROJECT_DIR$/SyntacticAnalysis/SyntacticAnalyzer.py" />
         <option value="$PROJECT_DIR$/Manager/Manager.py" />
-        <option value="$PROJECT_DIR$/LexicalAnalysis/LexicalAnalizer.py" />
         <option value="$PROJECT_DIR$/Tests/Test1" />
+        <option value="$PROJECT_DIR$/LexicalAnalysis/LexicalAnalizer.py" />
       </list>
     </option>
   </component>
@@ -82,42 +85,14 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="DodeFast-Proyect" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DodeFast-Proyect" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DodeFast-Proyect" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DodeFast-Proyect" type="462c0819:PsiDirectoryNode" />
-              <item name="GUI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DodeFast-Proyect" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DodeFast-Proyect" type="462c0819:PsiDirectoryNode" />
-              <item name="LexicalAnalysis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DodeFast-Proyect" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DodeFast-Proyect" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -139,7 +114,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.LexicalAnalizer">
+  <component name="RunManager" selected="Python.GUI_IDE">
     <configuration name="GUI_IDE" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DodeFast" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -208,9 +183,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.GUI_IDE" />
         <item itemvalue="Python.LexicalAnalizer" />
         <item itemvalue="Python.Manager" />
-        <item itemvalue="Python.GUI_IDE" />
       </list>
     </recent_temporary>
   </component>
@@ -235,12 +210,12 @@
       <workItem from="1552080475725" duration="1085000" />
       <workItem from="1552084124367" duration="8254000" />
       <workItem from="1552092415192" duration="19121000" />
-      <workItem from="1552152164745" duration="6831000" />
+      <workItem from="1552152164745" duration="9254000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52232000" />
+    <option name="totallyTimeSpent" value="54655000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -251,7 +226,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4997233" visible="true" weight="0.28941685" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4997233" visible="true" weight="0.2937365" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39956802" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -312,27 +287,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/GUI_IDE.py">
+    <entry file="file://$PROJECT_DIR$/Tests/Test1">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
+        <state relative-caret-position="60">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LexicalAnalysis/LexicalAnalizer.py">
+    <entry file="file://$PROJECT_DIR$/GUI/GUI_IDE.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="310" column="21" lean-forward="true" selection-start-line="310" selection-start-column="21" selection-end-line="310" selection-end-column="21" />
+        <state relative-caret-position="224">
+          <caret line="33" column="105" lean-forward="true" selection-start-line="33" selection-start-column="105" selection-end-line="33" selection-end-column="105" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/Test1">
+    <entry file="file://$PROJECT_DIR$/LexicalAnalysis/LexicalAnalizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+        <state relative-caret-position="224">
+          <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

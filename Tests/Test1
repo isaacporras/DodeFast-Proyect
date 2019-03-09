@@ -1,8 +1,28 @@
 INICIO:
 
 
+EnCaso
+	Cuando var = 1 EnTons
+		{
 
-Llamar procedimiento(g);
+		}
+	Cuando var = 1 EnTons
+		{
+
+		}
+	Cuando var = 1 EnTons
+		{
+
+		}
+
+	SiNo
+	{
+
+	}
+Fin-EnCaso;
+
+
+
 
 FIN;
 

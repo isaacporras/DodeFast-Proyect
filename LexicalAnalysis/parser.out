@@ -11,11 +11,11 @@ Rule 0     S' -> Start
 Rule 1     Start -> code
 Rule 2     Start -> empty
 Rule 3     code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento
-Rule 4     variable -> sinini PUNTOCOMA cuerpo
-Rule 5     variable -> ini PUNTOCOMA cuerpo
-Rule 6     variable -> empty empty empty
-Rule 7     cuerpo -> variable
-Rule 8     cuerpo -> expresion
+Rule 4     cuerpo -> variable
+Rule 5     cuerpo -> expresion
+Rule 6     variable -> sinini PUNTOCOMA cuerpo
+Rule 7     variable -> ini PUNTOCOMA cuerpo
+Rule 8     variable -> empty empty empty
 Rule 9     expresion -> condicion1 expresion
 Rule 10    expresion -> condicion2 expresion
 Rule 11    expresion -> repita expresion
@@ -123,7 +123,7 @@ NUMERO               : 35 61 62
 PARENTESIS_DER       : 16 33 37 38 39 40 53
 PARENTESIS_IZQ       : 16 33 37 38 39 40 53
 PROC                 : 16
-PUNTOCOMA            : 3 4 5 16 18 19 24 29 33 37 38 39 40 53
+PUNTOCOMA            : 3 6 7 16 18 19 24 29 33 37 38 39 40 53
 REPITA               : 18
 SINO                 : 20 25
 SUMA                 : 
@@ -142,21 +142,21 @@ cond2Aux2            : 20 22
 condicion            : 18 22 27
 condicion1           : 9
 condicion2           : 10
-cuerpo               : 3 4 5
-empty                : 2 6 6 6 15 15 17 17 17 17 17 17 17 17 17 17 17 21 21 21 21 21 23 23 23 23 23 23 23 23 26 26 26 26 26 28 28 28 28 28 28 28 28 28 36
-expresion            : 8 9 10 11 12 13 14 16 18 20 22 25 27 29
+cuerpo               : 3 6 7
+empty                : 2 8 8 8 15 15 17 17 17 17 17 17 17 17 17 17 17 21 21 21 21 21 23 23 23 23 23 23 23 23 26 26 26 26 26 28 28 28 28 28 28 28 28 28 36
+expresion            : 5 9 10 11 12 13 14 16 18 20 22 25 27 29
 funcion              : 13
 funcionAlge          : 32
 hacer                : 12
-ini                  : 5
+ini                  : 7
 llamarProc           : 14
 paramMover           : 40
 parametro            : 33
 procedimiento        : 3 16
 repita               : 11
 sentencia            : 18 22 27 29 29 37 38 39
-sinini               : 4
-variable             : 7
+sinini               : 6
+variable             : 4
 
 Parsing method: LALR
 
@@ -205,11 +205,11 @@ state 4
 state 5
 
     (3) code -> INICIO DOSPUNTOS . cuerpo FIN PUNTOCOMA procedimiento
-    (7) cuerpo -> . variable
-    (8) cuerpo -> . expresion
-    (4) variable -> . sinini PUNTOCOMA cuerpo
-    (5) variable -> . ini PUNTOCOMA cuerpo
-    (6) variable -> . empty empty empty
+    (4) cuerpo -> . variable
+    (5) cuerpo -> . expresion
+    (6) variable -> . sinini PUNTOCOMA cuerpo
+    (7) variable -> . ini PUNTOCOMA cuerpo
+    (8) variable -> . empty empty empty
     (9) expresion -> . condicion1 expresion
     (10) expresion -> . condicion2 expresion
     (11) expresion -> . repita expresion
@@ -271,35 +271,35 @@ state 6
 
 state 7
 
-    (7) cuerpo -> variable .
+    (4) cuerpo -> variable .
 
-    FIN             reduce using rule 7 (cuerpo -> variable .)
+    FIN             reduce using rule 4 (cuerpo -> variable .)
 
 
 state 8
 
-    (8) cuerpo -> expresion .
+    (5) cuerpo -> expresion .
 
-    FIN             reduce using rule 8 (cuerpo -> expresion .)
+    FIN             reduce using rule 5 (cuerpo -> expresion .)
 
 
 state 9
 
-    (4) variable -> sinini . PUNTOCOMA cuerpo
+    (6) variable -> sinini . PUNTOCOMA cuerpo
 
     PUNTOCOMA       shift and go to state 32
 
 
 state 10
 
-    (5) variable -> ini . PUNTOCOMA cuerpo
+    (7) variable -> ini . PUNTOCOMA cuerpo
 
     PUNTOCOMA       shift and go to state 33
 
 
 state 11
 
-    (6) variable -> empty . empty empty
+    (8) variable -> empty . empty empty
     (15) expresion -> empty . empty
     (64) empty -> .
 
@@ -753,12 +753,12 @@ state 31
 
 state 32
 
-    (4) variable -> sinini PUNTOCOMA . cuerpo
-    (7) cuerpo -> . variable
-    (8) cuerpo -> . expresion
-    (4) variable -> . sinini PUNTOCOMA cuerpo
-    (5) variable -> . ini PUNTOCOMA cuerpo
-    (6) variable -> . empty empty empty
+    (6) variable -> sinini PUNTOCOMA . cuerpo
+    (4) cuerpo -> . variable
+    (5) cuerpo -> . expresion
+    (6) variable -> . sinini PUNTOCOMA cuerpo
+    (7) variable -> . ini PUNTOCOMA cuerpo
+    (8) variable -> . empty empty empty
     (9) expresion -> . condicion1 expresion
     (10) expresion -> . condicion2 expresion
     (11) expresion -> . repita expresion
@@ -813,12 +813,12 @@ state 32
 
 state 33
 
-    (5) variable -> ini PUNTOCOMA . cuerpo
-    (7) cuerpo -> . variable
-    (8) cuerpo -> . expresion
-    (4) variable -> . sinini PUNTOCOMA cuerpo
-    (5) variable -> . ini PUNTOCOMA cuerpo
-    (6) variable -> . empty empty empty
+    (7) variable -> ini PUNTOCOMA . cuerpo
+    (4) cuerpo -> . variable
+    (5) cuerpo -> . expresion
+    (6) variable -> . sinini PUNTOCOMA cuerpo
+    (7) variable -> . ini PUNTOCOMA cuerpo
+    (8) variable -> . empty empty empty
     (9) expresion -> . condicion1 expresion
     (10) expresion -> . condicion2 expresion
     (11) expresion -> . repita expresion
@@ -873,7 +873,7 @@ state 33
 
 state 34
 
-    (6) variable -> empty empty . empty
+    (8) variable -> empty empty . empty
     (15) expresion -> empty empty .
     (64) empty -> .
 
@@ -1143,23 +1143,23 @@ state 56
 
 state 57
 
-    (4) variable -> sinini PUNTOCOMA cuerpo .
+    (6) variable -> sinini PUNTOCOMA cuerpo .
 
-    FIN             reduce using rule 4 (variable -> sinini PUNTOCOMA cuerpo .)
+    FIN             reduce using rule 6 (variable -> sinini PUNTOCOMA cuerpo .)
 
 
 state 58
 
-    (5) variable -> ini PUNTOCOMA cuerpo .
+    (7) variable -> ini PUNTOCOMA cuerpo .
 
-    FIN             reduce using rule 5 (variable -> ini PUNTOCOMA cuerpo .)
+    FIN             reduce using rule 7 (variable -> ini PUNTOCOMA cuerpo .)
 
 
 state 59
 
-    (6) variable -> empty empty empty .
+    (8) variable -> empty empty empty .
 
-    FIN             reduce using rule 6 (variable -> empty empty empty .)
+    FIN             reduce using rule 8 (variable -> empty empty empty .)
 
 
 state 60
