@@ -1,10 +1,22 @@
 INICIO:
 
-DCL r;
+EnCaso
+	Cuando c = b EnTons
+		{
+
+		}
+	Cuando d = b EnTons
+		{
+
+		}
+	Cuando g = b EnTons
+		{
+
+		}
+	SiNo
+	{
+
+	}
+Fin-EnCaso;
 
 FIN;
-
-Proc procedi1 (kk)
-inicio:
-Mover (DAB);
-fin;

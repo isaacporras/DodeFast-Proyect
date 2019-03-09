@@ -26,7 +26,7 @@ reservadas = {
     'EnCaso': 'ENCASO', 'Cuando': 'CUANDO', 'EnTons': 'ENTONS', 'SiNo': 'SINO',
     'Fin-EnCaso': 'FINENCASO','Repita': 'REPITA', 'HastaEncontar': 'HASTAENCONTRAR', 'Desde': 'DESDE',
     'Hasta': 'HASTA', 'Haga': 'HAGA','Fin-Desde': 'FINDESDE','Fin':'FIN','fin':'FINPROC', 'inicio':'INICIOPROC',
-    'Inc': 'INC','Dec':'DEC','Ini':'INI','Mover':'MOVER', 'Aleatorio':'ALEATORIO', 'Proc': 'PROC'}
+    'Inc': 'INC','Dec':'DEC','Ini':'INI','Mover':'MOVER', 'Aleatorio':'ALEATORIO', 'Proc': 'PROC','Llamar': 'LLAMAR'}
 
 movimientos = {'AF':'AF' ,'F':'F' , 'DFA':'DFA', 'IFA':'IFA' , 'DFB':'DFB' , 'IFB':'IFB' ,
                'A':'A', 'DAA':'DAA' , 'IAA':'IAA' ,'DAB':'DAB', 'IAB':'IAB' , 'AA':'AA'}
@@ -210,13 +210,14 @@ def p_expresion(p):
 
 def p_procedimiento(p):
     '''
-        procedimiento : PROC ID  PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA
-                     | empty
+        procedimiento : PROC ID  PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA procedimiento
+                     | empty empty empty empty empty empty empty empty empty empty empty
     '''
-    if p[0] == '$':
-        p[0]= p[1]
+    if p[11] != '$':
+        p[0] = (p[1], p[2], p[4], p[6], p[8], p[9], p[11])
     else:
-        p[0] = (p[1],p[2],p[4],p[6],p[8],p[9])
+        p[0] = p[1]
+
 
 
 
@@ -232,7 +233,7 @@ def p_condicion2(p):
     '''
     p[0] = (p[1], p[2], p[3], p[4])
 
-def p_cond2Aux(p):
+def p_cond2Aux2(p):
     '''
     cond2Aux2 : CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
     '''
@@ -241,16 +242,32 @@ def p_cond2Aux(p):
 
 def p_condicion1(p):
     '''
-    condicion1 : ENCASO cond1Aux FINENCASO PUNTOCOMA
+    condicion1 : ENCASO cond1Aux1 FINENCASO PUNTOCOMA
     '''
     p[0] = (p[1], p[2], p[3])
 
-def p_cond1Aux(p):
+def p_cond1Aux1(p):
     '''
-    cond1Aux : CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
+    cond1Aux1 : cond1Aux2 SINO LLAVE_IZQ expresion LLAVE_DER
+            | empty empty empty empty empty
     '''
+    if (p[5] != '$'):
+        p[0] = (p[1],p[2],p[4])
+    else:
+        p[0] = p[1]
 
-    p[0] = (p[1],p[2],p[3],p[4], p[5],p[7],p[9], p[11])
+def p_cond1Aux2(p):
+    '''
+    cond1Aux2 : CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond1Aux2
+            | empty empty empty empty empty empty empty empty empty
+    '''
+    if p[9] != '$':
+        p[0] = (p[1],p[2],p[3],p[4],p[5],p[7], p[9])
+    elif p[9] == '$' and p[1] != '$':
+        p[0] = (p[1],p[2],p[3],p[4],p[5],p[7])
+    elif p[1] == '$':
+        p[0] = p[1]
+
 def p_hacer(p):
     '''
     hacer : DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
@@ -264,6 +281,13 @@ def p_funcion(p):
             | funcionAlge
     '''
     p[0] = p[1]
+
+def llamarProc(p):
+    '''
+    llamarProc : LLAMAR ID PARENTESIS_IZQ ID PARENTESIS_DER PUNTOCOMA
+    '''
+    p[0]= (p[1], p[2],p[4])
+
 
 
 def p_funcion_Alge(p):
