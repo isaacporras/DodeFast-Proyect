@@ -1,7 +1,22 @@
 INICIO:
 
+EnCaso
+	Cuando c = b EnTons
+		{
 
-DCL a;
+		}
+	Cuando d = b EnTons
+		{
 
+		}
+	Cuando g = b EnTons
+		{
+
+		}
+	SiNo
+	{
+
+	}
+Fin-EnCaso;
 
 FIN;
