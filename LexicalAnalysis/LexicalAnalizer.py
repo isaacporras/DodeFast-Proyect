@@ -26,7 +26,7 @@ reservadas = {
     'EnCaso': 'ENCASO', 'Cuando': 'CUANDO', 'EnTons': 'ENTONS', 'SiNo': 'SINO',
     'Fin-EnCaso': 'FINENCASO','Repita': 'REPITA', 'HastaEncontar': 'HASTAENCONTRAR', 'Desde': 'DESDE',
     'Hasta': 'HASTA', 'Haga': 'HAGA','Fin-Desde': 'FINDESDE','Fin':'FIN','fin':'FINPROC', 'inicio':'INICIOPROC',
-    'Inc': 'INC','Dec':'DEC','Ini':'INI','Mover':'MOVER', 'Aleatorio':'ALEATORIO'}
+    'Inc': 'INC','Dec':'DEC','Ini':'INI','Mover':'MOVER', 'Aleatorio':'ALEATORIO', 'Proc': 'PROC'}
 
 movimientos = {'AF':'AF' ,'F':'F' , 'DFA':'DFA', 'IFA':'IFA' , 'DFB':'DFB' , 'IFB':'IFB' ,
                'A':'A', 'DAA':'DAA' , 'IAA':'IAA' ,'DAB':'DAB', 'IAB':'IAB' , 'AA':'AA'}
@@ -162,19 +162,11 @@ def p_Start(p):
 def p_Code(p):
     '''
     code : INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento
-
     '''
     if(p[6] == '$'):
         p[0] = (p[1], p[3], p[4])
     else:
         p[0] = (p[1], p[3], p[4], p[6])
-
-def p_procedimiento(p):
-    '''
-        procedimiento : ID
-                     | empty
-    '''
-    p[0] = p[1]
 
 
 
@@ -209,32 +201,40 @@ def p_expresion(p):
             | hacer expresion
             | funcion expresion
             | empty empty
-
-
     '''
     if(p[2] != '$'):
         p[0] = (p[1],p[2])
     else:
         p[0] = p[1]
 
+
+def p_procedimiento(p):
+    '''
+        procedimiento : PROC ID  PARENTESIS_IZQ ID PARENTESIS_DER INICIOPROC DOSPUNTOS expresion FINPROC PUNTOCOMA
+                     | empty
+    '''
+    if p[0] == '$':
+        p[0]= p[1]
+    else:
+        p[0] = (p[1],p[2],p[4],p[6],p[8],p[9])
+
+
+
 def p_repita(p):
     '''
      repita : REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
-
     '''
     p[0] = (p[1],p[3],p[5],p[6],p[7],p[8])
 
 def p_condicion2(p):
     '''
     condicion2 : ENCASO ID cond2Aux2 FINENCASO PUNTOCOMA
-
     '''
     p[0] = (p[1], p[2], p[3], p[4])
 
 def p_cond2Aux(p):
     '''
     cond2Aux2 : CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
-
     '''
 
     p[0] = (p[1],p[2],p[3],p[4], p[6],p[8],p[10])
@@ -242,21 +242,18 @@ def p_cond2Aux(p):
 def p_condicion1(p):
     '''
     condicion1 : ENCASO cond1Aux FINENCASO PUNTOCOMA
-
     '''
     p[0] = (p[1], p[2], p[3])
 
 def p_cond1Aux(p):
     '''
     cond1Aux : CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
-
     '''
 
     p[0] = (p[1],p[2],p[3],p[4], p[5],p[7],p[9], p[11])
 def p_hacer(p):
     '''
     hacer : DESDE ID IGUAL sentencia HASTA sentencia HAGA LLAVE_IZQ expresion LLAVE_DER FINDESDE PUNTOCOMA
-
     '''
     p[0] = (p[1],p[2],p[4],p[5],p[6],p[7],p[9],p[11])
 
@@ -265,7 +262,6 @@ def p_funcion(p):
     funcion : Aleatorio
             | Mover
             | funcionAlge
-
     '''
     p[0] = p[1]
 
@@ -275,8 +271,6 @@ def p_funcion_Alge(p):
     funcionAlge : INC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
              | DEC PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
              | INI PARENTESIS_IZQ ID COMA sentencia PARENTESIS_DER PUNTOCOMA
-
-
     '''
 
     p[0] = (p[1], p[3], p[4], p[5])
@@ -285,7 +279,6 @@ def p_funcion_Alge(p):
 def p_mover(p):
     '''
     Mover : MOVER PARENTESIS_IZQ paramMover PARENTESIS_DER PUNTOCOMA
-
     '''
     p[0] = (p[1],p[3])
 def p_ParamMover(p):
@@ -308,7 +301,6 @@ def p_ParamMover(p):
 def p_aleatorio(p):
     '''
     Aleatorio : ALEATORIO PARENTESIS_IZQ PARENTESIS_DER PUNTOCOMA
-
     '''
     p[0] = p[1]
 
@@ -324,7 +316,6 @@ def p_condicion(p):
               | DIFERENTE
               | MAYORIGUAL
               | MENORIGUAL
-
     '''
 
     p[0] = p[1]
@@ -333,21 +324,18 @@ def p_sentencia(p):
     '''
     sentencia : ID
                | NUMERO
-
     '''
     p[0] = p[1]
 
 def p_VariableIni(p):
     '''
     ini : DCL ID IGUAL NUMERO
-
     '''
     p[0] = (p[1], p[2], p[4])
 
 def p_VariableNoIni(p):
     '''
     sinini : DCL ID
-
     '''
     p[0] = (p[1], p[2], 'DEFAULT')
 

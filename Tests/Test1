@@ -1,5 +1,10 @@
 INICIO:
 
-DEC (b , 2);
+DCL r;
 
 FIN;
+
+Proc procedi1 (kk)
+inicio:
+Mover (DAB);
+fin;
