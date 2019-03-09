@@ -229,16 +229,31 @@ def p_repita(p):
 
 def p_condicion2(p):
     '''
-    condicion2 : ENCASO ID cond2Aux2 FINENCASO PUNTOCOMA
+    condicion2 : ENCASO ID cond2Aux1 FINENCASO PUNTOCOMA
     '''
     p[0] = (p[1], p[2], p[3], p[4])
 
+def p_cond2Aux1(p):
+    '''
+    cond2Aux1 : cond2Aux2 SINO LLAVE_IZQ expresion LLAVE_DER
+                | empty empty empty empty empty
+    '''
+    if (p[5] != '$'):
+        p[0] = (p[1], p[2], p[4])
+    else:
+        p[0] = p[1]
+
 def p_cond2Aux2(p):
     '''
-    cond2Aux2 : CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER
-    '''
-
-    p[0] = (p[1],p[2],p[3],p[4], p[6],p[8],p[10])
+        cond2Aux2 : CUANDO  condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER cond2Aux2
+                | empty empty empty empty empty empty empty empty
+        '''
+    if p[8] != '$':
+        p[0] = (p[1], p[2], p[3], p[4], p[6], p[8])
+    elif p[8] == '$' and p[1] != '$':
+        p[0] = (p[1], p[2], p[3], p[4], p[6])
+    elif p[1] == '$':
+        p[0] = p[1]
 
 def p_condicion1(p):
     '''

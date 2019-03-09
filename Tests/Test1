@@ -1,18 +1,15 @@
 INICIO:
 
-EnCaso
-	Cuando c = b EnTons
-		{
 
-		}
-	Cuando d = b EnTons
-		{
+EnCaso c
+	    Cuando <= b EnTons
+	    {
 
-		}
-	Cuando g = b EnTons
-		{
+	    }
+	    Cuando >= 7  Entons{
 
-		}
+	    }
+
 	SiNo
 	{
 
