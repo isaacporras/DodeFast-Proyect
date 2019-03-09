@@ -36,17 +36,18 @@ Rule 2     Start -> empty
 Rule 3     code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento
 Rule 4     procedimiento -> ID
 Rule 5     procedimiento -> empty
-Rule 6     cuerpo -> sinini PUNTOCOMA
-Rule 7     cuerpo -> ini PUNTOCOMA
-Rule 8     ini -> DCL ID IGUAL NUMERO
-Rule 9     sinini -> DCL ID
-Rule 10    empty -> <empty>
+Rule 6     cuerpo -> sinini PUNTOCOMA cuerpo
+Rule 7     cuerpo -> ini PUNTOCOMA cuerpo
+Rule 8     cuerpo -> empty empty empty
+Rule 9     ini -> DCL ID IGUAL NUMERO
+Rule 10    sinini -> DCL ID
+Rule 11    empty -> <empty>
 
 Terminals, with rules where they appear
 
 COMA                 : 
 CUANDO               : 
-DCL                  : 8 9
+DCL                  : 9 10
 DEFAULT              : 
 DESDE                : 
 DIFERENTE            : 
@@ -60,8 +61,8 @@ FINPROC              :
 HAGA                 : 
 HASTA                : 
 HASTAENCONTRAR       : 
-ID                   : 4 8 9
-IGUAL                : 8
+ID                   : 4 9 10
+IGUAL                : 9
 INICIO               : 3
 INICIOPROC           : 
 LLAVE_DER            : 
@@ -70,7 +71,7 @@ MAYOR                :
 MAYORIGUAL           : 
 MENOR                : 
 MENORIGUAL           : 
-NUMERO               : 8
+NUMERO               : 9
 PARENTECIS_DER       : 
 PARENTECIS_IZQ       : 
 PUNTOCOMA            : 3 6 7
@@ -83,8 +84,8 @@ Nonterminals, with rules where they appear
 
 Start                : 0
 code                 : 1
-cuerpo               : 3
-empty                : 2 5
+cuerpo               : 3 6 7
+empty                : 2 5 8 8 8
 ini                  : 7
 procedimiento        : 3
 sinini               : 6
@@ -97,10 +98,10 @@ state 0
     (1) Start -> . code
     (2) Start -> . empty
     (3) code -> . INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento
-    (10) empty -> .
+    (11) empty -> .
 
     INICIO          shift and go to state 4
-    $end            reduce using rule 10 (empty -> .)
+    $end            reduce using rule 11 (empty -> .)
 
     Start                          shift and go to state 1
     code                           shift and go to state 2
@@ -136,120 +137,185 @@ state 4
 state 5
 
     (3) code -> INICIO DOSPUNTOS . cuerpo FIN PUNTOCOMA procedimiento
-    (6) cuerpo -> . sinini PUNTOCOMA
-    (7) cuerpo -> . ini PUNTOCOMA
-    (9) sinini -> . DCL ID
-    (8) ini -> . DCL ID IGUAL NUMERO
+    (6) cuerpo -> . sinini PUNTOCOMA cuerpo
+    (7) cuerpo -> . ini PUNTOCOMA cuerpo
+    (8) cuerpo -> . empty empty empty
+    (10) sinini -> . DCL ID
+    (9) ini -> . DCL ID IGUAL NUMERO
+    (11) empty -> .
 
-    DCL             shift and go to state 9
+    DCL             shift and go to state 10
+    FIN             reduce using rule 11 (empty -> .)
 
     cuerpo                         shift and go to state 6
     sinini                         shift and go to state 7
     ini                            shift and go to state 8
+    empty                          shift and go to state 9
 
 state 6
 
     (3) code -> INICIO DOSPUNTOS cuerpo . FIN PUNTOCOMA procedimiento
 
-    FIN             shift and go to state 10
+    FIN             shift and go to state 11
 
 
 state 7
 
-    (6) cuerpo -> sinini . PUNTOCOMA
-
-    PUNTOCOMA       shift and go to state 11
-
-
-state 8
-
-    (7) cuerpo -> ini . PUNTOCOMA
+    (6) cuerpo -> sinini . PUNTOCOMA cuerpo
 
     PUNTOCOMA       shift and go to state 12
 
 
+state 8
+
+    (7) cuerpo -> ini . PUNTOCOMA cuerpo
+
+    PUNTOCOMA       shift and go to state 13
+
+
 state 9
 
-    (9) sinini -> DCL . ID
-    (8) ini -> DCL . ID IGUAL NUMERO
+    (8) cuerpo -> empty . empty empty
+    (11) empty -> .
 
-    ID              shift and go to state 13
+    FIN             reduce using rule 11 (empty -> .)
 
+    empty                          shift and go to state 14
 
 state 10
 
-    (3) code -> INICIO DOSPUNTOS cuerpo FIN . PUNTOCOMA procedimiento
+    (10) sinini -> DCL . ID
+    (9) ini -> DCL . ID IGUAL NUMERO
 
-    PUNTOCOMA       shift and go to state 14
+    ID              shift and go to state 15
 
 
 state 11
 
-    (6) cuerpo -> sinini PUNTOCOMA .
+    (3) code -> INICIO DOSPUNTOS cuerpo FIN . PUNTOCOMA procedimiento
 
-    FIN             reduce using rule 6 (cuerpo -> sinini PUNTOCOMA .)
+    PUNTOCOMA       shift and go to state 16
 
 
 state 12
 
-    (7) cuerpo -> ini PUNTOCOMA .
+    (6) cuerpo -> sinini PUNTOCOMA . cuerpo
+    (6) cuerpo -> . sinini PUNTOCOMA cuerpo
+    (7) cuerpo -> . ini PUNTOCOMA cuerpo
+    (8) cuerpo -> . empty empty empty
+    (10) sinini -> . DCL ID
+    (9) ini -> . DCL ID IGUAL NUMERO
+    (11) empty -> .
 
-    FIN             reduce using rule 7 (cuerpo -> ini PUNTOCOMA .)
+    DCL             shift and go to state 10
+    FIN             reduce using rule 11 (empty -> .)
 
+    sinini                         shift and go to state 7
+    cuerpo                         shift and go to state 17
+    ini                            shift and go to state 8
+    empty                          shift and go to state 9
 
 state 13
 
-    (9) sinini -> DCL ID .
-    (8) ini -> DCL ID . IGUAL NUMERO
+    (7) cuerpo -> ini PUNTOCOMA . cuerpo
+    (6) cuerpo -> . sinini PUNTOCOMA cuerpo
+    (7) cuerpo -> . ini PUNTOCOMA cuerpo
+    (8) cuerpo -> . empty empty empty
+    (10) sinini -> . DCL ID
+    (9) ini -> . DCL ID IGUAL NUMERO
+    (11) empty -> .
 
-    PUNTOCOMA       reduce using rule 9 (sinini -> DCL ID .)
-    IGUAL           shift and go to state 15
+    DCL             shift and go to state 10
+    FIN             reduce using rule 11 (empty -> .)
 
+    ini                            shift and go to state 8
+    cuerpo                         shift and go to state 18
+    sinini                         shift and go to state 7
+    empty                          shift and go to state 9
 
 state 14
+
+    (8) cuerpo -> empty empty . empty
+    (11) empty -> .
+
+    FIN             reduce using rule 11 (empty -> .)
+
+    empty                          shift and go to state 19
+
+state 15
+
+    (10) sinini -> DCL ID .
+    (9) ini -> DCL ID . IGUAL NUMERO
+
+    PUNTOCOMA       reduce using rule 10 (sinini -> DCL ID .)
+    IGUAL           shift and go to state 20
+
+
+state 16
 
     (3) code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA . procedimiento
     (4) procedimiento -> . ID
     (5) procedimiento -> . empty
-    (10) empty -> .
+    (11) empty -> .
 
-    ID              shift and go to state 17
-    $end            reduce using rule 10 (empty -> .)
+    ID              shift and go to state 22
+    $end            reduce using rule 11 (empty -> .)
 
-    procedimiento                  shift and go to state 16
-    empty                          shift and go to state 18
+    procedimiento                  shift and go to state 21
+    empty                          shift and go to state 23
 
-state 15
+state 17
 
-    (8) ini -> DCL ID IGUAL . NUMERO
+    (6) cuerpo -> sinini PUNTOCOMA cuerpo .
 
-    NUMERO          shift and go to state 19
+    FIN             reduce using rule 6 (cuerpo -> sinini PUNTOCOMA cuerpo .)
 
 
-state 16
+state 18
+
+    (7) cuerpo -> ini PUNTOCOMA cuerpo .
+
+    FIN             reduce using rule 7 (cuerpo -> ini PUNTOCOMA cuerpo .)
+
+
+state 19
+
+    (8) cuerpo -> empty empty empty .
+
+    FIN             reduce using rule 8 (cuerpo -> empty empty empty .)
+
+
+state 20
+
+    (9) ini -> DCL ID IGUAL . NUMERO
+
+    NUMERO          shift and go to state 24
+
+
+state 21
 
     (3) code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento .
 
     $end            reduce using rule 3 (code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento .)
 
 
-state 17
+state 22
 
     (4) procedimiento -> ID .
 
     $end            reduce using rule 4 (procedimiento -> ID .)
 
 
-state 18
+state 23
 
     (5) procedimiento -> empty .
 
     $end            reduce using rule 5 (procedimiento -> empty .)
 
 
-state 19
+state 24
 
-    (8) ini -> DCL ID IGUAL NUMERO .
+    (9) ini -> DCL ID IGUAL NUMERO .
 
-    PUNTOCOMA       reduce using rule 8 (ini -> DCL ID IGUAL NUMERO .)
+    PUNTOCOMA       reduce using rule 9 (ini -> DCL ID IGUAL NUMERO .)
 

@@ -157,8 +157,10 @@ def p_Code(p):
     code : INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento
 
     '''
-
-    p[0] = (p[1], p[3], p[4], p[6])
+    if(p[6] == '$'):
+        p[0] = (p[1], p[3], p[4])
+    else:
+        p[0] = (p[1], p[3], p[4], p[6])
 
 def p_procedimiento(p):
     '''
@@ -171,12 +173,18 @@ def p_cuerpo(p):
 
 
     '''
-    cuerpo : sinini PUNTOCOMA 
-            | ini PUNTOCOMA 
+    cuerpo : sinini PUNTOCOMA cuerpo
+            | ini PUNTOCOMA cuerpo
+            | empty empty empty
+            
             
 
     '''
-    p[0] = (p[1])
+    if (p[3] != '$'):
+        p[0] = (p[1], p[3])
+    else:
+        p[0] = p[1]
+
 
 def p_VariableIni(p):
     '''
@@ -190,7 +198,7 @@ def p_VariableNoIni(p):
     sinini : DCL ID
 
     '''
-    p[0] = (p[1], p[2])
+    p[0] = (p[1], p[2], 'DEFAULT')
 
 
 
@@ -199,7 +207,7 @@ def p_empty(p):
     '''
     empty :
     '''
-    p[0] = None
+    p[0] = '$'
 
 parser = yacc.yacc()
 

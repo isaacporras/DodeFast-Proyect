@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'COMA CUANDO DCL DEFAULT DESDE DIFERENTE DOSPUNTOS ENCASO ENTONS FIN FINDESDE FINENCASO FINPROC HAGA HASTA HASTAENCONTRAR ID IGUAL INICIO INICIOPROC LLAVE_DER LLAVE_IZQ MAYOR MAYORIGUAL MENOR MENORIGUAL NUMERO PARENTECIS_DER PARENTECIS_IZQ PUNTOCOMA REPITA SINO SUMA\n    Start : code\n          | empty\n    \n    code : INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento\n\n    \n        procedimiento : ID\n                     | empty\n    \n    cuerpo : sinini PUNTOCOMA \n            | ini PUNTOCOMA \n            \n\n    \n    ini : DCL ID IGUAL NUMERO\n\n    \n    sinini : DCL ID\n\n    \n    empty :\n    '
+_lr_signature = 'COMA CUANDO DCL DEFAULT DESDE DIFERENTE DOSPUNTOS ENCASO ENTONS FIN FINDESDE FINENCASO FINPROC HAGA HASTA HASTAENCONTRAR ID IGUAL INICIO INICIOPROC LLAVE_DER LLAVE_IZQ MAYOR MAYORIGUAL MENOR MENORIGUAL NUMERO PARENTECIS_DER PARENTECIS_IZQ PUNTOCOMA REPITA SINO SUMA\n    Start : code\n          | empty\n    \n    code : INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento\n\n    \n        procedimiento : ID\n                     | empty\n    \n    cuerpo : sinini PUNTOCOMA cuerpo\n            | ini PUNTOCOMA cuerpo\n            | empty empty empty\n            \n            \n\n    \n    ini : DCL ID IGUAL NUMERO\n\n    \n    sinini : DCL ID\n\n    \n    empty :\n    '
     
-_lr_action_items = {'INICIO':([0,],[4,]),'$end':([0,1,2,3,14,16,17,18,],[-10,0,-1,-2,-10,-3,-4,-5,]),'DOSPUNTOS':([4,],[5,]),'DCL':([5,],[9,]),'FIN':([6,11,12,],[10,-6,-7,]),'PUNTOCOMA':([7,8,10,13,19,],[11,12,14,-9,-8,]),'ID':([9,14,],[13,17,]),'IGUAL':([13,],[15,]),'NUMERO':([15,],[19,]),}
+_lr_action_items = {'INICIO':([0,],[4,]),'$end':([0,1,2,3,16,21,22,23,],[-11,0,-1,-2,-11,-3,-4,-5,]),'DOSPUNTOS':([4,],[5,]),'DCL':([5,12,13,],[10,10,10,]),'FIN':([5,6,9,12,13,14,17,18,19,],[-11,11,-11,-11,-11,-11,-6,-7,-8,]),'PUNTOCOMA':([7,8,11,15,24,],[12,13,16,-10,-9,]),'ID':([10,16,],[15,22,]),'IGUAL':([15,],[20,]),'NUMERO':([20,],[24,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'Start':([0,],[1,]),'code':([0,],[2,]),'empty':([0,14,],[3,18,]),'cuerpo':([5,],[6,]),'sinini':([5,],[7,]),'ini':([5,],[8,]),'procedimiento':([14,],[16,]),}
+_lr_goto_items = {'Start':([0,],[1,]),'code':([0,],[2,]),'empty':([0,5,9,12,13,14,16,],[3,9,14,9,9,19,23,]),'cuerpo':([5,12,13,],[6,17,18,]),'sinini':([5,12,13,],[7,7,7,]),'ini':([5,12,13,],[8,8,8,]),'procedimiento':([16,],[21,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -32,9 +32,10 @@ _lr_productions = [
   ('code -> INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento','code',6,'p_Code','LexicalAnalizer.py',157),
   ('procedimiento -> ID','procedimiento',1,'p_procedimiento','LexicalAnalizer.py',165),
   ('procedimiento -> empty','procedimiento',1,'p_procedimiento','LexicalAnalizer.py',166),
-  ('cuerpo -> sinini PUNTOCOMA','cuerpo',2,'p_cuerpo','LexicalAnalizer.py',172),
-  ('cuerpo -> ini PUNTOCOMA','cuerpo',2,'p_cuerpo','LexicalAnalizer.py',173),
-  ('ini -> DCL ID IGUAL NUMERO','ini',4,'p_VariableIni','LexicalAnalizer.py',183),
-  ('sinini -> DCL ID','sinini',2,'p_VariableNoIni','LexicalAnalizer.py',190),
-  ('empty -> <empty>','empty',0,'p_empty','LexicalAnalizer.py',200),
+  ('cuerpo -> sinini PUNTOCOMA cuerpo','cuerpo',3,'p_cuerpo','LexicalAnalizer.py',172),
+  ('cuerpo -> ini PUNTOCOMA cuerpo','cuerpo',3,'p_cuerpo','LexicalAnalizer.py',173),
+  ('cuerpo -> empty empty empty','cuerpo',3,'p_cuerpo','LexicalAnalizer.py',174),
+  ('ini -> DCL ID IGUAL NUMERO','ini',4,'p_VariableIni','LexicalAnalizer.py',186),
+  ('sinini -> DCL ID','sinini',2,'p_VariableNoIni','LexicalAnalizer.py',193),
+  ('empty -> <empty>','empty',0,'p_empty','LexicalAnalizer.py',203),
 ]
