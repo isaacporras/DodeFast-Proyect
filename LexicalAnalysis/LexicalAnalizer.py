@@ -198,6 +198,7 @@ def p_expresion(p):
     '''
     expresion : condicion1 expresion
             | condicion2 expresion
+            | repita expresion
             | empty empty
 
     '''
@@ -205,6 +206,13 @@ def p_expresion(p):
         p[0] = (p[1],p[2])
     else:
         p[0] = p[1]
+
+def p_repita(p):
+    '''
+     repita : REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA
+
+    '''
+    p[0] = (p[1],p[3],p[5],p[6],p[7],p[8])
 
 def p_condicion2(p):
     '''

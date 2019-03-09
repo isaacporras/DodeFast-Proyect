@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'COMA CUANDO DCL DEFAULT DESDE DIFERENTE DOSPUNTOS ENCASO ENTONS FIN FINDESDE FINENCASO FINPROC HAGA HASTA HASTAENCONTRAR ID IGUAL INICIO INICIOPROC LLAVE_DER LLAVE_IZQ MAYOR MAYORIGUAL MENOR MENORIGUAL NUMERO PARENTECIS_DER PARENTECIS_IZQ PUNTOCOMA REPITA SINO SUMA\n    Start : code\n          | empty\n    \n    code : INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento\n\n    \n        procedimiento : ID\n                     | empty\n    \n    variable : sinini PUNTOCOMA cuerpo\n            | ini PUNTOCOMA cuerpo\n            | empty empty empty\n    \n    cuerpo : variable\n            | expresion\n    \n    expresion : condicion1 expresion\n            | condicion2 expresion\n            | empty empty\n\n    \n    condicion2 : ENCASO ID cond2Aux2 FINENCASO PUNTOCOMA\n\n    \n    cond2Aux2 : CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER\n\n    \n    condicion1 : ENCASO cond1Aux FINENCASO PUNTOCOMA\n\n    \n    cond1Aux : CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER\n\n    \n    condicion : IGUAL\n              | MAYOR\n              | MENOR\n              | DIFERENTE\n              | MAYORIGUAL\n              | MENORIGUAL\n\n    \n    sentencia : ID\n               | NUMERO\n\n    \n    ini : DCL ID IGUAL NUMERO\n\n    \n    sinini : DCL ID\n\n    \n    empty :\n    '
+_lr_signature = 'COMA CUANDO DCL DEFAULT DESDE DIFERENTE DOSPUNTOS ENCASO ENTONS FIN FINDESDE FINENCASO FINPROC HAGA HASTA HASTAENCONTRAR ID IGUAL INICIO INICIOPROC LLAVE_DER LLAVE_IZQ MAYOR MAYORIGUAL MENOR MENORIGUAL NUMERO PARENTECIS_DER PARENTECIS_IZQ PUNTOCOMA REPITA SINO SUMA\n    Start : code\n          | empty\n    \n    code : INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento\n\n    \n        procedimiento : ID\n                     | empty\n    \n    variable : sinini PUNTOCOMA cuerpo\n            | ini PUNTOCOMA cuerpo\n            | empty empty empty\n    \n    cuerpo : variable\n            | expresion\n    \n    expresion : condicion1 expresion\n            | condicion2 expresion\n            | repita expresion\n            | empty empty\n\n    \n     repita : REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA\n\n    \n    condicion2 : ENCASO ID cond2Aux2 FINENCASO PUNTOCOMA\n\n    \n    cond2Aux2 : CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER\n\n    \n    condicion1 : ENCASO cond1Aux FINENCASO PUNTOCOMA\n\n    \n    cond1Aux : CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER\n\n    \n    condicion : IGUAL\n              | MAYOR\n              | MENOR\n              | DIFERENTE\n              | MAYORIGUAL\n              | MENORIGUAL\n\n    \n    sentencia : ID\n               | NUMERO\n\n    \n    ini : DCL ID IGUAL NUMERO\n\n    \n    sinini : DCL ID\n\n    \n    empty :\n    '
     
-_lr_action_items = {'INICIO':([0,],[4,]),'$end':([0,1,2,3,27,37,38,39,],[-28,0,-1,-2,-28,-3,-4,-5,]),'DOSPUNTOS':([4,],[5,]),'DCL':([5,17,18,],[14,14,14,]),'FIN':([5,6,7,8,11,12,13,17,18,19,20,21,22,28,29,30,31,41,51,],[-28,16,-9,-10,-28,-28,-28,-28,-28,-13,-11,-28,-12,-6,-7,-8,-13,-16,-14,]),'ENCASO':([5,12,13,17,18,41,51,58,59,66,67,],[15,15,15,15,15,-16,-14,15,15,15,15,]),'PUNTOCOMA':([9,10,16,23,33,40,42,],[17,18,27,-27,41,-26,51,]),'LLAVE_DER':([12,13,20,21,22,31,41,51,58,59,60,61,66,67,68,69,],[-28,-28,-11,-28,-12,-13,-16,-14,-28,-28,62,63,-28,-28,70,71,]),'ID':([14,15,26,27,43,44,45,46,47,48,49,50,],[23,25,36,38,53,-18,-19,-20,-21,-22,-23,53,]),'CUANDO':([15,25,],[26,35,]),'IGUAL':([23,35,36,],[32,44,44,]),'FINENCASO':([24,34,70,71,],[33,42,-15,-17,]),'NUMERO':([32,43,44,45,46,47,48,49,50,],[40,54,-18,-19,-20,-21,-22,-23,54,]),'MAYOR':([35,36,],[45,45,]),'MENOR':([35,36,],[46,46,]),'DIFERENTE':([35,36,],[47,47,]),'MAYORIGUAL':([35,36,],[48,48,]),'MENORIGUAL':([35,36,],[49,49,]),'ENTONS':([52,53,54,55,],[56,-24,-25,57,]),'LLAVE_IZQ':([56,57,64,65,],[58,59,66,67,]),'SINO':([62,63,],[64,65,]),}
+_lr_action_items = {'INICIO':([0,],[4,]),'$end':([0,1,2,3,31,42,43,44,],[-30,0,-1,-2,-30,-3,-4,-5,]),'DOSPUNTOS':([4,],[5,]),'DCL':([5,19,20,],[15,15,15,]),'FIN':([5,6,7,8,11,12,13,14,19,20,21,22,23,24,25,32,33,34,35,46,57,74,],[-30,18,-9,-10,-30,-30,-30,-30,-30,-30,-14,-11,-30,-12,-13,-6,-7,-8,-14,-18,-16,-15,]),'ENCASO':([5,12,13,14,19,20,30,46,57,66,67,74,77,78,],[16,16,16,16,16,16,16,-18,-16,16,16,-15,16,16,]),'REPITA':([5,12,13,14,19,20,30,46,57,66,67,74,77,78,],[17,17,17,17,17,17,17,-18,-16,17,17,-15,17,17,]),'PUNTOCOMA':([9,10,18,26,37,45,47,59,60,71,],[19,20,31,-29,46,-28,57,-26,-27,74,]),'LLAVE_DER':([12,13,14,22,23,24,25,30,35,41,46,57,66,67,69,70,74,77,78,79,80,],[-30,-30,-30,-11,-30,-12,-13,-30,-14,56,-18,-16,-30,-30,72,73,-15,-30,-30,81,82,]),'ID':([15,16,29,31,48,49,50,51,52,53,54,55,62,68,],[26,28,40,43,59,-20,-21,-22,-23,-24,-25,59,65,59,]),'CUANDO':([16,28,],[29,39,]),'LLAVE_IZQ':([17,63,64,75,76,],[30,66,67,77,78,]),'IGUAL':([26,39,40,65,],[36,49,49,49,]),'FINENCASO':([27,38,81,82,],[37,47,-17,-19,]),'NUMERO':([36,48,49,50,51,52,53,54,55,68,],[45,60,-20,-21,-22,-23,-24,-25,60,60,]),'MAYOR':([39,40,65,],[50,50,50,]),'MENOR':([39,40,65,],[51,51,51,]),'DIFERENTE':([39,40,65,],[52,52,52,]),'MAYORIGUAL':([39,40,65,],[53,53,53,]),'MENORIGUAL':([39,40,65,],[54,54,54,]),'HASTAENCONTRAR':([56,],[62,]),'ENTONS':([58,59,60,61,],[63,-26,-27,64,]),'SINO':([72,73,],[75,76,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'Start':([0,],[1,]),'code':([0,],[2,]),'empty':([0,5,11,12,13,17,18,19,21,27,58,59,66,67,],[3,11,19,21,21,11,11,30,31,39,21,21,21,21,]),'cuerpo':([5,17,18,],[6,28,29,]),'variable':([5,17,18,],[7,7,7,]),'expresion':([5,12,13,17,18,58,59,66,67,],[8,20,22,8,8,60,61,68,69,]),'sinini':([5,17,18,],[9,9,9,]),'ini':([5,17,18,],[10,10,10,]),'condicion1':([5,12,13,17,18,58,59,66,67,],[12,12,12,12,12,12,12,12,12,]),'condicion2':([5,12,13,17,18,58,59,66,67,],[13,13,13,13,13,13,13,13,13,]),'cond1Aux':([15,],[24,]),'cond2Aux2':([25,],[34,]),'procedimiento':([27,],[37,]),'condicion':([35,36,],[43,50,]),'sentencia':([43,50,],[52,55,]),}
+_lr_goto_items = {'Start':([0,],[1,]),'code':([0,],[2,]),'empty':([0,5,11,12,13,14,19,20,21,23,30,31,66,67,77,78,],[3,11,21,23,23,23,11,11,34,35,23,44,23,23,23,23,]),'cuerpo':([5,19,20,],[6,32,33,]),'variable':([5,19,20,],[7,7,7,]),'expresion':([5,12,13,14,19,20,30,66,67,77,78,],[8,22,24,25,8,8,41,69,70,79,80,]),'sinini':([5,19,20,],[9,9,9,]),'ini':([5,19,20,],[10,10,10,]),'condicion1':([5,12,13,14,19,20,30,66,67,77,78,],[12,12,12,12,12,12,12,12,12,12,12,]),'condicion2':([5,12,13,14,19,20,30,66,67,77,78,],[13,13,13,13,13,13,13,13,13,13,13,]),'repita':([5,12,13,14,19,20,30,66,67,77,78,],[14,14,14,14,14,14,14,14,14,14,14,]),'cond1Aux':([16,],[27,]),'cond2Aux2':([28,],[38,]),'procedimiento':([31,],[42,]),'condicion':([39,40,65,],[48,55,68,]),'sentencia':([48,55,68,],[58,61,71,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -39,20 +39,22 @@ _lr_productions = [
   ('cuerpo -> expresion','cuerpo',1,'p_cuerpo','LexicalAnalizer.py',191),
   ('expresion -> condicion1 expresion','expresion',2,'p_expresion','LexicalAnalizer.py',199),
   ('expresion -> condicion2 expresion','expresion',2,'p_expresion','LexicalAnalizer.py',200),
-  ('expresion -> empty empty','expresion',2,'p_expresion','LexicalAnalizer.py',201),
-  ('condicion2 -> ENCASO ID cond2Aux2 FINENCASO PUNTOCOMA','condicion2',5,'p_condicion2','LexicalAnalizer.py',211),
-  ('cond2Aux2 -> CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER','cond2Aux2',11,'p_cond2Aux','LexicalAnalizer.py',218),
-  ('condicion1 -> ENCASO cond1Aux FINENCASO PUNTOCOMA','condicion1',4,'p_condicion1','LexicalAnalizer.py',226),
-  ('cond1Aux -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER','cond1Aux',12,'p_cond1Aux','LexicalAnalizer.py',233),
-  ('condicion -> IGUAL','condicion',1,'p_condicion','LexicalAnalizer.py',241),
-  ('condicion -> MAYOR','condicion',1,'p_condicion','LexicalAnalizer.py',242),
-  ('condicion -> MENOR','condicion',1,'p_condicion','LexicalAnalizer.py',243),
-  ('condicion -> DIFERENTE','condicion',1,'p_condicion','LexicalAnalizer.py',244),
-  ('condicion -> MAYORIGUAL','condicion',1,'p_condicion','LexicalAnalizer.py',245),
-  ('condicion -> MENORIGUAL','condicion',1,'p_condicion','LexicalAnalizer.py',246),
-  ('sentencia -> ID','sentencia',1,'p_sentencia','LexicalAnalizer.py',254),
-  ('sentencia -> NUMERO','sentencia',1,'p_sentencia','LexicalAnalizer.py',255),
-  ('ini -> DCL ID IGUAL NUMERO','ini',4,'p_VariableIni','LexicalAnalizer.py',262),
-  ('sinini -> DCL ID','sinini',2,'p_VariableNoIni','LexicalAnalizer.py',269),
-  ('empty -> <empty>','empty',0,'p_empty','LexicalAnalizer.py',279),
+  ('expresion -> repita expresion','expresion',2,'p_expresion','LexicalAnalizer.py',201),
+  ('expresion -> empty empty','expresion',2,'p_expresion','LexicalAnalizer.py',202),
+  ('repita -> REPITA LLAVE_IZQ expresion LLAVE_DER HASTAENCONTRAR ID condicion sentencia PUNTOCOMA','repita',9,'p_repita','LexicalAnalizer.py',212),
+  ('condicion2 -> ENCASO ID cond2Aux2 FINENCASO PUNTOCOMA','condicion2',5,'p_condicion2','LexicalAnalizer.py',219),
+  ('cond2Aux2 -> CUANDO condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER','cond2Aux2',11,'p_cond2Aux','LexicalAnalizer.py',226),
+  ('condicion1 -> ENCASO cond1Aux FINENCASO PUNTOCOMA','condicion1',4,'p_condicion1','LexicalAnalizer.py',234),
+  ('cond1Aux -> CUANDO ID condicion sentencia ENTONS LLAVE_IZQ expresion LLAVE_DER SINO LLAVE_IZQ expresion LLAVE_DER','cond1Aux',12,'p_cond1Aux','LexicalAnalizer.py',241),
+  ('condicion -> IGUAL','condicion',1,'p_condicion','LexicalAnalizer.py',249),
+  ('condicion -> MAYOR','condicion',1,'p_condicion','LexicalAnalizer.py',250),
+  ('condicion -> MENOR','condicion',1,'p_condicion','LexicalAnalizer.py',251),
+  ('condicion -> DIFERENTE','condicion',1,'p_condicion','LexicalAnalizer.py',252),
+  ('condicion -> MAYORIGUAL','condicion',1,'p_condicion','LexicalAnalizer.py',253),
+  ('condicion -> MENORIGUAL','condicion',1,'p_condicion','LexicalAnalizer.py',254),
+  ('sentencia -> ID','sentencia',1,'p_sentencia','LexicalAnalizer.py',262),
+  ('sentencia -> NUMERO','sentencia',1,'p_sentencia','LexicalAnalizer.py',263),
+  ('ini -> DCL ID IGUAL NUMERO','ini',4,'p_VariableIni','LexicalAnalizer.py',270),
+  ('sinini -> DCL ID','sinini',2,'p_VariableNoIni','LexicalAnalizer.py',277),
+  ('empty -> <empty>','empty',0,'p_empty','LexicalAnalizer.py',287),
 ]

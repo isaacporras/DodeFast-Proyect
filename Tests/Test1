@@ -1,28 +1,7 @@
 INICIO:
 
-DCL a;
-
-EnCaso a
-	Cuando = b EnTons
-	{
-
-	}
-	SiNo
-	{
-
-	}
-
-Fin-EnCaso;
-
-EnCaso
-	Cuando a = 1 EnTons
-		{
-
-		}
-	SiNo
-	{
-
-	}
-Fin-EnCaso;
+Repita {
+}
+HastaEncontrar a = 1;
 
 FIN;

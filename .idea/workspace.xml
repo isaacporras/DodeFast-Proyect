@@ -15,7 +15,7 @@
     <SUITE FILE_PATH="coverage/DodeFast_Proyect$GUI_IDE.coverage" NAME="GUI_IDE Coverage Results" MODIFIED="1552061114365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DodeFast$GUI_IDE.coverage" NAME="GUI_IDE Coverage Results" MODIFIED="1551755740686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DodeFast_Proyect$Manager.coverage" NAME="Manager Coverage Results" MODIFIED="1552081555157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Manager" />
-    <SUITE FILE_PATH="coverage/DodeFast_Proyect$LexicalAnalizer.coverage" NAME="LexicalAnalizer Coverage Results" MODIFIED="1552100273876" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LexicalAnalysis" />
+    <SUITE FILE_PATH="coverage/DodeFast_Proyect$LexicalAnalizer.coverage" NAME="LexicalAnalizer Coverage Results" MODIFIED="1552101230950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LexicalAnalysis" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -28,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LexicalAnalysis/LexicalAnalizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="200" column="24" selection-start-line="200" selection-start-column="24" selection-end-line="200" selection-end-column="24" />
+            <state relative-caret-position="307">
+              <caret line="214" column="41" selection-start-line="214" selection-start-column="41" selection-end-line="214" selection-end-column="41" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -40,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/Test1">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="60">
+              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -72,7 +72,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="4">
     <option name="x" value="993" />
     <option name="y" value="25" />
     <option name="width" value="927" />
@@ -234,16 +234,15 @@
       <workItem from="1552078134454" duration="1644000" />
       <workItem from="1552080475725" duration="1085000" />
       <workItem from="1552084124367" duration="8254000" />
-      <workItem from="1552092415192" duration="7778000" />
+      <workItem from="1552092415192" duration="8823000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34058000" />
+    <option name="totallyTimeSpent" value="35103000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
+    <frame x="993" y="25" width="927" height="1055" extended-state="4" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49919486" weight="0.24404086" />
       <window_info id="Structure" order="1" sideWeight="0.50080514" side_tool="true" weight="0.20586608" />
@@ -304,13 +303,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SyntacticAnalysis/SyntacticAnalyzer.py" />
     <entry file="file://$PROJECT_DIR$/Manager/Manager.py" />
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/ply/yacc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="242" selection-start-line="242" selection-end-line="242" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/GUI_IDE.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -318,20 +310,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LexicalAnalysis/LexicalAnalizer.py">
+    <entry file="file://$PROJECT_DIR$/Tests/Test1">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="200" column="24" selection-start-line="200" selection-start-column="24" selection-end-line="200" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/Test1">
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/ply/yacc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="198">
+          <caret line="242" selection-start-line="242" selection-end-line="242" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LexicalAnalysis/LexicalAnalizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="214" column="41" selection-start-line="214" selection-start-column="41" selection-end-line="214" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
