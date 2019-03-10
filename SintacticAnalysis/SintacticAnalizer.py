@@ -246,6 +246,7 @@ def p_parametro(p):
               | ID empty empty
               | NUMERO COMA parametro
               | NUMERO empty empty
+              | empty empty empty
 
     '''
     if p[3] != '$' and p[2] != '$':
