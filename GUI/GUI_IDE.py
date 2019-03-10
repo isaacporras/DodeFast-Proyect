@@ -2,6 +2,8 @@ from tkinter import *
 import sys
 from tkinter import filedialog as fd
 from tkinter import messagebox as mb
+from LexicalAnalysis.LexicalAnalizer import lexicalAnalizer
+from SintacticAnalysis.SintacticAnalizer import sintacticAnalizer
 
 
 class Gui:
@@ -63,7 +65,11 @@ class Gui:
 
 
     def compileButtonClick(self):
-        self.setOutputText("hola\n'")
+        cadena = self.CodeTextArea.get("1.0", END)
+        print(cadena)
+        lexicalAnalizer(cadena)
+        AST = sintacticAnalizer(cadena)
+        self.setOutputText(AST)
 
     def setCodeTextArea(self, output):
         self.CodeTextArea.delete('1.0', END)

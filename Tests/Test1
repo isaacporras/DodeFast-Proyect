@@ -1,5 +1,6 @@
 INICIO:
 
+DCL xcv;
 
 EnCaso
 	Cuando var = 1 EnTons
@@ -22,7 +23,9 @@ EnCaso
 Fin-EnCaso;
 
 
-
-
 FIN;
 
+PROC  hola(2, 4)
+inicio:
+
+fin;
