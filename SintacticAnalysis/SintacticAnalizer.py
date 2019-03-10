@@ -242,14 +242,18 @@ def p_procedimiento(p):
 
 def p_parametro(p):
     '''
-    parametro : ID PUNTOCOMA parametro
-              | NUMERO PUNTOCOMA parametro
-              | empty empty empty
+    parametro : ID COMA parametro
+              | ID empty empty
+              | NUMERO COMA parametro
+              | NUMERO empty empty
+
     '''
-    if p[3] != '$':
-        p[0] = p[1]
-    else:
+    if p[3] != '$' and p[2] != '$':
         p[0] = (p[1], p[3])
+    else:
+        p[0]= p[1]
+
+
 
 
 def p_llamarProc(p):

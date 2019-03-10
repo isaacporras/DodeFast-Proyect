@@ -25,7 +25,7 @@ Fin-EnCaso;
 
 FIN;
 
-PROC  hola(2, 4)
+PROC  hola(cc, bb)
 inicio:
 
 fin;
