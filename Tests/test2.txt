@@ -1,0 +1,34 @@
+INICIO:
+
+DCL xcv;
+DCL vf;
+DCL bv;
+DCL mnb;
+
+EnCaso
+	Cuando var = 1 EnTons
+		{
+
+		}
+	Cuando var = 1 EnTons
+		{
+
+		}
+	Cuando var = 1 EnTons
+		{
+
+		}
+
+	SiNo
+	{
+
+	}
+Fin-EnCaso;
+
+
+FIN;
+
+PROC  hola()
+inicio:
+
+fin;

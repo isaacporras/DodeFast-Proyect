@@ -4,28 +4,24 @@ import codecs
 from pip._vendor.distlib.compat import raw_input
 from LexicalAnalysis.LexicalAnalizer import tokens
 from LexicalAnalysis.LexicalAnalizer import lexicalAnalizer
-from sys import stdin
+from SemanticAnalysis.SemanticAnalizer import runSemanticAnalizer
 
-global AST
+from sys import stdin
 
 
 def p_Start(p):
     '''
     Start : code
-          | empty
     '''
-    global AST
-    AST = p[1]
+    # runSemanticAnalizer(p[1])
 
 
 def p_Code(p):
     '''
     code : INICIO DOSPUNTOS cuerpo FIN PUNTOCOMA procedimiento
     '''
-    if (p[6] == '$'):
-        p[0] = (p[1], p[3], p[4])
-    else:
-        p[0] = (p[1], p[3], p[4], p[6])
+    p[0] = (p[3], p[6])
+    print(p[3])
 
 
 def p_cuerpo(p):
@@ -38,29 +34,29 @@ def p_cuerpo(p):
 
 def p_Variable(p):
     '''
-    variable : sinini PUNTOCOMA cuerpo
-            | ini PUNTOCOMA cuerpo
-            | empty empty empty
+    variable : variable1 cuerpo
+            | variable2 cuerpo
+            | empty empty
     '''
-    if (p[3] != '$'):
-
-        p[0] = (p[1], p[3])
+    if (p[2] != '$'):
+        p[0] = (p[1], p[2])
     else:
         p[0] = p[1]
 
 
-def p_VariableNoIni(p):
+
+def p_Variable1(p):
     '''
-    sinini : DCL ID
+    variable1 : DCL ID PUNTOCOMA
     '''
-    p[0] = (p[1], p[2], 'DEFAULT')
+    p[0] = (p[1], p[2])
 
 
-def p_VariableIni(p):
+def p_Variable2(p):
     '''
-    ini : DCL ID IGUAL NUMERO
+    variable2 : DCL ID DEFAULT NUMERO PUNTOCOMA
     '''
-    p[0] = (p[1], p[2], p[4])
+    p[0] = (p[1], p[2], p[3], p[4])
 
 
 def p_expresion(p):
@@ -252,9 +248,7 @@ def p_parametro(p):
     if p[3] != '$' and p[2] != '$':
         p[0] = (p[1], p[3])
     else:
-        p[0]= p[1]
-
-
+        p[0] = p[1]
 
 
 def p_llamarProc(p):
@@ -277,11 +271,8 @@ def p_error(p):
 
 
 def sintacticAnalizer(cadena):
-    global AST
     parser = yacc.yacc()
     parser.parse(cadena)
-    print(AST)
-    return AST
 
 
 #################################### tester ############################################
@@ -304,11 +295,14 @@ def buscarFichero(directorio):
                 break
     return files[int(numArchivo) - 1]
 
+
 def test():
-    directorio = os.path.dirname(os.getcwd()) + "/Tests/"
-    archivo = buscarFichero(directorio)
-    test = directorio + archivo
-    fp = codecs.open(test, "r", "utf-8")
+    # directorio = os.path.dirname(os.getcwd()) + "/Tests/"
+    # archivo = buscarFichero(directorio)
+    # test = directorio + archivo
+
+
+    fp = codecs.open('/Users/juanpablomartinezbrenes/Desktop/DodeFast-Proyect/Tests/Test1', "r", "utf-8")
     cadena = fp.read()
     fp.close()
 

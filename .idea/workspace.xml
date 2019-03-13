@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="024bd59b-4254-4faf-8fac-62fbf1b47112" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SintacticAnalysis/SintacticAnalizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SemanticAnalysis/SemanticAnalizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tests/test2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/DodeFast.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DodeFast.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/GUI_IDE.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/GUI_IDE.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LexicalAnalysis/LexicalAnalizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/LexicalAnalysis/LexicalAnalizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LexicalAnalysis/parser.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LexicalAnalysis/parsetab.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SintacticAnalysis/SintacticAnalizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/SintacticAnalysis/SintacticAnalizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SintacticAnalysis/parser.out" beforeDir="false" afterPath="$PROJECT_DIR$/SintacticAnalysis/parser.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SintacticAnalysis/parsetab.py" beforeDir="false" afterPath="$PROJECT_DIR$/SintacticAnalysis/parsetab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tests/Test1" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Test1" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,20 +23,24 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/DodeFast_Proyect$GUI_IDE.coverage" NAME="GUI_IDE Coverage Results" MODIFIED="1552186929601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DodeFast_Proyect$LexicalAnalizer.coverage" NAME="LexicalAnalizer Coverage Results" MODIFIED="1552168406758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LexicalAnalysis" />
+    <SUITE FILE_PATH="coverage/DodeFast_Proyect$GUI_IDE.coverage" NAME="GUI_IDE Coverage Results" MODIFIED="1552448930518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GUI" />
+    <SUITE FILE_PATH="coverage/DodeFast_Proyect$SintacticAnalizer.coverage" NAME="SintacticAnalizer Coverage Results" MODIFIED="1552454196097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SintacticAnalysis" />
     <SUITE FILE_PATH="coverage/DodeFast$GUI_IDE.coverage" NAME="GUI_IDE Coverage Results" MODIFIED="1551755740686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DodeFast_Proyect$Manager.coverage" NAME="Manager Coverage Results" MODIFIED="1552081555157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Manager" />
-    <SUITE FILE_PATH="coverage/DodeFast_Proyect$SintacticAnalysis.coverage" NAME="SintacticAnalysis Coverage Results" MODIFIED="1552240688225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SintacticAnalysis" />
-    <SUITE FILE_PATH="coverage/DodeFast_Proyect$LexicalAnalizer.coverage" NAME="LexicalAnalizer Coverage Results" MODIFIED="1552168406758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LexicalAnalysis" />
     <SUITE FILE_PATH="coverage/DodeFast_Proyect$testSintacticAnalizer.coverage" NAME="testSintacticAnalizer Coverage Results" MODIFIED="1552186677467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SintacticAnalysis" />
+    <SUITE FILE_PATH="coverage/DodeFast_Proyect$SintacticAnalysis.coverage" NAME="SintacticAnalysis Coverage Results" MODIFIED="1552240688225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SintacticAnalysis" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI/GUI_IDE.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="759">
+              <caret line="70" column="33" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -43,17 +48,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LexicalAnalysis/LexicalAnalizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
+            <state relative-caret-position="1335">
               <caret line="89" selection-start-line="89" selection-end-line="89" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SintacticAnalysis/SintacticAnalizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="248" column="33" selection-start-line="248" selection-start-column="33" selection-end-line="248" selection-end-column="33" />
+            <state relative-caret-position="615">
+              <caret line="41" column="27" lean-forward="true" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -61,11 +66,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/Test1">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="11" lean-forward="true" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+            <state relative-caret-position="75">
+              <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SemanticAnalysis/SemanticAnalizer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -92,22 +106,23 @@
         <option value="$PROJECT_DIR$/SintacticAnalysis/testSintacticAnalizer.py" />
         <option value="$PROJECT_DIR$/LexicalAnalysis/LexicalAnalizer.py" />
         <option value="$PROJECT_DIR$/GUI/GUI_IDE.py" />
-        <option value="$PROJECT_DIR$/SintacticAnalysis/SintacticAnalizer.py" />
+        <option value="$PROJECT_DIR$/SemanticAnalysis/SemanticAnalizer.py" />
+        <option value="$PROJECT_DIR$/Tests/test2.txt" />
         <option value="$PROJECT_DIR$/Tests/Test1" />
+        <option value="$PROJECT_DIR$/SintacticAnalysis/SintacticAnalizer.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="67" />
-    <option name="y" value="25" />
-    <option name="width" value="1853" />
-    <option name="height" value="1055" />
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -128,6 +143,11 @@
             <path>
               <item name="DodeFast-Proyect" type="b2602c69:ProjectViewProjectNode" />
               <item name="DodeFast-Proyect" type="462c0819:PsiDirectoryNode" />
+              <item name="SemanticAnalysis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DodeFast-Proyect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DodeFast-Proyect" type="462c0819:PsiDirectoryNode" />
               <item name="SintacticAnalysis" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -139,7 +159,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -147,7 +166,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -169,7 +188,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.SintacticAnalysis">
+  <component name="RunManager" selected="Python.SintacticAnalizer">
     <configuration name="GUI_IDE" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DodeFast" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -178,7 +197,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -192,51 +211,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="LexicalAnalizer" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="DodeFast" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LexicalAnalysis" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LexicalAnalysis/LexicalAnalizer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Manager" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="DodeFast" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Manager" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Manager/Manager.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="SintacticAnalysis" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="SintacticAnalizer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DodeFast" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -258,35 +233,10 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="testSintacticAnalizer" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="DodeFast" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SintacticAnalysis" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SintacticAnalysis/testSintacticAnalizer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.SintacticAnalysis" />
+        <item itemvalue="Python.SintacticAnalizer" />
         <item itemvalue="Python.GUI_IDE" />
-        <item itemvalue="Python.testSintacticAnalizer" />
-        <item itemvalue="Python.LexicalAnalizer" />
-        <item itemvalue="Python.Manager" />
       </list>
     </recent_temporary>
   </component>
@@ -314,21 +264,24 @@
       <workItem from="1552152164745" duration="9254000" />
       <workItem from="1552167369540" duration="8020000" />
       <workItem from="1552239599116" duration="1114000" />
+      <workItem from="1552448569273" duration="74000" />
+      <workItem from="1552448655630" duration="6599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63789000" />
+    <option name="totallyTimeSpent" value="70462000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-30" width="1920" height="1110" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49919486" visible="true" weight="0.24653149" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49919486" visible="true" weight="0.2783883" />
       <window_info id="Structure" order="1" sideWeight="0.50080514" side_tool="true" weight="0.20586608" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4997233" visible="true" weight="0.2925586" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4997233" visible="true" weight="0.29183674" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3989796" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -383,34 +336,51 @@
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/ply-3.11-py3.6.egg/ply/cpp.py" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/ply-3.11-py3.6.egg/ply/lex.py" />
     <entry file="file://$PROJECT_DIR$/SintacticAnalysis/testSintacticAnalizer.py" />
+    <entry file="file://$PROJECT_DIR$/Tests/test2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/Test1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SemanticAnalysis/SemanticAnalizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/GUI_IDE.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="759">
+          <caret line="70" column="33" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LexicalAnalysis/LexicalAnalizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
+        <state relative-caret-position="1335">
           <caret line="89" selection-start-line="89" selection-end-line="89" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SintacticAnalysis/SintacticAnalizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="248" column="33" selection-start-line="248" selection-start-column="33" selection-end-line="248" selection-end-column="33" />
+        <state relative-caret-position="615">
+          <caret line="41" column="27" lean-forward="true" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/Test1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="11" lean-forward="true" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
         </state>
       </provider>
     </entry>

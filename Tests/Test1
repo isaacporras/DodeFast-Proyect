@@ -1,26 +1,9 @@
 INICIO:
 
 DCL xcv;
-
-EnCaso
-	Cuando var = 1 EnTons
-		{
-
-		}
-	Cuando var = 1 EnTons
-		{
-
-		}
-	Cuando var = 1 EnTons
-		{
-
-		}
-
-	SiNo
-	{
-
-	}
-Fin-EnCaso;
+DCL vf;
+DCL bv;
+DCL mnb;
 
 
 FIN;

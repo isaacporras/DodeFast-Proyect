@@ -68,8 +68,7 @@ class Gui:
         cadena = self.CodeTextArea.get("1.0", END)
         print(cadena)
         lexicalAnalizer(cadena)
-        AST = sintacticAnalizer(cadena)
-        self.setOutputText(AST)
+        sintacticAnalizer(cadena)
 
     def setCodeTextArea(self, output):
         self.CodeTextArea.delete('1.0', END)
